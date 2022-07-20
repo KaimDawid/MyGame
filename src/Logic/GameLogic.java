@@ -46,7 +46,9 @@ public class GameLogic {
                 field[i] = valueX * 100 + valueY;}
             else {
                 System.out.println("ERROR");}}
-            else {}
+            else {
+                i = i -1;
+            }
             }
             //
             // Jakbyś testował spawner to włącz sobie poniższe printy,
@@ -79,7 +81,7 @@ public class GameLogic {
         //
 
        /* Goblin goblin = new Goblin(10, 30,3,2, "goblin", 50, 50, 2);*/
-        Minotaur minotaur = new Minotaur(200,60,2,6, "minotaur", 150, 5);
+        Minotaur minotaur = new Minotaur(200,60,2,8, "minotaur", 150, 5);
       /*  Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);
         Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
         Vampire vampire = new Vampire(160, 50, 4,2,"wampir",120,80, 3);*/
@@ -91,7 +93,7 @@ public class GameLogic {
         System.out.println("Góra: UP, dół: DOWN, lewo: LEFT, prawo: RIGHT");
         String input;
         String exit = "0";
-        spawn(8, monsterBase);
+        spawn(18, monsterBase);
 
 
         do {
@@ -146,6 +148,16 @@ public class GameLogic {
             checker(Dawid, monsterBase[5]);
             checker(Dawid, monsterBase[6]);
             checker(Dawid, monsterBase[7]);
+            checker(Dawid, monsterBase[8]);
+            checker(Dawid, monsterBase[9]);
+            checker(Dawid, monsterBase[10]);
+            checker(Dawid, monsterBase[11]);
+            checker(Dawid, monsterBase[12]);
+            checker(Dawid, monsterBase[13]);
+            checker(Dawid, monsterBase[14]);
+            checker(Dawid, monsterBase[15]);
+            checker(Dawid, monsterBase[16]);
+            checker(Dawid, monsterBase[17]);
             checker(Dawid, minotaur);
             if (Dawid.getX()== shop.getX() && Dawid.getY() == shop.getY()){
                 Test.store(Dawid,shop);
