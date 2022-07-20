@@ -43,13 +43,15 @@ int potionStock = 2;
 int armorStock = 1;
 int redRingStock = 1;
 int greenRingStock = 1;
+        System.out.println("Witaj w sklepie, wybierz towar który chcesz kupić");
+        System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)");
+        System.out.println("2. Eliksir zdrowia: " + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
+        System.out.println("3. Zbroja: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń");
+        System.out.println("4. Czerwony pierścień (+15 obrażeń): " + redRingPrice + " sztuk złota");
+        System.out.println("5. Zielony pierścień (+20 życia): " + greenRingPrice + " sztuk złota");
 do {
-    System.out.println("Witaj w sklepie, wybierz towar który chcesz kupić, lub wpisz 0 aby wyjść");
-    System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)");
-    System.out.println("2. Eliksir zdrowia: " + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
-    System.out.println("3. Zbroja: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń");
-    System.out.println("4. Czerwony pierścień (+15 obrażeń): " + redRingPrice + " sztuk złota");
-    System.out.println("5. Zielony pierścień (+20 życia): " + greenRingPrice + " sztuk złota");
+    System.out.println("Dostępne towary: wpisz 9");
+    System.out.println("Wyjdź: wpisz 0");
     input = scanner.nextLine();
     switch (input) {
         case "1":
@@ -63,6 +65,8 @@ do {
                     System.out.println("Nie masz wystarczająco pieniędzy.");
                 }
             }
+            else {
+                System.out.println("Towar się skończył, wybierz sobie coś innego");}
             break;
         case "2":
             if (potionStock > 0) {
@@ -74,7 +78,8 @@ do {
                 } else {
                     System.out.println("Nie masz wystarczająco pieniędzy");
                 }
-            }
+            }    else {
+                System.out.println("Towar się skończył, wybierz sobie coś innego");}
             break;
         case "3":
             if (armorStock > 0) {
@@ -86,7 +91,8 @@ do {
                 } else {
                     System.out.println("Nie masz wystarczająco pieniędzy");
                 }
-            }
+            }    else {
+                System.out.println("Towar się skończył, wybierz sobie coś innego");}
             break;
         case "4":
             if (redRingStock > 0) {
@@ -98,7 +104,8 @@ do {
                 } else {
                     System.out.println("Nie masz wystarczająco pieniędzy");
                 }
-            }
+            }    else {
+                System.out.println("Towar się skończył, wybierz sobie coś innego");}
             break;
         case "5":
             if (greenRingStock > 0) {
@@ -110,14 +117,16 @@ do {
                 } else {
                     System.out.println("Nie masz wystarczająco pieniędzy");
                 }
-            }
+            }    else {
+                System.out.println("Towar się skończył, wybierz sobie coś innego");}
             break;
-        case "6":
-
-            break;
-        case "7":
-
-            break;
+        case "9":
+            System.out.println("Witaj w sklepie, wybierz towar który chcesz kupić");
+            System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)");
+            System.out.println("2. Eliksir zdrowia: " + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
+            System.out.println("3. Zbroja: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń");
+            System.out.println("4. Czerwony pierścień (+15 obrażeń): " + redRingPrice + " sztuk złota");
+            System.out.println("5. Zielony pierścień (+20 życia): " + greenRingPrice + " sztuk złota");
         default:
             input = "0";
     }

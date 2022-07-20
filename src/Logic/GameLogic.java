@@ -21,7 +21,7 @@ public class GameLogic {
             double valueX = random.nextInt(9);
             double valueY = random.nextInt(9);
             //
-            // Potwory nie pojawią się na polach 1,0 -- 3,3 i tak dalej, żeby gracz miał trochę swojego miejsca
+            // Potwory nie pojawią się na polach 2,5 -- 5,5 i tak dalej, żeby gracz miał trochę swojego miejsca
             //
             double mobType = random.nextInt(100);
             if ((valueX > 5 || valueX < 3 )&& (valueY > 5 || valueY< 3)){
