@@ -44,8 +44,7 @@ public class GameLogic {
             }
             if (field[i-1] != valueX * 100 + valueY){
                 field[i] = valueX * 100 + valueY;}
-            else {
-                System.out.println("ERROR");}}
+            }
             else {
                 i = i -1;
             }
@@ -73,14 +72,14 @@ public class GameLogic {
       /*  Monster[] monsterBase = new Monster[100];*/
         final String SETTINGS = "9";
         final String INFO = "8";
-        Player Dawid = new Player(130,130,30,0, 0, 4, 4, 20, 0,
-                0, 0);
 
         //
         // Podstawowe potwory są wyłączone bo generują się automatycznie
         //
 
        /* Goblin goblin = new Goblin(10, 30,3,2, "goblin", 50, 50, 2);*/
+        Player Dawid = new Player(130,130,30,0, 0, 4, 4, 20, 0,
+                0, 0);
         Minotaur minotaur = new Minotaur(200,60,2,8, "minotaur", 150, 5);
       /*  Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);
         Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
@@ -92,17 +91,17 @@ public class GameLogic {
         System.out.println("Wybierz w którą stronę checsz iść: ");
         System.out.println("Góra: UP, dół: DOWN, lewo: LEFT, prawo: RIGHT");
         String input;
+
         String exit = "0";
         spawn(18, monsterBase);
-
 
         do {
             System.out.println("Twoje punkty życia to: " + Dawid.getHP() + "/" + Dawid.getMaxHP());
             System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY());
             System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS);
             System.out.println("Wyświetl informacje: " + INFO);
+            input = scanner.nextLine().toUpperCase();
 
-            input = scanner.nextLine();
 
             switch (input) {
                 case "LEFT":
@@ -153,7 +152,7 @@ public class GameLogic {
             if (Dawid.getX()== shop.getX() && Dawid.getY() == shop.getY()){
                 Test.store(Dawid,shop);
             }
-            if (Dawid.getX() == 4 && Dawid.getY() == 4) {
+            if (Dawid.getX() == 3 && Dawid.getY() == 3) {
                 Weapon.goldSword(Dawid);
             }
             else if (Dawid.getY() == 3 && Dawid.getX() == 5)
