@@ -30,9 +30,9 @@ public class GameLogic {
              else if (mobType < 51 && mobType > 25){
                 monsterBase[i] = new Spider(80, 20, valueX,valueY, "pająk", 30, 1);
             }
-          /*       else if (mobType < 61 && mobType > 40){
-                monsterBase[i] = new Minotaur(200,60,valueX,valueY, "minotaur", 150, 5);
-                }*/
+             //
+             //        Tu ustawiasz szansę na pojawienie się danego typu przeciwnika
+             //
                     else if (mobType < 76 && mobType > 50){
                 monsterBase[i] = new Werewolf(150, 40, valueX,valueY,"wilkołak", 100, 100, 4);
                     }
@@ -73,7 +73,7 @@ public class GameLogic {
       /*  Monster[] monsterBase = new Monster[100];*/
         final String SETTINGS = "9";
         final String INFO = "8";
-        Player Dawid = new Player(120,120,30,0, 0, 4, 4, 20, 0,
+        Player Dawid = new Player(130,130,30,0, 0, 4, 4, 20, 0,
                 0, 0);
 
         //

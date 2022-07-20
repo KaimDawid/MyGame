@@ -59,10 +59,6 @@ public class Fight {
                 System.out.println("Otrzymałeś " + monster.getDmg() + " obrażeń i Twoje zdrowie spadło do 0");
                 System.out.println("poległeś");
             }
-            //
-            // GOLD się nie dodaje :(
-            //
-            //
             if (monster.getHp() < 1){
 
                 System.out.println("Wygrałeś!");
@@ -70,10 +66,8 @@ public class Fight {
                 monster.setY(100);
                 player.setXP(player.getXP() + monster.getGiveXP());
 
-//if (monster.getClass()== Goblin.class){
     player.setGold(player.getGold() + monster.getGold());
 
-            //}
             }
         } while (player.getHP() > 0 && monster.getHp() > 0 && escape == 0);
 

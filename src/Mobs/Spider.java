@@ -1,6 +1,8 @@
 package Mobs;
 
 
+import Logic.Status.Poison;
+
 import java.util.Random;
 
 public class Spider extends Monster {
@@ -25,11 +27,13 @@ public class Spider extends Monster {
     }
     public void Attack(Monster monster, Player player){
         Random random = new Random();
+        Poison poison = new Poison();
         double roll = random.nextDouble(100);
         double missRoll = (20 - (monster.getLevel() * 3) + (player.getLevel() * 3));
         if (roll > 80){
-            player.setHP(player.getHP() - (monster.getDmg() * 1.2) + player.getArmor());
-            System.out.println("Przeciwnik zadał cios krytyczny za "+ monster.getDmg()*1.2 + " punktów obrażeń!");
+            poison.poisoned(player);
+            player.setHP(player.getHP() - (monster.getDmg()) + player.getArmor());
+            System.out.println("Przeciwnik zatruł Cię na 2 tury za "+ 20 + " punktów obrażeń!");
         }
         else if (roll < 81 && roll > missRoll){
             player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
@@ -38,6 +42,7 @@ public class Spider extends Monster {
             System.out.println("Przeciwnik chybił!");
         }
     }
+
 
 }
 
