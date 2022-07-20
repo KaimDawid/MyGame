@@ -3,8 +3,8 @@ package Mobs;
 import java.util.Random;
 
 public class Player {
-    double HP = 120;
-    double MaxHP = 120;
+ private double HP = 120;
+ private double MaxHP = 120;
     int DMG = 20;
    public int XP = 0;
 

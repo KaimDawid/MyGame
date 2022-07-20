@@ -130,6 +130,6 @@ do {
         default:
             input = "0";
     }
-} while (input != "0");
+} while (!input.equals("0"));
     }
 }
