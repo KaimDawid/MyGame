@@ -73,7 +73,7 @@ public class GameLogic {
       /*  Monster[] monsterBase = new Monster[100];*/
         final String SETTINGS = "9";
         final String INFO = "8";
-        Player Dawid = new Player(120,120,30,0, 0, 4, 4, 200, 0,
+        Player Dawid = new Player(120,120,30,0, 0, 4, 4, 20, 0,
                 0, 0);
 
         //
@@ -125,15 +125,6 @@ public class GameLogic {
                     break;
                 case "XP":
                     System.out.println(Dawid.getXP());
-                    //
-                    //
-                    // Trzeba ustawić możliwość wyświetlenia statystyk na żądanie
-                    // zamiast wyświetlać je w każdej pętli bo się tego od zajebania zrobiło
-                    // i jest spam w chuj,
-                    //
-                    // switch "ESC":
-                    // sout ( całe statystyki )
-                    //
                     break;
                 case SETTINGS:
                     System.out.println("UP: góra, DOWN:, dół, LEFT, lewo, RIGHT, prawo,");
