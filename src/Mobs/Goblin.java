@@ -8,7 +8,7 @@ public class Goblin extends Monster {
 int gold;
 
 
-    public Goblin(int hp, int dmg, int x, int y, String name, int giveXP, int gold, double level) {
+    public Goblin(int hp, int dmg, double x, double y, String name, int giveXP, int gold, double level) {
         super(hp, dmg, x, y, name, giveXP, level);
         this.gold = gold;
 

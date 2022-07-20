@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Minotaur extends  Monster{
 
-    public Minotaur(int hp, int dmg, int x, int y, String name, int giveXP, double level) {
+    public Minotaur(int hp, int dmg, double x, double y, String name, int giveXP, double level) {
         super(hp, dmg, x, y, name, giveXP, level);
     }
 

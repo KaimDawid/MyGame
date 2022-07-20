@@ -5,14 +5,14 @@ import java.util.Random;
 public abstract class Monster {
     public double hp;
     public int dmg;
-    public int x;
-    public int y;
+    public double x;
+    public double y;
     public String name;
     public int giveXP;
     double level;
 
 
-    public Monster(int hp, int dmg, int x, int y, String name, int giveXP, double level) {
+    public Monster(int hp, int dmg, double x, double y, String name, int giveXP, double level) {
         this.hp = hp;
         this.dmg = dmg;
         this.x = x;
@@ -40,7 +40,7 @@ public abstract class Monster {
         this.dmg = dmg;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -48,7 +48,7 @@ public abstract class Monster {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 

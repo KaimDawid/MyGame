@@ -1,6 +1,7 @@
 import Data.Info.Infographics;
 import Logic.Experience;
 import Logic.Fight;
+import Logic.GameLogic;
 import Logic.Test;
 import Mobs.*;
 import Objects.Armor;
@@ -12,7 +13,9 @@ public class GameApp {
     public static final String SETTINGS = "9";
     public static final String INFO = "8";
     public static void main(String[] args) {
-
+        GameLogic gameLogic = new GameLogic();
+        gameLogic.Game();
+/*
         Player Dawid = new Player(120,120,30,0, 0, 2, 2, 200, 0,
                 0, 0);
 
@@ -32,6 +35,8 @@ public class GameApp {
         System.out.println("Złoto goblina: "+goblin.getGold());
         System.out.println("Twoje złoto: " + Dawid.getGold());
         System.out.println("Doświadczenie: " + goblin.getGiveXP());
+        Test.spawn(3);
+        Test.checker(Dawid, monsterBase[i]);
 
         do {
             System.out.println("Twoje punkty życia to: " + Dawid.getHP() + "/" + Dawid.getMaxHP());
@@ -82,6 +87,7 @@ public class GameApp {
             Test.checker(Dawid, werewolf);
             Test.checker(Dawid, goblin);
             Test.checker(Dawid, minotaur);
+            Test.checker(Dawid, vampire);
             if (Dawid.getX()== shop.getX() && Dawid.getY() == shop.getY()){
               Test.store(Dawid,shop);
             }
@@ -101,7 +107,7 @@ public class GameApp {
             }
         }
         while (!input.equals(exit));
-        scanner.close();
+        scanner.close();*/
     }
 
     }

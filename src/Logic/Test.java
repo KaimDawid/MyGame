@@ -1,9 +1,11 @@
 package Logic;
 
+import Mobs.Goblin;
 import Mobs.Monster;
 import Mobs.Player;
 import Objects.Shop.Shop;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Test {
@@ -20,10 +22,12 @@ public class Test {
             Fight.Turn(player, monster);
         }
     }
+
     public static void store(Player player, Shop shop){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Przy drodze znajduje się sklep, czy chcesz do niego wejść? ");
         System.out.println("Y - tak");
+        System.out.println("Dowolny przycisk - pomiń sklep");
         String input2 = scanner.nextLine();
         switch (input2) {
             case "Y":
@@ -48,6 +52,5 @@ public class Test {
             System.out.println("Bomby: " + player.getBombNumber());}
         System.out.println("Złoto: " + player.getGold());
     }
-
 
 }
