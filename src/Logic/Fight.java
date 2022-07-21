@@ -27,28 +27,33 @@ public class Fight {
             System.out.println("Twoje punkty zdrowia: " + player.getHP() + "/"+ player.getMaxHP() + " Twoje obrażenia :"
                     + player.getDMG());
             System.out.println("Punkty zdrowia przeciwnika: " + monster.getHp() + " Jego obrażenia: " + monster.getDmg());
-            System.out.println("ATTACK - zatakuj");
+            System.out.println("1 - zatakuj");
             System.out.println("RUN - spróbuj uciec");
-            System.out.println("THROW - rzuć bombę za 80 obrażeń");
-            System.out.println("HEAL - użyj eliksiru leczącego");
+            if (player.getBombNumber()>0){
+            System.out.println("2 - rzuć bombę za 80 obrażeń (" + player.getBombNumber() +")");}
+            if (player.getPotionNumber()>0){
+            System.out.println("3 - użyj eliksiru leczącego (" + player.getPotionNumber() +")");}
             Scanner scanner = new Scanner(System.in);
-            String input3 = scanner.nextLine();
+            String input3 = scanner.nextLine().toUpperCase();
             switch (input3) {
-                case "ATTACK":
+                case "1":
                     player.Attack(monster, player);
                     monster.Attack(monster, player);
                     break;
                 case "RUN":
                     System.out.println("Udało Ci się uciec, ale otrzymałeś " + monster.getDmg() + " obrażeń");
+                    monster.Attack(monster, player);
                     player.setX(player.getX() - 1);
                     escape = 1;
                     break;
-                case "THROW":
+                case "2":
                     if (player.getBombNumber() > 0){
                         monster.setHp(monster.getHp() - BDMG);
                         monster.Attack(monster, player);
+                        System.out.println("Rzuciłeś bombę za 80 obrażeń!");
                     }
-                case "HEAL":
+                    break;
+                case "3":
                     if (player.getPotionNumber()> 0){
                         player.setPotionNumber(player.getPotionNumber() - 1);
                         player.setHP(player.getHP() + 100);

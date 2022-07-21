@@ -132,7 +132,7 @@ int armor;
         else if (roll < 81 && roll > missRoll){
             monster.setHp(monster.getHp() - player.getDMG());
         }
-        else if (roll < 21){
+        else if (roll < missRoll){
             System.out.println("Chybiłeś!");
         }
     }

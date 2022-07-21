@@ -18,13 +18,7 @@ public class Vampire extends Monster {
     public int getGold() {
         return gold;
     }
-    public double getLevel() {
-        return level;
-    }
 
-    public void setLevel(double level) {
-        this.level = level;
-    }
     @Override
     public void setGold() {
 
@@ -35,7 +29,8 @@ public class Vampire extends Monster {
         this.gold = gold;
     }
 
-    public void attack(Monster monster, Player player){
+    @Override
+    public void Attack(Monster monster, Player player){
         Random random = new Random();
         double roll = random.nextDouble(100);
         double missRoll = (20 - (monster.getLevel() * 3) + (player.getLevel() * 3));

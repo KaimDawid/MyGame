@@ -52,7 +52,7 @@ int greenRingStock = 1;
 do {
     System.out.println("Dostępne towary: wpisz 9");
     System.out.println("Wyjdź: wpisz 0");
-    input = scanner.nextLine();
+    input = scanner.nextLine().toUpperCase();
     switch (input) {
         case "1":
             if (bombStock > 0) {

@@ -6,6 +6,7 @@ import Logic.Status.Poison;
 import java.util.Random;
 
 public class Spider extends Monster {
+
     public Spider(int hp, int dmg, double x, double y, String name, int giveXP, double level) {
         super(hp, dmg, x, y, name, giveXP, level);
 

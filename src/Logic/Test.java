@@ -38,12 +38,14 @@ public class Test {
         }
     }
     public static void PlayerInfo(Player player){
+
         System.out.println();
         System.out.println("Statystyki: ");
         System.out.println();
-        System.out.println("Punkty życia: " + player.getHP() + "/" + player.getMaxHP());
+        System.out.printf("Punkty życia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
         System.out.println("Punkty obrażeń: " + player.getDMG());
-        System.out.println("Poziom: " + player.getLevel());
+        System.out.printf("Poziom: %.0f%n", player.getLevel());
+        /*System.out.println("Poziom: " + player.getLevel());*/
         System.out.println("Doświadczenie: " + player.getXP());
         if (player.getPotionNumber()>0){
             System.out.println("Eliksiry: " + player.getPotionNumber());}

@@ -76,7 +76,7 @@ public class Experience {
         }
         else if (player.getLevel() == 4 && player.getHP() > 0){
             System.out.println("Masz " + player.getLevel() + " poziom doświadczenia, oraz " + player.getXP() +
-                    "/" + fifthCap+ " punktów doświadczenia");
+                    "/" + fourthCap+ " punktów doświadczenia");
             System.out.println("Złoto: " + player.getGold());
         }
         else if (player.getLevel() == 5 && player.getHP() > 0){
