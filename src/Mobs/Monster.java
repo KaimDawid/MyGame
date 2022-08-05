@@ -1,5 +1,10 @@
 package Mobs;
 
+import Objects.Items.Helmets.DrakeHelmet;
+import Objects.Items.Item;
+import Objects.Items.Helmets.LeatherHelmet;
+import Objects.Items.Weapons.Dagger;
+
 import java.util.Random;
 
 public abstract class Monster {
@@ -10,6 +15,29 @@ public abstract class Monster {
     public String name;
     public int giveXP;
     double level;
+    public static int number = 0;
+    public static Item eqNumber[] = new Item[100];
+    public void drop(){
+
+
+        Random random = new Random();
+        double drop = random.nextDouble(100);
+        if (drop<31){
+            eqNumber[number] = new DrakeHelmet(1);
+            number++;
+            System.out.println("Znalazłeś Smoczy hełm!");
+        }
+        else if (drop>69){
+            eqNumber[number] = new LeatherHelmet(1);
+            number++;
+            System.out.println("Znalazłeś skórzany hełm!");
+        }
+        else if (drop>30 && drop< 70){
+            eqNumber[number] = new Dagger(1);
+            number++;
+            System.out.println("Znalazłeś sztylet!");
+        }
+    }
 
 
     public Monster(int hp, int dmg, double x, double y, String name, int giveXP, double level) {

@@ -34,6 +34,7 @@ public  class Werewolf extends Monster {
         }
         else if (roll < 81 && roll > missRoll){
             player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
+            System.out.println("Przeciwnik uderzył Cię za " + monster.getDmg() + " obrażeń");
         }
         else if (roll < missRoll){
             System.out.println("Przeciwnik chybił!");

@@ -17,7 +17,7 @@ public class Test {
     //
 
     Scanner scanner = new Scanner(System.in);
-    public static void checker(Player player, Monster monster) {
+    public static void checker(Player player, Monster monster) throws InterruptedException {
         if (player.getX() == monster.getX() && player.getY() == monster.getY()) {
             Fight.Turn(player, monster);
         }

@@ -17,6 +17,35 @@ int gold;
 int bombNumber;
 int potionNumber;
 int armor;
+int poison;
+
+int magic;
+
+    public int getMagic() {
+        return magic;
+    }
+
+    public void setMagic(int magic) {
+        this.magic = magic;
+    }
+
+    int critChance;
+
+    public int getCritChance() {
+        return critChance;
+    }
+
+    public void setCritChance(int critChance) {
+        this.critChance = critChance;
+    }
+
+    public int getPoison() {
+        return poison;
+    }
+
+    public void setPoison(int poison) {
+        this.poison = poison;
+    }
 
     public int getArmor() {
         return armor;
@@ -125,12 +154,14 @@ int armor;
         Random random = new Random();
         double missRoll = (20 - (player.getLevel() * 3) + (monster.getLevel() * 3));
         double roll = random.nextDouble(100);
-        if (roll > 80){
+        double critRoll = (80 - player.getCritChance());
+        if (roll > critRoll){
             monster.setHp(monster.getHp() - (player.getDMG() * 1.2));
             System.out.println("Zadałeś cios krytyczny za "+ player.getDMG()*1.2 + " punktów obrażeń!");
         }
-        else if (roll < 81 && roll > missRoll){
+        else if (roll < critRoll && roll > missRoll){
             monster.setHp(monster.getHp() - player.getDMG());
+            System.out.println("Zadałeś " + player.getDMG() + " obrażeń");
         }
         else if (roll < missRoll){
             System.out.println("Chybiłeś!");

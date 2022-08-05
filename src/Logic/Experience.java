@@ -14,6 +14,7 @@ public class Experience {
             player.setMaxHP(player.getMaxHP() +30);
             player.setHP(player.getMaxHP());
             player.setDMG(player.getDMG()+10);
+            player.setXP(player.getXP() - 40);
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.println("Twoje nowe punkty zdrowia: " + player.getHP() + "/" + player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
@@ -23,6 +24,7 @@ public class Experience {
             player.setMaxHP(player.getMaxHP() +30);
             player.setHP(player.getMaxHP());
             player.setDMG(player.getDMG()+10);
+            player.setXP(player.getXP() - 100);
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.println("Twoje nowe punkty zdrowia: " + player.getHP() + "/" + player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
@@ -32,6 +34,7 @@ public class Experience {
             player.setMaxHP(player.getMaxHP() +40);
             player.setHP(player.getMaxHP());
             player.setDMG(player.getDMG()+10);
+            player.setXP(player.getXP() - 250);
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.println("Twoje nowe punkty zdrowia: " + player.getHP() + "/" + player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
@@ -41,6 +44,7 @@ public class Experience {
             player.setMaxHP(player.getMaxHP() +40);
             player.setHP(player.getMaxHP());
             player.setDMG(player.getDMG()+15);
+            player.setXP(player.getXP() - 400);
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.println("Twoje nowe punkty zdrowia: " + player.getHP() + "/" + player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
@@ -50,6 +54,7 @@ public class Experience {
             player.setMaxHP(player.getMaxHP() +50);
             player.setHP(player.getMaxHP());
             player.setDMG(player.getDMG()+20);
+            player.setXP(player.getXP() - 700);
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.println("Twoje nowe punkty zdrowia: " + player.getHP() + "/" + player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());

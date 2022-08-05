@@ -2,14 +2,20 @@ package Logic;
 
 import Mobs.*;
 import Objects.Armor;
+import Objects.Items.Helmets.DrakeHelmet;
 import Objects.Shop.Shop;
 import Objects.Weapon;
 
-import javax.swing.*;
 import java.util.Random;
 import java.util.Scanner;
 
+import static Mobs.Monster.eqNumber;
+
 public class GameLogic {
+
+      int toxic = 0;
+
+
     Scanner scanner = new Scanner(System.in);
     Monster[] monsterBase = new Monster[1000];
     double[] field = new double[999];
@@ -28,8 +34,10 @@ int spawnedMonsters = 1;
             // Potwory nie pojawią się na polach 2,5 -- 5,5 i tak dalej, żeby gracz miał trochę swojego miejsca
             //
             double mobType = random.nextInt(100);
+
        /*     for (int j = 0; j < i - 1; j++) {
-                if (field[j] == (valueX*100+valueY)){
+                if ((valueX*100+valueY))
+                {
                     break;
                      }
                 else {
@@ -60,29 +68,27 @@ int emptyslots = mobsNumber;
                 // Jakbyś testował spawner to włącz sobie poniższe printy,
                 // wyświetlą info o każdym wygenerowanym potworku
                 //
-                System.out.println(monsterBase[i].getHp());
+            /*    System.out.println(monsterBase[i].getHp());
                 System.out.println(monsterBase[i].getDmg());
                 System.out.println("Rodzaj potwora: ");
                 System.out.println(monsterBase[i].getName());
                 System.out.println("Koordy:");
                 System.out.println(monsterBase[i].getX());
                 System.out.println(monsterBase[i].getY());
-                System.out.println();
+                System.out.println();*/
             }
             else {
                 i = i -1;
             }
             }
-
-
         }
 
-    public static void checker(Player player, Monster monster) {
+    public static void checker(Player player, Monster monster) throws InterruptedException {
         if (player.getX() == monster.getX() && player.getY() == monster.getY()) {
             Fight.Turn(player, monster);
         }
     }
-    public void Game(){
+    public void Game() throws InterruptedException {
       /*  Monster[] monsterBase = new Monster[100];*/
         final String SETTINGS = "9";
         final String INFO = "8";
@@ -94,8 +100,8 @@ int emptyslots = mobsNumber;
         Player Dawid = new Player(130,130,30,0, 0, 4, 4, 20, 0,
                 0, 0);
         Minotaur minotaur = new Minotaur(200,60,2,8, "minotaur", 150, 5);
-      /*  Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);
-        Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
+       /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
+       /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
         Vampire vampire = new Vampire(160, 50, 4,2,"wampir",120,80, 3);*/
 
         Shop shop = new Shop(3,4);
@@ -111,6 +117,9 @@ int emptyslots = mobsNumber;
         welcome = welcome.indent(30);
         System.out.println(welcome);
         String input;
+
+        DrakeHelmet head1 = new DrakeHelmet(1);
+
 
         String exit = "0";
         spawn(24, monsterBase);
@@ -146,6 +155,65 @@ int emptyslots = mobsNumber;
                 case "XP":
                     System.out.println(Dawid.getXP());
                     break;
+                case "EQ":
+                    System.out.println("Twój ekwipunek: ");
+                    break;
+                case "EQUIP":
+                    System.out.println("Twoje przedmioty: ");
+                    System.out.println("Naciśnij numer przedmiotu aby go założyć, lub 0 aby wyjść z ekwipunku");
+                    for (int i = 0; i < 50 ; i++) {
+                        try{
+                            System.out.println((i+1) + ". " + eqNumber[i].getName());}
+                        catch (NullPointerException a){
+                        }
+                    }
+                  /*  try{
+                    System.out.println("1. " + eqNumber[0].getName());}
+                    catch (NullPointerException a){
+                    }
+                    try{
+                        System.out.println("2. " + eqNumber[1].getName());}
+                    catch (NullPointerException a){
+                    }*/
+                    int input2 = scanner.nextInt();
+                    switch (input2) {
+                        case 1:
+                        try {
+                            eqNumber[0].eqON(Dawid);
+                            System.out.println("Założyłeś " + eqNumber[0].getName());
+                        } catch (NullPointerException a) {
+                            System.out.println("Nie masz tego przedmiotu");
+                        }
+                        break;
+                        case 2:
+                            try {
+                                eqNumber[1].eqON(Dawid);
+                                System.out.println("Założyłeś " + eqNumber[1].getName());
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                        break;
+                        case 3:
+                            try {
+                                eqNumber[2].eqON(Dawid);
+                                System.out.println("Założyłeś " + eqNumber[2].getName());
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case 4:
+                            try {
+                                eqNumber[3].eqON(Dawid);
+                                System.out.println("Założyłeś " + eqNumber[3].getName());
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+
+                        case 0:
+                            break;
+                    }
+
                 case SETTINGS:
                     System.out.println("W: góra, S: dół, A: lewo, D: prawo,");
                     break;
