@@ -16,6 +16,16 @@ public abstract class Monster {
     public double x;
     public double y;
     public String name;
+    int freeze = 0;
+
+    public int getFreeze() {
+        return freeze;
+    }
+
+    public void setFreeze(int freeze) {
+        this.freeze = freeze;
+    }
+
     public int giveXP;
     double level;
     public static int number = 0;

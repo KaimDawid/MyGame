@@ -4,6 +4,7 @@ import Mobs.Monster;
 import Mobs.Player;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Mage extends Player {
     public Mage(double HP, double maxHP, int DMG, int XP, int level, int x, int y, int gold, int bombNumber, int potionNumber, int armor, int mana) {
@@ -28,5 +29,21 @@ public class Mage extends Player {
         mana = mana - 30;
         monster.setHp(monster.getHp() - (player.getDMG() * 1.6));
         System.out.println("Rzuciłeś kulą ognia za "+ player.getDMG() * 1.6 + " obrażeń");
+    }
+
+    public void Teleport(Player player){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Wybierz gdzie chcesz się przeteleportować.");
+        System.out.println("X :");
+        int inputX = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Y: ");
+        int inputY = scanner.nextInt();
+        scanner.nextLine();
+        player.setX(inputX);
+        player.setY(inputY);
+        System.out.println("Twoje nowe koordynaty to: " + inputX + "," + inputY);
+
     }
 }
