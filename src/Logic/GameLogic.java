@@ -99,7 +99,7 @@ int emptyslots = mobsNumber;
 
         Player Dawid = new Player(130,130,30,0, 0, 4, 4, 20, 0,
                 0, 0);
-        Minotaur minotaur = new Minotaur(200,60,2,8, "minotaur", 150, 5);
+        Minotaur minotaur = new Minotaur(600,60,2,8, "minotaur", 400, 8);
        /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
        /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
         Vampire vampire = new Vampire(160, 50, 4,2,"wampir",120,80, 3);*/
