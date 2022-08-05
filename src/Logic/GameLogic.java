@@ -104,6 +104,7 @@ int emptyslots = mobsNumber;
         Player Dawid = new Player(130,130,30,0, 0, 4, 4, 20, 0,
                 0, 0);
         Dawid.setClassNumber(1);
+        Dawid.setMana(50);
         Minotaur minotaur = new Minotaur(600,60,2,8, "minotaur", 400, 8);
        /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
        /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);

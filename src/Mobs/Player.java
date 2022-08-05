@@ -28,6 +28,14 @@ int magic;
 int classNumber;
 int mana;
 
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
     public int chosenSkill1;
     public int chosenSkill2;
     public int chosenSkill3;
@@ -222,6 +230,7 @@ int mana;
     public void Freeze(Monster target){
         System.out.println(target.getName() + " został zamrożony na 2 tury");
         target.setFreeze(2);
+        mana = mana - 50;
     }
     public void Teleport(Player player){
         Scanner scanner = new Scanner(System.in);
@@ -239,7 +248,7 @@ int mana;
 
     }
     public void Fireball(Monster monster, Player player){
-        mana = mana - 30;
+        mana = mana - 20;
         monster.setHp(monster.getHp() - (player.getDMG() * 1.6));
         System.out.println("Rzuciłeś kulą ognia za "+ player.getDMG() * 1.6 + " obrażeń");
     }
