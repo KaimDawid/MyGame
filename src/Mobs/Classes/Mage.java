@@ -46,4 +46,9 @@ public class Mage extends Player {
         System.out.println("Twoje nowe koordynaty to: " + inputX + "," + inputY);
 
     }
+
+    public void Freeze(Monster target){
+        System.out.println(target.getName() + " został zamrożony na 2 tury");
+        target.setFreeze(2);
+    }
 }
