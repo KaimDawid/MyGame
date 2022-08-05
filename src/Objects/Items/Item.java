@@ -46,6 +46,22 @@ public abstract class Item {
 
     public abstract void setEqValue(int eqValue);
 
+    public abstract int getHP();
+
+    public abstract void setHP(int HP);
+
+    public abstract int getDMG();
+
+    public abstract void setDMG(int DMG);
+
+    public abstract int getCrit();
+
+    public abstract void setCrit(int crit);
+
+    public abstract int getMagic();
+
+    public abstract void setMagic(int magic);
+
     public abstract String getName();
 
     public abstract void setName(String name);

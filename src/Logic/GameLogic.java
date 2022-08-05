@@ -189,6 +189,18 @@ int emptyslots = mobsNumber;
                                     eqNumber[0].eqON(Dawid);
                                     weaponEQ = 1;
                                 }
+                                else if (eqNumber[0].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[0].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[0].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[0].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[0].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[0].eqON(Dawid);
+                                    handsEQ = 1;
+                                }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
                                 }
@@ -205,6 +217,18 @@ int emptyslots = mobsNumber;
                                 else if (eqNumber[1].getWeaponEquip() > 0 && weaponEQ < 1){
                                     eqNumber[1].eqON(Dawid);
                                     weaponEQ = 1;
+                                }
+                                else if (eqNumber[1].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[1].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[1].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[1].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[1].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[1].eqON(Dawid);
+                                    handsEQ = 1;
                                 }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
@@ -223,6 +247,18 @@ int emptyslots = mobsNumber;
                                     eqNumber[2].eqON(Dawid);
                                     weaponEQ = 1;
                                 }
+                                else if (eqNumber[2].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[2].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[2].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[2].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[2].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[2].eqON(Dawid);
+                                    handsEQ = 1;
+                                }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
                                 }
@@ -239,6 +275,18 @@ int emptyslots = mobsNumber;
                                 else if (eqNumber[3].getWeaponEquip() > 0 && weaponEQ < 1){
                                     eqNumber[3].eqON(Dawid);
                                     weaponEQ = 1;
+                                }
+                                else if (eqNumber[3].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[3].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[3].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[3].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[3].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[3].eqON(Dawid);
+                                    handsEQ = 1;
                                 }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
@@ -257,6 +305,18 @@ int emptyslots = mobsNumber;
                                     eqNumber[4].eqON(Dawid);
                                     weaponEQ = 1;
                                 }
+                                else if (eqNumber[4].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[4].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[4].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[4].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[4].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[4].eqON(Dawid);
+                                    handsEQ = 1;
+                                }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
                                 }
@@ -273,6 +333,18 @@ int emptyslots = mobsNumber;
                                 else if (eqNumber[5].getWeaponEquip() > 0 && weaponEQ < 1){
                                     eqNumber[5].eqON(Dawid);
                                     weaponEQ = 1;
+                                }
+                                else if (eqNumber[5].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[5].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[5].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[5].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[5].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[5].eqON(Dawid);
+                                    handsEQ = 1;
                                 }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
@@ -291,6 +363,18 @@ int emptyslots = mobsNumber;
                                     eqNumber[6].eqON(Dawid);
                                     weaponEQ = 1;
                                 }
+                                else if (eqNumber[6].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[6].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[6].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[6].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[6].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[6].eqON(Dawid);
+                                    handsEQ = 1;
+                                }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
                                 }
@@ -307,6 +391,18 @@ int emptyslots = mobsNumber;
                                 else if (eqNumber[7].getWeaponEquip() > 0 && weaponEQ < 1){
                                     eqNumber[7].eqON(Dawid);
                                     weaponEQ = 1;
+                                }
+                                else if (eqNumber[7].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[7].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[7].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[7].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[7].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[7].eqON(Dawid);
+                                    handsEQ = 1;
                                 }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
@@ -325,6 +421,18 @@ int emptyslots = mobsNumber;
                                     eqNumber[8].eqON(Dawid);
                                     weaponEQ = 1;
                                 }
+                                else if (eqNumber[8].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[8].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[8].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[8].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[8].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[8].eqON(Dawid);
+                                    handsEQ = 1;
+                                }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
                                 }
@@ -333,6 +441,7 @@ int emptyslots = mobsNumber;
                             }
                             break;
                         case "10":
+
                             try {
                                 if (eqNumber[9].getHelmEquip() > 0 && helmEQ < 1) {
                                     eqNumber[9].eqON(Dawid);
@@ -341,6 +450,18 @@ int emptyslots = mobsNumber;
                                 else if (eqNumber[9].getWeaponEquip() > 0 && weaponEQ < 1){
                                     eqNumber[9].eqON(Dawid);
                                     weaponEQ = 1;
+                                }
+                                else if (eqNumber[9].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[9].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[9].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[9].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[9].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[9].eqON(Dawid);
+                                    handsEQ = 1;
                                 }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");
@@ -358,6 +479,18 @@ int emptyslots = mobsNumber;
                                 else if (eqNumber[10].getWeaponEquip() > 0 && weaponEQ < 1){
                                     eqNumber[10].eqON(Dawid);
                                     weaponEQ = 1;
+                                }
+                                else if (eqNumber[10].getNeckEquip() > 0 && neckEQ < 1) {
+                                    eqNumber[10].eqON(Dawid);
+                                    neckEQ = 1;
+                                }
+                                else if (eqNumber[10].getChestEquip() > 0 && chestEQ < 1) {
+                                    eqNumber[10].eqON(Dawid);
+                                    chestEQ = 1;
+                                }
+                                else if (eqNumber[10].getHandsEquip() > 0 && handsEQ < 1) {
+                                    eqNumber[10].eqON(Dawid);
+                                    handsEQ = 1;
                                 }
                                 else {
                                     System.out.println("Najpierw zdejmij ekwipunek!");

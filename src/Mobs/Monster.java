@@ -1,8 +1,11 @@
 package Mobs;
 
+import Objects.Items.Chests.MailShirt;
+import Objects.Items.Hands.BasiliskGloves;
 import Objects.Items.Helmets.DrakeHelmet;
 import Objects.Items.Item;
 import Objects.Items.Helmets.LeatherHelmet;
+import Objects.Items.Necklaces.PearlNecklace;
 import Objects.Items.Weapons.Dagger;
 
 import java.util.Random;
@@ -32,11 +35,27 @@ public abstract class Monster {
             number++;
             System.out.println("Znalazłeś skórzany hełm!");
         }
-        else if (drop>14 && drop< 31){
+        else if (drop>14 && drop < 31){
             eqNumber[number] = new Dagger(1);
             number++;
             System.out.println("Znalazłeś sztylet!");
         }
+        else if (drop>31 && drop < 35){
+            eqNumber[number] = new MailShirt(1);
+            number++;
+            System.out.println("Znalazłeś zbroję łuskową!");
+        }
+        else if (drop>34 && drop< 39){
+            eqNumber[number] = new PearlNecklace(1);
+            number++;
+            System.out.println("Znalazłeś perłowy naszyjnik!");
+        }
+        else if (drop>38 && drop< 46){
+            eqNumber[number] = new BasiliskGloves(1);
+            number++;
+            System.out.println("Znalazłeś rękawice bazyliszka!");
+        }
+
     }
 
 
