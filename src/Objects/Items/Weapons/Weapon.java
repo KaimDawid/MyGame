@@ -4,11 +4,36 @@ import Mobs.Player;
 import Objects.Items.Item;
 
 public abstract class Weapon extends Item {
-    boolean helmEquip = false;
-    boolean chestEquip = false;
-    boolean handsEquip = false;
-    boolean weaponEquip = false;
-    boolean neckEquip = false;
+    int helmEquip;
+    int chestEquip;
+    int handsEquip;
+    int weaponEquip;
+    int neckEquip;
+
+    public abstract int getHelmEquip();
+
+    public abstract void setHelmEquip(int helmEquip);
+
+    public abstract int getChestEquip();
+
+    public abstract void setChestEquip(int chestEquip);
+
+    public abstract int getHandsEquip();
+
+    public abstract void setHandsEquip(int handsEquip);
+
+    public abstract int getWeaponEquip();
+
+    public abstract void setWeaponEquip(int weaponEquip);
+
+    public abstract int getNeckEquip();
+
+    public abstract void setNeckEquip(int neckEquip);
+    int eqValue;
+
+    public abstract int getEqValue();
+
+    public abstract void setEqValue(int eqValue);
     public abstract int getHP();
 
     public abstract void setHP(int HP);

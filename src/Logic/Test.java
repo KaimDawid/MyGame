@@ -28,7 +28,7 @@ public class Test {
         System.out.println("Przy drodze znajduje się sklep, czy chcesz do niego wejść? ");
         System.out.println("Y - tak");
         System.out.println("Dowolny przycisk - pomiń sklep");
-        String input2 = scanner.nextLine();
+        String input2 = scanner.nextLine().toUpperCase();
         switch (input2) {
             case "Y":
                 shop.purchase(player);

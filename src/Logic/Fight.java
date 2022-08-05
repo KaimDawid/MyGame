@@ -61,10 +61,10 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
             switch (input3) {
                 case "1":
                     player.Attack(monster, player);
-                        Thread.sleep(1500);
+                        Thread.sleep(1000);
                     if (monster.getHp() > 0){
                     monster.Attack(monster, player);
-                        Thread.sleep(1500);
+                        Thread.sleep(1000);
                     }
                     break;
                 case "RUN":
@@ -84,6 +84,10 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
                     if (player.getPotionNumber()> 0){
                         player.setPotionNumber(player.getPotionNumber() - 1);
                         player.setHP(player.getHP() + 100);
+                        double difference = player.getHP() - player.getMaxHP();
+                        if (player.getHP() > player.getMaxHP()){
+                            player.setHP(player.getHP() - difference);
+                        }
                         monster.Attack(monster, player);
                     }
             }

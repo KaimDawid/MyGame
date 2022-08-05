@@ -22,17 +22,17 @@ public abstract class Monster {
 
         Random random = new Random();
         double drop = random.nextDouble(100);
-        if (drop<31){
+        if (drop<6){
             eqNumber[number] = new DrakeHelmet(1);
             number++;
             System.out.println("Znalazłeś Smoczy hełm!");
         }
-        else if (drop>69){
+        else if (drop>5 && drop < 15){
             eqNumber[number] = new LeatherHelmet(1);
             number++;
             System.out.println("Znalazłeś skórzany hełm!");
         }
-        else if (drop>30 && drop< 70){
+        else if (drop>14 && drop< 31){
             eqNumber[number] = new Dagger(1);
             number++;
             System.out.println("Znalazłeś sztylet!");

@@ -121,12 +121,12 @@ do {
                 System.out.println("Towar się skończył, wybierz sobie coś innego");}
             break;
         case "9":
-            System.out.println("Witaj w sklepie, wybierz towar który chcesz kupić");
             System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)");
             System.out.println("2. Eliksir zdrowia: " + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
             System.out.println("3. Zbroja: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń");
             System.out.println("4. Czerwony pierścień (+15 obrażeń): " + redRingPrice + " sztuk złota");
             System.out.println("5. Zielony pierścień (+20 życia): " + greenRingPrice + " sztuk złota");
+            break;
         default:
             input = "0";
     }

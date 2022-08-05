@@ -124,11 +124,18 @@ int emptyslots = mobsNumber;
         String exit = "0";
         spawn(24, monsterBase);
 
+        int helmEQ = 0;
+        int weaponEQ = 0;
+        int neckEQ = 0;
+        int handsEQ = 0;
+        int chestEQ = 0;
+
+
         do {
 
             System.out.printf("Twoje punkty życia to: %.0f/%.0f\n", Dawid.getHP(), Dawid.getMaxHP());
             System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY());
-            System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS);
+            System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ");
             System.out.println("Wyświetl informacje: " + INFO);
             input = scanner.nextLine().toUpperCase();
 
@@ -156,61 +163,230 @@ int emptyslots = mobsNumber;
                     System.out.println(Dawid.getXP());
                     break;
                 case "EQ":
-                    System.out.println("Twój ekwipunek: ");
-                    break;
-                case "EQUIP":
+
                     System.out.println("Twoje przedmioty: ");
-                    System.out.println("Naciśnij numer przedmiotu aby go założyć, lub 0 aby wyjść z ekwipunku");
+                    System.out.println("Naciśnij numer przedmiotu aby go założyć, wpisz OFF aby zdjąć wszystkie" +
+                            " przedmioty lub 0 aby wyjść z ekwipunku");
                     for (int i = 0; i < 50 ; i++) {
                         try{
-                            System.out.println((i+1) + ". " + eqNumber[i].getName());}
+                            System.out.println((i+1) + ". " + eqNumber[i].getName());
+                        if (eqNumber[i].getEqValue() > 0){
+                            System.out.println("(Założony)");}
+                        }
                         catch (NullPointerException a){
                         }
                     }
-                  /*  try{
-                    System.out.println("1. " + eqNumber[0].getName());}
-                    catch (NullPointerException a){
-                    }
-                    try{
-                        System.out.println("2. " + eqNumber[1].getName());}
-                    catch (NullPointerException a){
-                    }*/
-                    int input2 = scanner.nextInt();
+
+                    String input2 = scanner.nextLine().toUpperCase();
                     switch (input2) {
-                        case 1:
-                        try {
-                            eqNumber[0].eqON(Dawid);
-                            System.out.println("Założyłeś " + eqNumber[0].getName());
-                        } catch (NullPointerException a) {
-                            System.out.println("Nie masz tego przedmiotu");
-                        }
-                        break;
-                        case 2:
+                        case "1":
                             try {
-                                eqNumber[1].eqON(Dawid);
-                                System.out.println("Założyłeś " + eqNumber[1].getName());
-                            } catch (NullPointerException a) {
-                                System.out.println("Nie masz tego przedmiotu");
-                            }
-                        break;
-                        case 3:
-                            try {
-                                eqNumber[2].eqON(Dawid);
-                                System.out.println("Założyłeś " + eqNumber[2].getName());
+                                if (eqNumber[0].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[0].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[0].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[0].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
                             } catch (NullPointerException a) {
                                 System.out.println("Nie masz tego przedmiotu");
                             }
                             break;
-                        case 4:
+                        case "2":
                             try {
-                                eqNumber[3].eqON(Dawid);
-                                System.out.println("Założyłeś " + eqNumber[3].getName());
+                                if (eqNumber[1].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[1].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[1].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[1].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "3":
+                            try {
+                                if (eqNumber[2].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[2].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[2].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[2].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "4":
+                            try {
+                                if (eqNumber[3].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[3].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[3].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[3].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "5":
+                            try {
+                                if (eqNumber[4].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[4].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[4].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[4].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "6":
+                            try {
+                                if (eqNumber[5].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[5].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[5].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[5].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "7":
+                            try {
+                                if (eqNumber[6].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[6].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[6].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[6].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "8":
+                            try {
+                                if (eqNumber[7].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[7].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[7].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[7].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "9":
+                            try {
+                                if (eqNumber[8].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[8].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[8].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[8].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "10":
+                            try {
+                                if (eqNumber[9].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[9].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[9].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[9].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
+                            } catch (NullPointerException a) {
+                                System.out.println("Nie masz tego przedmiotu");
+                            }
+                            break;
+                        case "11":
+                            try {
+                                if (eqNumber[10].getHelmEquip() > 0 && helmEQ < 1) {
+                                    eqNumber[10].eqON(Dawid);
+                                    helmEQ = 1;
+                                }
+                                else if (eqNumber[10].getWeaponEquip() > 0 && weaponEQ < 1){
+                                    eqNumber[10].eqON(Dawid);
+                                    weaponEQ = 1;
+                                }
+                                else {
+                                    System.out.println("Najpierw zdejmij ekwipunek!");
+                                }
                             } catch (NullPointerException a) {
                                 System.out.println("Nie masz tego przedmiotu");
                             }
                             break;
 
-                        case 0:
+
+                        case "0":
+                            break;
+                        case "OFF":
+                            for (int i = 0; i < 50; i++) {
+                                try {
+                                    eqNumber[i].eqOFF(Dawid);
+                                }
+                                catch (NullPointerException a){
+
+                                }
+                            }
+                            helmEQ = 0;
+                            weaponEQ = 0;
+                            neckEQ = 0;
+                            chestEQ = 0;
+                            handsEQ = 0;
+                            System.out.println("Zdjąłeś wszystkie przedmioty");
+                            Thread.sleep(500);
+                        default:
                             break;
                     }
 
@@ -219,6 +395,30 @@ int emptyslots = mobsNumber;
                     break;
                 case INFO:
                     Test.PlayerInfo(Dawid);
+                    break;
+                case "ABCDE":
+                   Dawid.setHP(10000);
+                   Dawid.setDMG(10000);
+                   Dawid.setMaxHP(10000);
+                   eqNumber[0] = new DrakeHelmet(1);
+                    eqNumber[1] = new DrakeHelmet(1);
+                    eqNumber[2] = new DrakeHelmet(1);
+                    eqNumber[3] = new DrakeHelmet(1);
+                    System.out.println("                       ______\n" +
+                            "                    .-\"      \"-.\n" +
+                            "                   /            \\\n" +
+                            "       _          |              |          _\n" +
+                            "      ( \\         |,  .-.  .-.  ,|         / )\n" +
+                            "       > \"=._     | )(__/  \\__)( |     _.=\" <\n" +
+                            "      (_/\"=._\"=._ |/     /\\     \\| _.=\"_.=\"\\_)\n" +
+                            "             \"=._ (_     ^^     _)\"_.=\"\n" +
+                            "                 \"=\\__|IIIIII|__/=\"\n" +
+                            "                _.=\"| \\IIIIII/ |\"=._\n" +
+                            "      _     _.=\"_.=\"\\          /\"=._\"=._     _\n" +
+                            "     ( \\_.=\"_.=\"     `--------`     \"=._\"=._/ )\n" +
+                            "      > _.=\"                            \"=._ <\n" +
+                            "     (_/             WPISANO KODY!!!        \\_)");
+                   break;
             }
 
             for (int i = 1; i < spawnedMonsters; i++) {
@@ -246,6 +446,98 @@ int emptyslots = mobsNumber;
         }
         while (!input.equals(exit));
         scanner.close();
+    }
+
+    public void eqDisplay(Player player){
+
+       /* int input2 = scanner.nextInt();
+        switch (input2) {
+            case 1:
+                try {
+                    if (eqNumber[0].getHelmEquip() > 0 && helmEQ) {
+                        eqNumber[0].eqON(player);
+                    }
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 2:
+                try {
+                    eqNumber[1].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 3:
+                try {
+                    eqNumber[2].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 4:
+                try {
+                    eqNumber[3].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 5:
+                try {
+                    eqNumber[4].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 6:
+                try {
+                    eqNumber[5].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 7:
+                try {
+                    eqNumber[6].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 8:
+                try {
+                    eqNumber[7].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 9:
+                try {
+                    eqNumber[8].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 10:
+                try {
+                    eqNumber[9].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+            case 11:
+                try {
+                    eqNumber[10].eqON(player);
+                } catch (NullPointerException a) {
+                    System.out.println("Nie masz tego przedmiotu");
+                }
+                break;
+
+
+            case 0:
+                break;
+            default:
+                break;
+        }*/
     }
 
 }
