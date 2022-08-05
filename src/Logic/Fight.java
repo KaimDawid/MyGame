@@ -139,7 +139,6 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
                             || player.getChosenSkill3() == Player.FIREBALL || player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() ==
                             Player.FIREBALL){
                         player.Fireball(monster, player);
-                        System.out.println("Rzuciłeś kulę ognia za 120 obrażeń!");
                         if (monster.getHp() > 0 && monster.getFreeze() == 0){
                             monster.Attack(monster, player);
                             Thread.sleep(1000);
