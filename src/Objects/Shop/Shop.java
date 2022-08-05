@@ -46,7 +46,7 @@ int greenRingStock = 1;
         System.out.println("Witaj w sklepie, wybierz towar który chcesz kupić");
         System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)");
         System.out.println("2. Eliksir zdrowia: " + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
-        System.out.println("3. Zbroja: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń");
+        System.out.println("3. Podkowa: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń");
         System.out.println("4. Czerwony pierścień (+15 obrażeń): " + redRingPrice + " sztuk złota");
         System.out.println("5. Zielony pierścień (+20 życia): " + greenRingPrice + " sztuk złota");
 do {
@@ -87,7 +87,7 @@ do {
                     player.setGold(player.getGold() - armorPrice);
                     player.setArmor(player.getArmor() + 15);
                     armorStock = (armorStock - 1);
-                    System.out.println("Zakupiłeś zbroję, negujesz od teraz: " + player.getArmor() + " obrażeń");
+                    System.out.println("Zakupiłeś podkowę, negujesz od teraz: " + player.getArmor() + " obrażeń");
                 } else {
                     System.out.println("Nie masz wystarczająco pieniędzy");
                 }
