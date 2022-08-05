@@ -112,6 +112,7 @@ do {
                 if (player.getGold() > greenRingPrice) {
                     player.setGold(player.getGold() - greenRingPrice);
                     player.setHP(player.getHP() + 20);
+                    player.setMaxHP(player.getHP() + 20);
                     greenRingStock = (greenRingStock - 1);
                     System.out.println("Zakupiłeś zielony pierścień, dostajesz + 20 do zdrowia ");
                 } else {
