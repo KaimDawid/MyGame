@@ -134,16 +134,16 @@ public class Experience {
         }
         if (player.getLevel() == 0 && player.getHP() > 0) {
             System.out.println("Masz " + player.getLevel() + " poziom doświadczenia, oraz " + player.getXP() +
-                    "/" + fourthCap+ " punktów doświadczenia");
+                    "/" + firstCap+ " punktów doświadczenia");
             System.out.println("Złoto: " + player.getGold());
         }
         else if (player.getLevel() == 1 && player.getHP() > 0){
             System.out.println("Masz " + player.getLevel() + " poziom doświadczenia, oraz " + player.getXP() +
-                    "/" + fourthCap+ " punktów doświadczenia");
+                    "/" + secondCap+ " punktów doświadczenia");
             System.out.println("Złoto: " + player.getGold());
         } else if (player.getLevel() == 2 && player.getHP() > 0){
             System.out.println("Masz " + player.getLevel() + " poziom doświadczenia, oraz " + player.getXP() +
-                    "/" + fourthCap+ " punktów doświadczenia");
+                    "/" + thirdCap+ " punktów doświadczenia");
             System.out.println("Złoto: " + player.getGold());
         }
         else if (player.getLevel() == 3 && player.getHP() > 0){
@@ -153,7 +153,7 @@ public class Experience {
         }
         else if (player.getLevel() == 4 && player.getHP() > 0){
             System.out.println("Masz " + player.getLevel() + " poziom doświadczenia, oraz " + player.getXP() +
-                    "/" + fourthCap+ " punktów doświadczenia");
+                    "/" + fifthCap+ " punktów doświadczenia");
             System.out.println("Złoto: " + player.getGold());
         }
         else if (player.getLevel() == 5 && player.getHP() > 0){
