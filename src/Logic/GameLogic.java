@@ -2,7 +2,11 @@ package Logic;
 
 import Mobs.*;
 import Objects.Armor;
+import Objects.Items.Chests.MailShirt;
+import Objects.Items.Hands.BasiliskGloves;
 import Objects.Items.Helmets.DrakeHelmet;
+import Objects.Items.Helmets.LeatherHelmet;
+import Objects.Items.Necklaces.PearlNecklace;
 import Objects.Shop.Shop;
 import Objects.Weapon;
 
@@ -99,6 +103,7 @@ int emptyslots = mobsNumber;
 
         Player Dawid = new Player(130,130,30,0, 0, 4, 4, 20, 0,
                 0, 0);
+        Dawid.setClassNumber(1);
         Minotaur minotaur = new Minotaur(600,60,2,8, "minotaur", 400, 8);
        /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
        /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
@@ -136,6 +141,11 @@ int emptyslots = mobsNumber;
             System.out.printf("Twoje punkty życia to: %.0f/%.0f\n", Dawid.getHP(), Dawid.getMaxHP());
             System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY());
             System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ");
+            if (Dawid.getChosenSkill1() == Player.TP || Dawid.getChosenSkill2() == Player.TP ||
+                    Dawid.getChosenSkill3() == Player.TP || Dawid.getChosenSkill4() == Player.TP ||
+                    Dawid.getChosenSkill5() == Player.TP ){
+                System.out.println("Teleportacja: TP");
+            }
             System.out.println("Wyświetl informacje: " + INFO);
             input = scanner.nextLine().toUpperCase();
 
@@ -162,6 +172,18 @@ int emptyslots = mobsNumber;
                 case "XP":
                     System.out.println(Dawid.getXP());
                     break;
+                case "TP":
+                    if (Dawid.getChosenSkill1() == Player.TP || Dawid.getChosenSkill2() == Player.TP ||
+                            Dawid.getChosenSkill3() == Player.TP || Dawid.getChosenSkill4() == Player.TP ||
+                            Dawid.getChosenSkill5() == Player.TP ) {
+                        System.out.println("Użyłeś teleportacji!");
+                        Dawid.Teleport(Dawid);
+                    }
+                    else {
+                        System.out.println("Nie posiadasz tej umiejętności");
+                    }
+                    break;
+
                 case "EQ":
 
                     System.out.println("Twoje przedmioty: ");
@@ -537,6 +559,13 @@ int emptyslots = mobsNumber;
                     eqNumber[1] = new DrakeHelmet(1);
                     eqNumber[2] = new DrakeHelmet(1);
                     eqNumber[3] = new DrakeHelmet(1);
+                    eqNumber[4] = new MailShirt(1);
+                    eqNumber[5] = new PearlNecklace(1);
+                    eqNumber[6] = new BasiliskGloves(1);
+                    eqNumber[7] = new LeatherHelmet(1);
+                    Dawid.setChosenSkill1(Player.ICE);
+                    Dawid.setChosenSkill2(Player.FIREBALL);
+                    Dawid.setChosenSkill3(Player.TP);
                     System.out.println("                       ______\n" +
                             "                    .-\"      \"-.\n" +
                             "                   /            \\\n" +

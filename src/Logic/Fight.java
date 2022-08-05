@@ -29,6 +29,14 @@ public class Fight {
         System.out.println("Napotkałeś na swojej drodze " + monster.getName() +"a" + " walcz!");
         System.out.println("1 - zatakuj");
         System.out.println("RUN - spróbuj uciec");
+        if (player.getChosenSkill1() == Player.ICE || player.getChosenSkill2() == Player.ICE || player.getChosenSkill3() == Player.ICE ||
+                player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() == Player.ICE ){
+            System.out.println("ICE - rzuć lodowy pocisk (zamraża na 2 tury)");
+        }
+        if (player.getChosenSkill1() == Player.FIREBALL || player.getChosenSkill2() == Player.FIREBALL || player.getChosenSkill3() == Player.FIREBALL ||
+                player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() == Player.FIREBALL ){
+            System.out.println("FIRE - rzuć kulę ognia (zadaje 120 obrażeń)");
+        }
         if (player.getBombNumber()>0){
             System.out.println("2 - rzuć bombę za 80 obrażeń (" + player.getBombNumber() +")");}
         if (player.getPotionNumber()>0){
@@ -62,21 +70,42 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
                 case "1":
                     player.Attack(monster, player);
                         Thread.sleep(1000);
-                    if (monster.getHp() > 0){
+                    if (monster.getHp() > 0 && monster.getFreeze() == 0){
                     monster.Attack(monster, player);
                         Thread.sleep(1000);
+                    }
+                    else if (monster.getFreeze() > 0){
+                        System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                        + " tury");
+                        monster.setFreeze(monster.getFreeze() - 1);
                     }
                     break;
                 case "RUN":
                     System.out.println("Udało Ci się uciec, ale otrzymałeś " + monster.getDmg() + " obrażeń");
-                    monster.Attack(monster, player);
+                    if (monster.getHp() > 0 && monster.getFreeze() == 0){
+                        monster.Attack(monster, player);
+                        Thread.sleep(1000);
+                    }
+                    else if (monster.getFreeze() > 0){
+                        System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                + " tury");
+                        monster.setFreeze(monster.getFreeze() - 1);
+                    }
                     player.setX(player.getX() - 1);
                     escape = 1;
                     break;
                 case "2":
                     if (player.getBombNumber() > 0){
                         monster.setHp(monster.getHp() - BDMG);
-                        monster.Attack(monster, player);
+                        if (monster.getHp() > 0 && monster.getFreeze() == 0){
+                            monster.Attack(monster, player);
+                            Thread.sleep(1000);
+                        }
+                        else if (monster.getFreeze() > 0){
+                            System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                    + " tury");
+                            monster.setFreeze(monster.getFreeze() - 1);
+                        }
                         System.out.println("Rzuciłeś bombę za 80 obrażeń!");
                     }
                     break;
@@ -88,7 +117,39 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
                         if (player.getHP() > player.getMaxHP()){
                             player.setHP(player.getHP() - difference);
                         }
-                        monster.Attack(monster, player);
+                        if (monster.getHp() > 0 && monster.getFreeze() == 0){
+                            monster.Attack(monster, player);
+                            Thread.sleep(1000);
+                        }
+                        else if (monster.getFreeze() > 0){
+                            System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                    + " tury");
+                            monster.setFreeze(monster.getFreeze() - 1);
+                        }
+                    }
+                case "ICE":
+                    if (player.getChosenSkill1() == Player.ICE || player.getChosenSkill2() == Player.ICE
+                    || player.getChosenSkill3() == Player.ICE || player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() ==
+                    Player.ICE) {
+                        player.Freeze(monster);
+                    }
+                    break;
+                case "FIRE":
+                    if (player.getChosenSkill1() == Player.FIREBALL || player.getChosenSkill2() == Player.FIREBALL
+                            || player.getChosenSkill3() == Player.FIREBALL || player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() ==
+                            Player.FIREBALL){
+                        player.Fireball(monster, player);
+                        System.out.println("Rzuciłeś kulę ognia za 120 obrażeń!");
+                        if (monster.getHp() > 0 && monster.getFreeze() == 0){
+                            monster.Attack(monster, player);
+                            Thread.sleep(1000);
+                        }
+                        else if (monster.getFreeze() > 0){
+                            System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                    + " tury");
+                            monster.setFreeze(monster.getFreeze() - 1);
+                        }
+                        System.out.println("Zdrowie przeciwnika: " + monster.getHp());
                     }
             }
             if (player.getHP() < 1) {

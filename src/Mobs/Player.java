@@ -1,8 +1,13 @@
 package Mobs;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Player {
+    public static int ICE = 60;
+
+    public final static int TP = 61;
+    public final static int FIREBALL = 62;
  private double HP = 120;
  private double MaxHP = 120;
     int DMG = 20;
@@ -20,6 +25,70 @@ int armor;
 int poison;
 
 int magic;
+int classNumber;
+int mana;
+
+    public int chosenSkill1;
+    public int chosenSkill2;
+    public int chosenSkill3;
+    public int chosenSkill4;
+    public int chosenSkill5;
+
+    public static int getICE() {
+        return ICE;
+    }
+
+    public static void setICE(int ICE) {
+        Player.ICE = ICE;
+    }
+
+    public int getChosenSkill1() {
+        return chosenSkill1;
+    }
+
+    public void setChosenSkill1(int chosenSkill1) {
+        this.chosenSkill1 = chosenSkill1;
+    }
+
+    public int getChosenSkill2() {
+        return chosenSkill2;
+    }
+
+    public void setChosenSkill2(int chosenSkill2) {
+        this.chosenSkill2 = chosenSkill2;
+    }
+
+    public int getChosenSkill3() {
+        return chosenSkill3;
+    }
+
+    public void setChosenSkill3(int chosenSkill3) {
+        this.chosenSkill3 = chosenSkill3;
+    }
+
+    public int getChosenSkill4() {
+        return chosenSkill4;
+    }
+
+    public void setChosenSkill4(int chosenSkill4) {
+        this.chosenSkill4 = chosenSkill4;
+    }
+
+    public int getChosenSkill5() {
+        return chosenSkill5;
+    }
+
+    public void setChosenSkill5(int chosenSkill5) {
+        this.chosenSkill5 = chosenSkill5;
+    }
+
+    public int getClassNumber() {
+        return classNumber;
+    }
+
+    public void setClassNumber(int classNumber) {
+        this.classNumber = classNumber;
+    }
 
     public int getMagic() {
         return magic;
@@ -150,6 +219,30 @@ int magic;
         this.gold = gold;
     }
 
+    public void Freeze(Monster target){
+        System.out.println(target.getName() + " został zamrożony na 2 tury");
+        target.setFreeze(2);
+    }
+    public void Teleport(Player player){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Wybierz gdzie chcesz się przeteleportować.");
+        System.out.println("X :");
+        int inputX = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Y: ");
+        int inputY = scanner.nextInt();
+        scanner.nextLine();
+        player.setX(inputX);
+        player.setY(inputY);
+        System.out.println("Twoje nowe koordynaty to: " + inputX + "," + inputY);
+
+    }
+    public void Fireball(Monster monster, Player player){
+        mana = mana - 30;
+        monster.setHp(monster.getHp() - (player.getDMG() * 1.6));
+        System.out.println("Rzuciłeś kulą ognia za "+ player.getDMG() * 1.6 + " obrażeń");
+    }
     public void Attack(Monster monster, Player player){
         Random random = new Random();
         double missRoll = (20 - (player.getLevel() * 3) + (monster.getLevel() * 3));

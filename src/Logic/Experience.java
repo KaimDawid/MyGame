@@ -2,6 +2,8 @@ package Logic;
 
 import Mobs.Player;
 
+import java.util.Scanner;
+
 public class Experience {
 
     public static void expCounter(Player player){
@@ -10,6 +12,7 @@ public class Experience {
          int thirdCap = 250;
          int fourthCap = 400;
          int fifthCap = 700;
+        Scanner scanner = new Scanner(System.in);
         if (player.getXP()>40 && player.getLevel() == 0){
             player.setMaxHP(player.getMaxHP() +30);
             player.setHP(player.getMaxHP());
@@ -18,6 +21,25 @@ public class Experience {
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.printf("Twoje nowe punkty zdrowia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
+            if (player.getClassNumber() == 1){
+                System.out.println("Wybierz czar którego chcesz się nauczyć: ");
+                System.out.println("1. Lodowy pocisk (zamraża przeciwnika na 2 tury, 20p many)");
+                System.out.println("2. Kula ognia (zadaje 120 obrażeń, 50p many)");
+                System.out.println("3. Teleportacja (przenieś się na dowolne pole, darmowe)");
+                String input = scanner.nextLine();
+                switch (input){
+                    case "1":
+                        player.setChosenSkill1(Player.ICE);
+                                break;
+                    case "2":
+                        player.setChosenSkill1(Player.FIREBALL);
+                        break;
+                    case "3":
+                        player.setChosenSkill1(Player.TP);
+                        break;
+                }
+                System.out.println("Nauczyłeś się nowej umiejętności!");
+            }
             player.setLevel(1);
 
         } else if (player.getXP() > 100 && player.getLevel() == 1) {
@@ -28,6 +50,31 @@ public class Experience {
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.printf("Twoje nowe punkty zdrowia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
+            if (player.getClassNumber() == 1){
+                System.out.println("Wybierz czar którego chcesz się nauczyć: ");
+                if (player.getChosenSkill1() != Player.ICE) {
+                    System.out.println("1. Lodowy pocisk (zamraża przeciwnika na 2 tury, 20p many)");
+                }
+                if (player.getChosenSkill1() != Player.FIREBALL) {
+                    System.out.println("2. Kula ognia (zadaje 120 obrażeń, 50p many)");
+                }
+               if (player.getChosenSkill1() != Player.TP) {
+                   System.out.println("3. Teleportacja (przenieś się na dowolne pole, darmowe)");
+               }
+                String input = scanner.nextLine();
+                switch (input){
+                    case "1":
+                        player.setChosenSkill2(Player.ICE);
+                        break;
+                    case "2":
+                        player.setChosenSkill2(Player.FIREBALL);
+                        break;
+                    case "3":
+                        player.setChosenSkill2(Player.TP);
+                        break;
+                }
+                System.out.println("Nauczyłeś się nowej umiejętności!");
+            }
             player.setLevel(2);
         }
         else if (player.getXP() > 250 && player.getLevel() == 2) {
@@ -38,6 +85,31 @@ public class Experience {
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.printf("Twoje nowe punkty zdrowia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
+            if (player.getClassNumber() == 1){
+                System.out.println("Wybierz czar którego chcesz się nauczyć: ");
+                if (player.getChosenSkill1() != Player.ICE && player.getChosenSkill2() != Player.ICE) {
+                    System.out.println("1. Lodowy pocisk (zamraża przeciwnika na 2 tury, 20p many)");
+                }
+                if (player.getChosenSkill1() != Player.FIREBALL && player.getChosenSkill2() != Player.FIREBALL) {
+                    System.out.println("2. Kula ognia (zadaje 120 obrażeń, 50p many)");
+                }
+                if (player.getChosenSkill1() != Player.TP && player.getChosenSkill2() != Player.TP) {
+                    System.out.println("3. Teleportacja (przenieś się na dowolne pole, darmowe)");
+                }
+                String input = scanner.nextLine();
+                switch (input){
+                    case "1":
+                        player.setChosenSkill3(Player.ICE);
+                        break;
+                    case "2":
+                        player.setChosenSkill3(Player.FIREBALL);
+                        break;
+                    case "3":
+                        player.setChosenSkill3(Player.TP);
+                        break;
+                }
+                System.out.println("Nauczyłeś się nowej umiejętności!");
+            }
             player.setLevel(3);
         }
         else if (player.getXP() > 400 && player.getLevel() == 3) {
