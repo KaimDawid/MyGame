@@ -206,7 +206,7 @@ boolean dagEquip = false;
 
     @Override
     public void eqOFF(Player player){
-        if (weaponEquip > 0) {
+        if (weaponEquip > 1) {
             player.setMaxHP(player.getMaxHP() - Dagger.this.HP);
             if (player.getHP() > player.getMaxHP()){
                 double difference = (player.getHP() - player.getMaxHP());
