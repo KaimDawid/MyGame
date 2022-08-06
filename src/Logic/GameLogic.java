@@ -186,18 +186,42 @@ i = i-1;
             input = scanner.nextLine().toUpperCase();
 
 
+
             switch (input) {
                 case "A":
+                    if (Dawid.getX() > 1){
                     Dawid.setX(Dawid.getX()-1);
+                }
+                else {
+                        System.out.println("Natrafiłeś na ścianę, nie możesz już iść w tą stronę");
+                }
                     break;
                 case "W":
-                    Dawid.setY(Dawid.getY()+1);
+                    if (Dawid.getY() < 8){
+                        Dawid.setY(Dawid.getY()+1);
+                    }
+                    else {
+                        System.out.println("Natrafiłeś na ścianę, nie możesz już iść w tą stronę");
+                    }
+
                     break;
                 case "D":
-                    Dawid.setX(Dawid.getX()+1);
+                    if (Dawid.getX() < 8){
+                        Dawid.setX(Dawid.getX()+1);
+                    }
+                    else {
+                        System.out.println("Natrafiłeś na ścianę, nie możesz już iść w tą stronę");
+                    }
+
                     break;
                 case "S":
-                    Dawid.setY(Dawid.getY()-1);
+                    if (Dawid.getY() > 1){
+                        Dawid.setY(Dawid.getY()-1);
+                    }
+                    else {
+                        System.out.println("Natrafiłeś na ścianę, nie możesz już iść w tą stronę");
+                    }
+
                     break;
                 case "HP":
                     System.out.println(Dawid.getHP());
