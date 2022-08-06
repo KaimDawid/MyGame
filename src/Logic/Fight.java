@@ -167,6 +167,13 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
     player.setGold(player.getGold() + monster.getGold());
 
             }
+            if (player.getMana() < player.getMaxMana()) {
+                int manaDiff = (player.getMana() - player.getMaxMana());
+                player.setMana(player.getMana() + player.getManaRegen());
+                if (manaDiff > 0){
+                    player.setMana(player.getMana() - manaDiff);
+                }
+            }
         } while (player.getHP() > 0 && monster.getHp() > 0 && escape == 0);
 
 

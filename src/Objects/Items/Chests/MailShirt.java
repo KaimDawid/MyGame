@@ -12,7 +12,7 @@ public class MailShirt extends Item {
 
     int stock = 0;
 
-    String name = ("Zbroja łuskowa (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+    String name = ("Zbroja łuskowa [CHEST] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip;
     int chestEquip = 1;
     int handsEquip;

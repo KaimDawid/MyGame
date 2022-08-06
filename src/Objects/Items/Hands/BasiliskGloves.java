@@ -12,7 +12,7 @@ public class BasiliskGloves extends Item {
 
     int stock = 0;
 
-    String name = ("Rękawice Bazyliszka (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+    String name = ("Rękawice Bazyliszka [HANDS] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip;
     int chestEquip;
     int isON = 0;

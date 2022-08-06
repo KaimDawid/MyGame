@@ -76,7 +76,7 @@ public class Dagger extends Weapon {
 
     int stock = 0;
 
-    String name = ("Sztylet (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+    String name = ("Sztylet [WEAPON] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
 
 
     public Dagger(int stock) {

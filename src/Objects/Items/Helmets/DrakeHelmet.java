@@ -11,7 +11,7 @@ public class DrakeHelmet extends Helmet {
  int stock = 0;
     int isON = 0;
 
- String name = ("Smoczy hełm (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+ String name = ("Smoczy hełm [HEAD] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip = 1;
     int chestEquip;
     int handsEquip;

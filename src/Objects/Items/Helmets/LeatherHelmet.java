@@ -85,7 +85,7 @@ public class LeatherHelmet extends Helmet {
         this.lhEquip = lhEquip;
     }
 
-    String name = ("Skórzany hełm (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+    String name = ("Skórzany hełm [HEAD] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
 
     public LeatherHelmet(int stock) {
         this.stock = stock;

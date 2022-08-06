@@ -18,6 +18,7 @@ public class Player {
    public int X;
    public int Y;
 
+
 int gold;
 int bombNumber;
 int potionNumber;
@@ -34,9 +35,19 @@ int maxMana = 100;
         this.maxMana = maxMana;
     }
 
-    int magic;
+    int magic = 0;
 int classNumber;
 int mana;
+
+int manaRegen = 10;
+
+    public int getManaRegen() {
+        return manaRegen;
+    }
+
+    public void setManaRegen(int manaRegen) {
+        this.manaRegen = manaRegen;
+    }
 
     public int getMana() {
         return mana;
@@ -51,6 +62,16 @@ int mana;
     public int chosenSkill3;
     public int chosenSkill4;
     public int chosenSkill5;
+
+    int attributePoints;
+
+    public int getAttributePoints() {
+        return attributePoints;
+    }
+
+    public void setAttributePoints(int attributePoints) {
+        this.attributePoints = attributePoints;
+    }
 
     int escapeInvulnerability = 0;
 
@@ -248,9 +269,11 @@ int mana;
     }
 
     public void Freeze(Monster target){
+        double iceDMG = 25 + (0.25* magic);
         if (mana > 49){
-        System.out.println(target.getName() + " został zamrożony na 2 tury");
-        target.setFreeze(2);
+        System.out.println(target.getName() + " został zamrożony na 2 tury i otrzymał " + iceDMG + " obrażeń");
+        target.setHp(target.getHp() - (DMG * 0.25));
+        target.setFreeze(1);
         mana = mana - 50;}
         else {
             System.out.println("Masz za mało many!");
@@ -272,10 +295,11 @@ int mana;
 
     }
     public void Fireball(Monster monster, Player player){
+        double fireDMG = 80 + magic;
         if (mana > 19) {
-            mana = mana - 20;
-            monster.setHp(monster.getHp() - (player.getDMG() * 1.6));
-            System.out.println("Rzuciłeś kulą ognia za " + player.getDMG() * 1.6 + " obrażeń");
+            mana = mana - 30;
+            monster.setHp(monster.getHp() - fireDMG);
+            System.out.println("Rzuciłeś kulą ognia za " + fireDMG + " obrażeń");
         }
         else {
             System.out.println("Masz za mało many!");

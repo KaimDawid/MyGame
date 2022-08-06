@@ -162,7 +162,7 @@ public class GameLogic {
             System.out.printf("Twoje punkty życia to: %.0f/%.0f\n", Dawid.getHP(), Dawid.getMaxHP());
             System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY() + "            Mana: " + Dawid.getMana()
              + "/" + Dawid.getMaxMana());
-            System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ");
+            System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ,         Atrybuty : LVLUP");
             if (Dawid.getChosenSkill1() == Player.TP || Dawid.getChosenSkill2() == Player.TP ||
                     Dawid.getChosenSkill3() == Player.TP || Dawid.getChosenSkill4() == Player.TP ||
                     Dawid.getChosenSkill5() == Player.TP) {
@@ -223,6 +223,83 @@ public class GameLogic {
                         System.out.println("Nie posiadasz tej umiejętności");
                     }
                     break;
+
+
+                case "LVLUP":
+
+                    String attributes = "1";
+                    do {
+
+                        System.out.println("Masz " + Dawid.getAttributePoints() + " punktów umiejętności");
+                System.out.println("Wybierz którą statystykę chcesz podnieść: ");
+                System.out.println("1. Atak (+1)");
+                System.out.println("2. Moc zaklęć (+5)");
+                System.out.println("3. Punkty życia (+3)");
+                System.out.println("4. Szansa na cios krytyczny (+1%)");
+                System.out.println("5. Regeneracja many (+2 na turę)");
+                        System.out.println("0. Wyjdź");
+
+                attributes = scanner.nextLine();
+                    switch (attributes){
+                        case "1":
+                            if (Dawid.getAttributePoints() > 0) {
+                                Dawid.setDMG(Dawid.getDMG() + 1);
+                                Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                            }
+                            else {
+                                System.out.println("Nie masz już punktów umiejętności");
+                            }
+                            break;
+                        case "2":
+                            if (Dawid.getAttributePoints() > 0) {
+                                Dawid.setMagic(Dawid.getMagic() + 5);
+                                Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                            }
+                             else {
+                            System.out.println("Nie masz już punktów umiejętności");
+                        }
+                            break;
+                        case "3":
+                            if (Dawid.getAttributePoints() > 0) {
+                            Dawid.setHP(Dawid.getHP()+3);
+                            Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                            }
+                             else {
+                            System.out.println("Nie masz już punktów umiejętności");
+                        }
+                            break;
+                        case "4":
+                            if (Dawid.getAttributePoints() > 0) {
+                            Dawid.setCritChance(Dawid.getCritChance()+ 1);
+                            Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                            }
+                             else {
+                            System.out.println("Nie masz już punktów umiejętności");
+                        }
+                            break;
+                        case "5":
+                            if (Dawid.getAttributePoints() > 0) {
+                            Dawid.setManaRegen(Dawid.getManaRegen()+2);
+                            Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                            }
+                             else {
+                            System.out.println("Nie masz już punktów umiejętności");
+                        }
+                            break;
+                        case "0":
+                            attributes = "0";
+                            break;
+                            }
+
+
+                    }
+                    while (attributes!= "0");
+
+
+break;
+
+
+
 
                 case "EQ":
 

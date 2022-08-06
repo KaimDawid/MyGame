@@ -12,7 +12,7 @@ public class PearlNecklace extends Item {
     int isON = 0;
     int stock = 0;
 
-    String name = ("Perłowy naszyjnik (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+    String name = ("Perłowy naszyjnik [NECK] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip;
     int chestEquip;
     int handsEquip;
