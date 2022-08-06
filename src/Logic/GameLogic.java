@@ -10,6 +10,25 @@ import Objects.Items.Necklaces.PearlNecklace;
 import Objects.Shop.Shop;
 import Objects.Weapon;
 
+
+/*
+To do list:
+- Umożliwić zdejmowanie jednej części ekwipunku, żeby nie musieć zdejmować wszystkiego naraz
+- Zbalansować grę, po 5 minutach ma się od ch*ja ataku i zdrowia i w sumie nie da się umrzeć
+- Mana
+          Dalsze plany:
+          - kolejne piętra
+          - więcej mobków
+          - 30 skilli (aktywne i pasywne)
+          - statusy (osłabienie, podpalenie)
+          - COMBOSY : jak rzucisz wodny pocisk a potem błyskawice to przeciwnik się stunuje itp.
+            żeby żywioły na siebie oddziaływały
+          - klasy postaci między 3 a 5
+
+*/
+
+
+
 import java.util.Random;
 import java.util.Scanner;
 
