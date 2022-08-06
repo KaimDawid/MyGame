@@ -59,17 +59,17 @@ public class GameLogic {
                 if (valid < 1) {
                     spawnedMonsters++;
                     if (mobType < 26) {
-                        monsterBase[i] = new Goblin(70, 30, valueX, valueY, "goblin", 50, 50, 2);
+                        monsterBase[i] = new Goblin(70, 30, valueX, valueY, "goblin", 40, 10, 2);
                     } else if (mobType < 51 && mobType > 25) {
-                        monsterBase[i] = new Spider(80, 20, valueX, valueY, "pająk", 30, 1);
+                        monsterBase[i] = new Spider(80, 20, valueX, valueY, "pająk", 20, 1);
                     }
                     //
                     //        Tu ustawiasz szansę na pojawienie się danego typu przeciwnika
                     //
                     else if (mobType < 76 && mobType > 50) {
-                        monsterBase[i] = new Werewolf(150, 40, valueX, valueY, "wilkołak", 100, 100, 4);
+                        monsterBase[i] = new Werewolf(150, 40, valueX, valueY, "wilkołak", 60, 20, 4);
                     } else if (mobType > 75) {
-                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 120, 80, 3);
+                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3);
                     }
                     int emptyslots = mobsNumber;
 
