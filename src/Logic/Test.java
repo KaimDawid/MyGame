@@ -42,17 +42,15 @@ public class Test {
         System.out.println();
         System.out.println("Statystyki: ");
         System.out.println();
-        System.out.printf("Punkty życia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
-        System.out.println("Punkty obrażeń: " + player.getDMG());
-        System.out.printf("Poziom: %.0f%n", player.getLevel());
-        /*System.out.println("Poziom: " + player.getLevel());*/
-        System.out.println("Doświadczenie: " + player.getXP());
+        System.out.printf("Punkty życia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP() );
+        System.out.println("Mana: " + player.getMana() + "/" + player.getMaxMana() + "                 Punkty obrażeń: "+ player.getDMG());
+        System.out.println("Poziom: "+ player.getLevel() + "               Doświadczenie: " +player.getXP());
         if (player.getPotionNumber()>0){
             System.out.println("Eliksiry: " + player.getPotionNumber());}
-        System.out.println("Zbroja: " + player.getArmor());
+        System.out.println("Zbroja: " + player.getArmor() + "                 Złoto: " + player.getGold());
         if (player.getBombNumber()>0){
             System.out.println("Bomby: " + player.getBombNumber());}
-        System.out.println("Złoto: " + player.getGold());
+
     }
 
 }

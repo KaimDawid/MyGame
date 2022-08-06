@@ -8,7 +8,7 @@ public abstract class Item {
     int handsEquip;
     int weaponEquip;
     int neckEquip;
-
+    int isON = 0;
     public abstract int getHelmEquip();
 
     public abstract void setHelmEquip(int helmEquip);
@@ -63,6 +63,14 @@ public abstract class Item {
     public abstract void setMagic(int magic);
 
     public abstract String getName();
+
+    public int getIsON() {
+        return isON;
+    }
+
+    public void setIsON(int isON) {
+        this.isON = isON;
+    }
 
     public abstract void setName(String name);
 

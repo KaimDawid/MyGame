@@ -12,12 +12,13 @@ public class MailShirt extends Item {
 
     int stock = 0;
 
-    String name = "Zbroja łuskowa";
+    String name = ("Zbroja łuskowa (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip;
     int chestEquip = 1;
     int handsEquip;
     int weaponEquip;
     int neckEquip;
+    int isON = 0;
 
     int eqValue;
     public MailShirt(int stock) {
@@ -174,6 +175,7 @@ public class MailShirt extends Item {
             player.setMagic(player.getMagic() + MailShirt.this.magic);
             chestEquip = 2;
             System.out.println("Założyłeś " + name);
+            isON = 1;
             eqValue = 1;
 
         }
@@ -213,6 +215,7 @@ public class MailShirt extends Item {
             player.setMagic(player.getMagic() - MailShirt.this.magic);
             chestEquip = 1;
             eqValue = 0;
+            isON = 0;
         }
     }
 }

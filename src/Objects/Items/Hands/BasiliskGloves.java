@@ -12,9 +12,10 @@ public class BasiliskGloves extends Item {
 
     int stock = 0;
 
-    String name = "Rękawice Bazyliszka";
+    String name = ("Rękawice Bazyliszka (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip;
     int chestEquip;
+    int isON = 0;
     int handsEquip = 1;
     int weaponEquip;
     int neckEquip;
@@ -214,6 +215,7 @@ public class BasiliskGloves extends Item {
             player.setMagic(player.getMagic() - BasiliskGloves.this.magic);
             handsEquip = 1;
             eqValue = 0;
+            isON = 0;
         }
     }
 }

@@ -85,7 +85,7 @@ public class LeatherHelmet extends Helmet {
         this.lhEquip = lhEquip;
     }
 
-    String name = "Skórzany hełm";
+    String name = ("Skórzany hełm (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
 
     public LeatherHelmet(int stock) {
         this.stock = stock;
@@ -95,6 +95,7 @@ public class LeatherHelmet extends Helmet {
     public int getHP() {
         return HP;
     }
+    int isON = 0;
 
     @Override
     public void setHP(int HP) {
@@ -211,6 +212,7 @@ public class LeatherHelmet extends Helmet {
             player.setMagic(player.getMagic() - LeatherHelmet.this.magic);
             helmEquip = 1;
             eqValue = 0;
+            isON = 0;
         }
     }
 }

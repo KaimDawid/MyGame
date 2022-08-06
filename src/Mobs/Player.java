@@ -24,7 +24,17 @@ int potionNumber;
 int armor;
 int poison;
 
-int magic;
+int maxMana = 100;
+
+    public int getMaxMana() {
+        return maxMana;
+    }
+
+    public void setMaxMana(int maxMana) {
+        this.maxMana = maxMana;
+    }
+
+    int magic;
 int classNumber;
 int mana;
 
@@ -238,9 +248,13 @@ int mana;
     }
 
     public void Freeze(Monster target){
+        if (mana > 49){
         System.out.println(target.getName() + " został zamrożony na 2 tury");
         target.setFreeze(2);
-        mana = mana - 50;
+        mana = mana - 50;}
+        else {
+            System.out.println("Masz za mało many!");
+        }
     }
     public void Teleport(Player player){
         Scanner scanner = new Scanner(System.in);
@@ -258,10 +272,15 @@ int mana;
 
     }
     public void Fireball(Monster monster, Player player){
-        mana = mana - 20;
-        monster.setHp(monster.getHp() - (player.getDMG() * 1.6));
-        System.out.println("Rzuciłeś kulą ognia za "+ player.getDMG() * 1.6 + " obrażeń");
-    }
+        if (mana > 19) {
+            mana = mana - 20;
+            monster.setHp(monster.getHp() - (player.getDMG() * 1.6));
+            System.out.println("Rzuciłeś kulą ognia za " + player.getDMG() * 1.6 + " obrażeń");
+        }
+        else {
+            System.out.println("Masz za mało many!");
+        }
+        }
     public void Attack(Monster monster, Player player){
         Random random = new Random();
         double missRoll = (20 - (player.getLevel() * 3) + (monster.getLevel() * 3));

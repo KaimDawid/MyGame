@@ -9,10 +9,10 @@ public class PearlNecklace extends Item {
     int DMG = 15;
     int crit = 10;
     int magic = 20;
-
+    int isON = 0;
     int stock = 0;
 
-    String name = "Perłowy naszyjnik";
+    String name = ("Perłowy naszyjnik (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip;
     int chestEquip;
     int handsEquip;
@@ -214,6 +214,7 @@ public class PearlNecklace extends Item {
             player.setMagic(player.getMagic() - PearlNecklace.this.magic);
             neckEquip = 1;
             eqValue = 0;
+            isON = 0;
         }
     }
 }

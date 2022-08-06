@@ -72,10 +72,11 @@ public class Dagger extends Weapon {
     int DMG = 25;
     int crit = 15;
     int magic = 0;
+    int isON = 0;
 
     int stock = 0;
 
-    String name = "Sztylet";
+    String name = ("Sztylet (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
 
 
     public Dagger(int stock) {
@@ -217,6 +218,7 @@ boolean dagEquip = false;
             player.setMagic(player.getMagic() - Dagger.this.magic);
             weaponEquip = 1;
             eqValue = 0;
+            isON = 0;
         }
     }
 }

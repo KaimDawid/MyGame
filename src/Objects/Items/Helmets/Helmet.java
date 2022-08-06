@@ -10,6 +10,7 @@ public abstract class Helmet extends Item {
     int handsEquip;
     int weaponEquip;
     int neckEquip;
+    int isON = 0;
 
     public abstract int getHelmEquip();
 

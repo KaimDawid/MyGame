@@ -9,8 +9,9 @@ public class DrakeHelmet extends Helmet {
  int magic = 22;
 
  int stock = 0;
+    int isON = 0;
 
- String name = "Smoczy hełm";
+ String name = ("Smoczy hełm (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip = 1;
     int chestEquip;
     int handsEquip;
@@ -216,6 +217,7 @@ public void eqON(Player player) {
             player.setMagic(player.getMagic() - DrakeHelmet.this.magic);
             helmEquip = 1;
             eqValue = 0;
+            isON = 0;
         }
 }
 }

@@ -52,7 +52,7 @@ public class Fight {
                 player.setPoison(player.getPoison()-1);
             }
             System.out.println("Twoje punkty zdrowia: " + player.getHP() + "/"+ player.getMaxHP() + " Twoje obrażenia :"
-                    + player.getDMG());
+                    + player.getDMG() + "            Mana: " + player.getMana());
             Thread.sleep(800);
             System.out.println("Punkty zdrowia przeciwnika: " + monster.getHp() + " Jego obrażenia: " + monster.getDmg());
             Thread.sleep(800);

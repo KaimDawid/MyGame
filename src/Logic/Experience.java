@@ -21,6 +21,8 @@ public class Experience {
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.printf("Twoje nowe punkty zdrowia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
+            player.setMana(150);
+            player.setMaxMana(150);
             if (player.getClassNumber() == 1){
                 System.out.println("Wybierz czar którego chcesz się nauczyć: ");
                 System.out.println("1. Lodowy pocisk (zamraża przeciwnika na 2 tury, 20p many)");
@@ -50,6 +52,8 @@ public class Experience {
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.printf("Twoje nowe punkty zdrowia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
+            player.setMana(180);
+            player.setMaxMana(180);
             if (player.getClassNumber() == 1){
                 System.out.println("Wybierz czar którego chcesz się nauczyć: ");
                 if (player.getChosenSkill1() != Player.ICE) {
@@ -85,6 +89,8 @@ public class Experience {
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.printf("Twoje nowe punkty zdrowia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
+            player.setMana(210);
+            player.setMaxMana(210);
             if (player.getClassNumber() == 1){
                 System.out.println("Wybierz czar którego chcesz się nauczyć: ");
                 if (player.getChosenSkill1() != Player.ICE && player.getChosenSkill2() != Player.ICE) {
@@ -119,6 +125,8 @@ public class Experience {
             player.setXP(player.getXP() - 400);
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.printf("Twoje nowe punkty zdrowia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
+            player.setMana(250);
+            player.setMaxMana(250);
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
             player.setLevel(4);
         }
@@ -130,6 +138,8 @@ public class Experience {
             System.out.println("Gratulacje! Zdobyłeś kolejny poziom i odnowiłeś swoje punkty życia");
             System.out.printf("Twoje nowe punkty zdrowia: %.0f/%.0f%n", player.getHP(),  player.getMaxHP());
             System.out.println("Twoje nowe obrażenia: " + player.getDMG());
+            player.setMana(300);
+            player.setMaxMana(300);
             player.setLevel(5);
         }
         if (player.getLevel() == 0 && player.getHP() > 0) {
