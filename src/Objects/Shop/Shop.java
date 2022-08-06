@@ -43,11 +43,13 @@ int potionStock = 2;
 int armorStock = 1;
 int redRingStock = 1;
 int greenRingStock = 1;
-        System.out.println("Witaj w sklepie, wybierz towar który chcesz kupić");
-        System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)");
-        System.out.println("2. Eliksir zdrowia: " + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
-        System.out.println("3. Podkowa: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń");
-        System.out.println("4. Czerwony pierścień (+15 obrażeń): " + redRingPrice + " sztuk złota");
+        System.out.println("______________________________________________________________________________________________________" +
+                "________________________________________");
+        System.out.println("Witaj w sklepie, wybierz towar który chcesz kupić            |        Twoje złoto: " + player.getGold());
+        System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)                |        " +
+                "2. Eliksir zdrowia:" + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
+        System.out.println("3. Podkowa: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń       |        " +
+                "4. Czerwony pierścień: " + redRingPrice + " sztuk złota (+15 obrażeń)");
         System.out.println("5. Zielony pierścień (+20 życia): " + greenRingPrice + " sztuk złota");
 do {
     System.out.println("Dostępne towary: wpisz 9");
@@ -122,10 +124,12 @@ do {
                 System.out.println("Towar się skończył, wybierz sobie coś innego");}
             break;
         case "9":
-            System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)");
-            System.out.println("2. Eliksir zdrowia: " + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
-            System.out.println("3. Zbroja: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń");
-            System.out.println("4. Czerwony pierścień (+15 obrażeń): " + redRingPrice + " sztuk złota");
+            System.out.println("______________________________________________________________________________________________________" +
+                    "________________________________________");
+            System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)                |        " +
+                    "2. Eliksir zdrowia:" + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
+            System.out.println("3. Podkowa: " + armorPrice + " sztuk złota (negacja 15 punktów obrażeń       |        " +
+                    "4. Czerwony pierścień: " + redRingPrice + " sztuk złota (+15 obrażeń)");
             System.out.println("5. Zielony pierścień (+20 życia): " + greenRingPrice + " sztuk złota");
             break;
         default:

@@ -27,70 +27,86 @@ int spawnedMonsters = 1;
 
 
 
+    double checkme[] = new double[1000];
     public void spawn(int mobsNumber, Monster[] monsterBase){
+
         Random random = new Random();
 
-        for (int i = 1; i < mobsNumber ; i++) {
+        for (int i = 0; i < mobsNumber ; i++) {
             double valueX = random.nextInt(9);
             double valueY = random.nextInt(9);
-            field[i] = (valueX * 100 + valueY);
+
+
+            checkme[i] = (valueX * 100 + valueY);
             //
             // Potwory nie pojawią się na polach 2,5 -- 5,5 i tak dalej, żeby gracz miał trochę swojego miejsca
             //
             double mobType = random.nextInt(100);
+            int valid = 0;
 
-       /*     for (int j = 0; j < i - 1; j++) {
-                if ((valueX*100+valueY))
-                {
-                    break;
-                     }
+            for (int j = 0; j < i ; j++) {
+
+                if (checkme[i] == checkme[j]) {
+                    valid = 1;
+                }
                 else {
 
                 }
-            }*/
-            if ((valueX > 5 || valueX < 3 )&& (valueY > 5 || valueY< 3)){
-                spawnedMonsters++;
-            if (mobType < 26){
-            monsterBase[i] = new Goblin(70, 30,valueX,valueY, "goblin", 50, 50, 2);}
-             else if (mobType < 51 && mobType > 25){
-                monsterBase[i] = new Spider(80, 20, valueX,valueY, "pająk", 30, 1);
+
             }
-             //
-             //        Tu ustawiasz szansę na pojawienie się danego typu przeciwnika
-             //
-                    else if (mobType < 76 && mobType > 50){
-                monsterBase[i] = new Werewolf(150, 40, valueX,valueY,"wilkołak", 100, 100, 4);
+            if ((valueX > 5 || valueX < 3 )|| (valueY > 5 || valueY< 3)) {
+                if (valid < 1) {
+                    spawnedMonsters++;
+                    if (mobType < 26) {
+                        monsterBase[i] = new Goblin(70, 30, valueX, valueY, "goblin", 50, 50, 2);
+                    } else if (mobType < 51 && mobType > 25) {
+                        monsterBase[i] = new Spider(80, 20, valueX, valueY, "pająk", 30, 1);
                     }
-                        else if (mobType > 75){
-                monsterBase[i] = new Vampire(160, 50, valueX,valueY,"wampir",120,80, 3);
-                        }
-int emptyslots = mobsNumber;
+                    //
+                    //        Tu ustawiasz szansę na pojawienie się danego typu przeciwnika
+                    //
+                    else if (mobType < 76 && mobType > 50) {
+                        monsterBase[i] = new Werewolf(150, 40, valueX, valueY, "wilkołak", 100, 100, 4);
+                    } else if (mobType > 75) {
+                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 120, 80, 3);
+                    }
+                    int emptyslots = mobsNumber;
 
          /*   if (field[i-1] != (valueX * 100 + valueY)){
                 field[i] = (valueX * 100 + valueY);}*/
-                //
-                // Jakbyś testował spawner to włącz sobie poniższe printy,
-                // wyświetlą info o każdym wygenerowanym potworku
-                //
-            /*    System.out.println(monsterBase[i].getHp());
-                System.out.println(monsterBase[i].getDmg());
-                System.out.println("Rodzaj potwora: ");
-                System.out.println(monsterBase[i].getName());
-                System.out.println("Koordy:");
-                System.out.println(monsterBase[i].getX());
-                System.out.println(monsterBase[i].getY());
-                System.out.println();*/
-            }
-            else {
-                i = i -1;
+                    //
+                    // Jakbyś testował spawner to włącz sobie poniższe printy,
+                    // wyświetlą info o każdym wygenerowanym potworku
+                    //
+               /*     System.out.println(monsterBase[i].getHp());
+                    System.out.println(monsterBase[i].getDmg());
+                    System.out.println("Rodzaj potwora: ");
+                    System.out.println(monsterBase[i].getName());
+                    System.out.println("Koordy:");
+                    System.out.println(monsterBase[i].getX());
+                    System.out.println(monsterBase[i].getY());
+                    System.out.println();
+                    System.out.println(spawnedMonsters);*/
+                } else {
+
+                    i = i - 1;
+                }
+            }else {
+
+i = i-1;
             }
             }
         }
 
     public static void checker(Player player, Monster monster) throws InterruptedException {
-        if (player.getX() == monster.getX() && player.getY() == monster.getY()) {
-            Fight.Turn(player, monster);
-        }
+      try {
+          if (player.getX() == monster.getX() && player.getY() == monster.getY()) {
+              Fight.Turn(player, monster);
+          }
+      }
+      catch (NullPointerException a){
+
+      }
     }
     public void Game() throws InterruptedException {
       /*  Monster[] monsterBase = new Monster[100];*/
@@ -128,7 +144,7 @@ int emptyslots = mobsNumber;
 
 
         String exit = "0";
-        spawn(24, monsterBase);
+        spawn(27, monsterBase);
 
         int helmEQ = 0;
         int weaponEQ = 0;
