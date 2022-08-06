@@ -124,7 +124,7 @@ do {
                 System.out.println("Towar się skończył, wybierz sobie coś innego");}
             break;
         case "9":
-            System.out.println("______________________________________________________________________________________________________" +
+            System.out.println("________________________________________Twoje złoto: " + player.getGold() + "_________________________________________" +
                     "________________________________________");
             System.out.println("1. Bomba: " + bombPrice + " sztuk złota (80 obrażeń w walce)                |        " +
                     "2. Eliksir zdrowia:" + potionPrice + " sztuk złota (+ 100 punktów życia w walce)");
