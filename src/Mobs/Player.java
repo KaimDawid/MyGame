@@ -42,6 +42,16 @@ int mana;
     public int chosenSkill4;
     public int chosenSkill5;
 
+    int escapeInvulnerability = 0;
+
+    public int getEscapeInvulnerability() {
+        return escapeInvulnerability;
+    }
+
+    public void setEscapeInvulnerability(int escapeInvulnerability) {
+        this.escapeInvulnerability = escapeInvulnerability;
+    }
+
     public static int getICE() {
         return ICE;
     }

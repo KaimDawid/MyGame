@@ -97,7 +97,7 @@ int spawnedMonsters = 1;
                     // Jakbyś testował spawner to włącz sobie poniższe printy,
                     // wyświetlą info o każdym wygenerowanym potworku
                     //
-               /*     System.out.println(monsterBase[i].getHp());
+           /*         System.out.println(monsterBase[i].getHp());
                     System.out.println(monsterBase[i].getDmg());
                     System.out.println("Rodzaj potwora: ");
                     System.out.println(monsterBase[i].getName());
@@ -170,10 +170,12 @@ i = i-1;
         int neckEQ = 0;
         int handsEQ = 0;
         int chestEQ = 0;
-
+Dawid.setEscapeInvulnerability(0);
 
         do {
-
+                     if (Dawid.getEscapeInvulnerability() > 0){
+                       System.out.println("Uciekłeś przed walką!");
+                                                                   }
             System.out.printf("Twoje punkty życia to: %.0f/%.0f\n", Dawid.getHP(), Dawid.getMaxHP());
             System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY());
             System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ");
@@ -643,13 +645,19 @@ i = i-1;
                    break;
             }
 
-            for (int i = 1; i < spawnedMonsters; i++) {
-                checker(Dawid, monsterBase[i]);
+            if (Dawid.getEscapeInvulnerability() < 1) {
+                for (int i = 1; i < spawnedMonsters; i++) {
+                    checker(Dawid, monsterBase[i]);
+                }
+                checker(Dawid, minotaur);
+                if (Dawid.getX() == shop.getX() && Dawid.getY() == shop.getY()) {
+                    Test.store(Dawid, shop);
+                }
             }
-            checker(Dawid, minotaur);
-            if (Dawid.getX()== shop.getX() && Dawid.getY() == shop.getY()){
-                Test.store(Dawid,shop);
+            else {
+                Dawid.setEscapeInvulnerability(0);
             }
+            Dawid.setEscapeInvulnerability(0);
             if (Dawid.getX() == 3 && Dawid.getY() == 3) {
                 Weapon.goldSword(Dawid);
             }

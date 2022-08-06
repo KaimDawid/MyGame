@@ -81,7 +81,8 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
                     }
                     break;
                 case "RUN":
-                    System.out.println("Udało Ci się uciec, ale otrzymałeś " + monster.getDmg() + " obrażeń");
+                    System.out.println("Udało Ci się uciec, Twoje koordynaty to: X: " + player.getX() +", Y: " + player.getY());
+                  /*  System.out.println("Udało Ci się uciec, ale otrzymałeś " + monster.getDmg() + " obrażeń");
                     if (monster.getHp() > 0 && monster.getFreeze() == 0){
                         monster.Attack(monster, player);
                         Thread.sleep(1000);
@@ -90,9 +91,9 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
                         System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
                                 + " tury");
                         monster.setFreeze(monster.getFreeze() - 1);
-                    }
-                    player.setX(player.getX() - 1);
+                    }*/
                     escape = 1;
+                    player.setEscapeInvulnerability(1);
                     break;
                 case "2":
                     if (player.getBombNumber() > 0){
