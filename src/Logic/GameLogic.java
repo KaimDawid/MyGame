@@ -1,5 +1,6 @@
 package Logic;
 
+import Logic.Spawners.SpawnFloor2;
 import Mobs.*;
 import Objects.*;
 import Objects.Items.Chests.MailShirt;
@@ -178,10 +179,34 @@ public class GameLogic {
 
         int ladderCoordsX = 5;
         int ladderCoordsY = 5;
+        LadderDOWN ladderDOWN1 = new LadderDOWN(1,1,1);
+        LadderUP ladderUP1 = new LadderUP(1,1,2);
+        for (int k = 0; k < 1; k++) {
+            int LadderX;
+            int LadderY;
+            LadderX = (random.nextInt(8) + 1 );
+            LadderY = (random.nextInt(8) + 1 );
 
-        LadderDOWN ladderDOWN1 = new LadderDOWN(5,5,1);
 
-        LadderUP ladderUP1 = new LadderUP(5, 5, 2);
+
+            if ((LadderX > 6 || LadderX < 3) || (LadderY > 6 || LadderY < 3)) {
+
+
+                 ladderDOWN1.setX(LadderX);
+                 ladderDOWN1.setY(LadderY);
+
+                 ladderUP1.setX(LadderX);
+                 ladderUP1.setY(LadderY);
+                 System.out.println("Koordy drabiny to: ");
+                System.out.println("X: " + LadderX);
+                System.out.println("Y: " + LadderY);
+            } else {
+                k = k - 1;
+            }
+        }
+       /* LadderDOWN ladderDOWN1 = new LadderDOWN(5,5,1);
+
+        LadderUP ladderUP1 = new LadderUP(5, 5, 2);*/
       /*  Mutant mutant = new Mutant(100, 30, 5, 5, "mutant", 100, 50, 3, 1);*/
         /*Goblin goblin = new Goblin(10,10,4,5,"Goblin", 40, 999, 1, 1);*/
         /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
@@ -207,7 +232,7 @@ public class GameLogic {
 
         String exit = "0";
         spawn(27, monsterBase);
-
+        SpawnFloor2.SPAWN(27, monsterBase);
         int helmEQ = 0;
         int weaponEQ = 0;
         int neckEQ = 0;
