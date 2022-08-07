@@ -34,7 +34,17 @@ int potionNumber;
 int armor;
 int poison;
 
-int maxMana = 100;
+int burn;
+
+    public int getBurn() {
+        return burn;
+    }
+
+    public void setBurn(int burn) {
+        this.burn = burn;
+    }
+
+    int maxMana = 100;
 
     public int getMaxMana() {
         return maxMana;
@@ -330,12 +340,16 @@ int manaRegen = 10;
         double roll = random.nextDouble(100);
         double critRoll = (80 - player.getCritChance());
         if (roll > critRoll){
-            monster.setHp(monster.getHp() - (player.getDMG() * 1.2));
+            monster.setHp(monster.getHp() - (player.getDMG() * 1.2)  + monster.getArmor());
             System.out.println("Zadałeś cios krytyczny za "+ player.getDMG()*1.2 + " punktów obrażeń!");
+            System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
         }
         else if (roll < critRoll && roll > missRoll){
-            monster.setHp(monster.getHp() - player.getDMG());
+            monster.setHp(monster.getHp() - player.getDMG() + monster.getArmor());
             System.out.println("Zadałeś " + player.getDMG() + " obrażeń");
+            if (monster.getArmor() > 0){
+                System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
+            }
         }
         else if (roll < missRoll){
             System.out.println("Chybiłeś!");

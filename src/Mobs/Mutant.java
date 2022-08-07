@@ -93,6 +93,7 @@ public class Mutant extends Monster{
                 Fireball(monster, player);
             }
             else if (activeSkill == Player.TP){
+                player.setHP(player.getHP() - (monster.getDmg() * 1.4));
                 System.out.println("Mutant ukradł Twoją umiejętność teleportu, przeniósł się za Ciebie i zadał " +
                         (monster.getDmg() * 1.4) + " obrażeń!");
             }

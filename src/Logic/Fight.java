@@ -30,6 +30,7 @@ public class Fight {
 
          int toxic = 0;
         int escape = 0;
+        int burnDMG = 40;
 
         System.out.println("Napotkałeś na swojej drodze " + monster.getName() +"a" + " walcz!");
         System.out.println("1 - zatakuj");
@@ -90,8 +91,16 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
                         + " tury");
                         monster.setFreeze(monster.getFreeze() - 1);
                     }
+                    if (player.getBurn() > 0){
+                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                        player.setHP(player.getHP() - burnDMG);
+                    }
                     break;
                 case "RUN":
+                    if (player.getBurn() > 0){
+                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                        player.setHP(player.getHP() - burnDMG);
+                    }
                     System.out.println("Udało Ci się uciec, Twoje koordynaty to: X: " + player.getX() +", Y: " + player.getY());
                   /*  System.out.println("Udało Ci się uciec, ale otrzymałeś " + monster.getDmg() + " obrażeń");
                     if (monster.getHp() > 0 && monster.getFreeze() == 0){
@@ -119,6 +128,10 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
                             monster.setFreeze(monster.getFreeze() - 1);
                         }
                         System.out.println("Rzuciłeś bombę za 80 obrażeń!");
+                        if (player.getBurn() > 0){
+                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                            player.setHP(player.getHP() - burnDMG);
+                        }
                     }
                     break;
                 case "3":
@@ -138,12 +151,20 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
                                     + " tury");
                             monster.setFreeze(monster.getFreeze() - 1);
                         }
+                        if (player.getBurn() > 0){
+                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                            player.setHP(player.getHP() - burnDMG);
+                        }
                     }
                 case "ICE":
                     if (player.getChosenSkill1() == Player.ICE || player.getChosenSkill2() == Player.ICE
                     || player.getChosenSkill3() == Player.ICE || player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() ==
                     Player.ICE) {
                         player.Freeze(monster);
+                    }
+                    if (player.getBurn() > 0){
+                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                        player.setHP(player.getHP() - burnDMG);
                     }
                     break;
                 case "FIRE":
@@ -161,6 +182,10 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
                             monster.setFreeze(monster.getFreeze() - 1);
                         }
                         System.out.println("Zdrowie przeciwnika: " + monster.getHp());
+                        if (player.getBurn() > 0){
+                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                            player.setHP(player.getHP() - burnDMG);
+                        }
                     }
             }
             if (player.getHP() < 1) {

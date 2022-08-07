@@ -91,7 +91,15 @@ public abstract class Monster {
     /*    this.gold = gold;*/
     }
 
+    int armor;
 
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
 
     public double getHp() {
         return hp;

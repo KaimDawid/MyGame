@@ -1,14 +1,13 @@
 package Logic;
 
 import Mobs.*;
-import Objects.Armor;
+import Objects.*;
 import Objects.Items.Chests.MailShirt;
 import Objects.Items.Hands.BasiliskGloves;
 import Objects.Items.Helmets.DrakeHelmet;
 import Objects.Items.Helmets.LeatherHelmet;
 import Objects.Items.Necklaces.PearlNecklace;
 import Objects.Shop.Shop;
-import Objects.Weapon;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -113,6 +112,50 @@ public class GameLogic {
         }
     }
 
+
+
+
+
+    public static void LadderCheckUP(LadderUP ladder, Player player){
+        Scanner scanner1 = new Scanner(System.in);
+        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor()){
+            System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
+            System.out.println("UP - wejdź piętro wyżej,      0: wyjdź");
+            String ladderChoice = scanner1.nextLine().toUpperCase();
+            switch (ladderChoice){
+
+                case "UP":
+                    Ladder.ASCEND(player);
+                    break;
+                case "0":
+                    break;
+
+            }
+
+        }
+    }
+
+
+
+    public static void LadderCheckDOWN(LadderDOWN ladder, Player player){
+        Scanner scanner1 = new Scanner(System.in);
+        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor()){
+            System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
+            System.out.println("DOWN - zejdź piętro niżej,      0: wyjdź");
+            String ladderChoice = scanner1.nextLine().toUpperCase();
+            switch (ladderChoice){
+
+                case "DOWN":
+                    Ladder.DESCEND(player);
+                    break;
+                case "0":
+                    break;
+
+            }
+
+        }
+    }
+
     public void Game() throws InterruptedException {
         /*  Monster[] monsterBase = new Monster[100];*/
         final String SETTINGS = "9";
@@ -124,9 +167,21 @@ public class GameLogic {
 
         Player Dawid = new Player(130, 130, 30, 0, 0, 4, 4, 20, 0,
                 0, 0);
+        Dawid.setFloor(1);
         Dawid.setClassNumber(1);
         Dawid.setMana(100);
         Minotaur minotaur = new Minotaur(600, 60, 2, 8, "minotaur", 400, 8, 1);
+
+        Random random = new Random();
+        /*int ladderCoordsX = random.nextInt(8);
+        int ladderCoordsY = random.nextInt(8);*/
+
+        int ladderCoordsX = 5;
+        int ladderCoordsY = 5;
+
+        LadderDOWN ladderDOWN1 = new LadderDOWN(5,5,1);
+
+        LadderUP ladderUP1 = new LadderUP(5, 5, 2);
       /*  Mutant mutant = new Mutant(100, 30, 5, 5, "mutant", 100, 50, 3, 1);*/
         /*Goblin goblin = new Goblin(10,10,4,5,"Goblin", 40, 999, 1, 1);*/
         /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
@@ -162,11 +217,13 @@ public class GameLogic {
 
         do {
 
+
             if (Dawid.getEscapeInvulnerability() > 0) {
                 System.out.println("Uciekłeś przed walką!");
             }
             System.out.printf("Twoje punkty życia to: %.0f/%.0f\n", Dawid.getHP(), Dawid.getMaxHP());
-            System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY() + "            Mana: " + Dawid.getMana()
+            System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY() +
+                    "             Piętro: " + Dawid.getFloor() +  "          Mana: " + Dawid.getMana()
              + "/" + Dawid.getMaxMana());
             System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ,         Atrybuty : LVLUP");
             if (Dawid.getChosenSkill1() == Player.TP || Dawid.getChosenSkill2() == Player.TP ||
@@ -1465,8 +1522,11 @@ break;
                             "     (_/             WPISANO KODY!!!        \\_)");
                     break;
             }
+            LadderCheckDOWN(ladderDOWN1, Dawid);
+            LadderCheckUP(ladderUP1, Dawid);
 
             if (Dawid.getEscapeInvulnerability() < 1) {
+
                 for (int i = 1; i < spawnedMonsters; i++) {
                     checker(Dawid, monsterBase[i]);
                     if (checkSuccesful > 0) {
@@ -1478,6 +1538,7 @@ break;
                 if (Dawid.getX() == shop.getX() && Dawid.getY() == shop.getY()) {
                     Test.store(Dawid, shop);
                 }
+
             } else {
                 Dawid.setEscapeInvulnerability(0);
             }
