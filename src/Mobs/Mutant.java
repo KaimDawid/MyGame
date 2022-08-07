@@ -103,6 +103,7 @@ public class Mutant extends Monster{
 
         }
         else if (roll < 81 && roll > missRoll){
+            System.out.println("Mutant uderzył Cię za " + (monster.getDmg() - player.getArmor()) + " obrażeń!");
             player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
         }
         else if (roll < missRoll){

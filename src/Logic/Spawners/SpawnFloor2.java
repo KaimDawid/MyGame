@@ -8,7 +8,7 @@ public class SpawnFloor2 {
     public static void SPAWN(int mobsNumber, Monster[] monsterBase) {
         double checkme[] = new double[1000];
         Random random = new Random();
-int spawnedMonsters = 1;
+int spawnedMonstersFloor2 = 1;
 
         for (int i = 0; i < mobsNumber; i++) {
             double valueX = random.nextInt(8) + 1;
@@ -32,9 +32,9 @@ int spawnedMonsters = 1;
                 }
 
             }
-            if ((valueX > 5 || valueX < 3) || (valueY > 5 || valueY < 3)) {
+
                 if (valid < 1) {
-                    spawnedMonsters++;
+                    spawnedMonstersFloor2++;
                     if (mobType < 21) {
                         monsterBase[i] = new Mutant(200, 70, valueX, valueY, "mutant", 120, 60, 6, 2);
                     } else if (mobType < 41 && mobType > 20) {
@@ -46,10 +46,10 @@ int spawnedMonsters = 1;
                     else if (mobType < 61 && mobType > 40) {
                         monsterBase[i] = new Skeleton(150, 50, valueX, valueY, "szkielet", 100, 20, 5, 2);
                     } else if (mobType < 81 && mobType > 60) {
-                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3,1 );
+                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3,2 );
                     }
                     else if (mobType > 80){
-                        monsterBase[i] = new Mutant(200, 60, valueX, valueY, "mutant", 120, 50, 5, 1);
+                        monsterBase[i] = new Mutant(200, 60, valueX, valueY, "mutant", 120, 50, 5, 2);
                     }
                     int emptyslots = mobsNumber;
 
@@ -58,7 +58,7 @@ int spawnedMonsters = 1;
                     // Jakbyś testował spawner to włącz sobie poniższe printy,
                     // wyświetlą info o każdym wygenerowanym potworku
                     //
-                   /* System.out.println(monsterBase[i].getHp());
+                /*    System.out.println(monsterBase[i].getHp());
                     System.out.println(monsterBase[i].getDmg());
                     System.out.println("Rodzaj potwora: ");
                     System.out.println(monsterBase[i].getName());
@@ -66,15 +66,12 @@ int spawnedMonsters = 1;
                     System.out.println(monsterBase[i].getX());
                     System.out.println(monsterBase[i].getY());
                     System.out.println();
-                    System.out.println(spawnedMonsters);*/
+                    System.out.println(spawnedMonstersFloor2);*/
                 } else {
 
                     i = i - 1;
                 }
-            } else {
 
-                i = i - 1;
-            }
         }
     }
 }

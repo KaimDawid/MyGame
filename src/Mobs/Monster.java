@@ -30,6 +30,12 @@ public abstract class Monster {
     double level;
     public static int number = 0;
     public static Item eqNumber[] = new Item[100];
+    public static int helmEQ;
+    public static int handsEQ;
+    public static int chestEQ;
+    public static int neckEQ;
+    public static int weaponEQ;
+
 
     int floor;
 

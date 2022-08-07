@@ -342,7 +342,9 @@ int manaRegen = 10;
         if (roll > critRoll){
             monster.setHp(monster.getHp() - (player.getDMG() * 1.2)  + monster.getArmor());
             System.out.println("Zadałeś cios krytyczny za "+ player.getDMG()*1.2 + " punktów obrażeń!");
-            System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
+            if (monster.getArmor() > 0) {
+                System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
+            }
         }
         else if (roll < critRoll && roll > missRoll){
             monster.setHp(monster.getHp() - player.getDMG() + monster.getArmor());
