@@ -46,10 +46,10 @@ int spawnedMonstersFloor2 = 1;
                     else if (mobType < 61 && mobType > 40) {
                         monsterBase[i] = new Skeleton(150, 50, valueX, valueY, "szkielet", 100, 20, 5, 2);
                     } else if (mobType < 81 && mobType > 60) {
-                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3,2 );
+                        monsterBase[i] = new Vampire(250, 70, valueX, valueY, "elite wampir", 160, 50, 3,2 );
                     }
                     else if (mobType > 80){
-                        monsterBase[i] = new Mutant(200, 60, valueX, valueY, "mutant", 120, 50, 5, 2);
+                        monsterBase[i] = new Mutant(300, 90, valueX, valueY, "elite mutant", 200, 70, 5, 2);
                     }
                     int emptyslots = mobsNumber;
 

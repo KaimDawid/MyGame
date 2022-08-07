@@ -17,7 +17,7 @@ public class Imp extends Monster {
 
     @Override
     public int getGold() {
-        return 0;
+        return gold;
     }
 
     @Override
@@ -27,8 +27,9 @@ public class Imp extends Monster {
 
     @Override
     public void setGold(int gold) {
-
+        this.gold = gold;
     }
+
 
     public void Attack(Monster monster, Player player){
         Random random = new Random();

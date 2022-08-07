@@ -22,14 +22,19 @@ public class Mutant extends Monster{
 
     @Override
     public int getGold() {
-        return 0;
+        return gold;
     }
+
     @Override
     public void setGold() {
+
     }
+
     @Override
     public void setGold(int gold) {
+        this.gold = gold;
     }
+
 
     public void Freeze(Player target){
         double iceDMG = 25;

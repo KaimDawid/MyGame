@@ -58,7 +58,7 @@ do {
     switch (input) {
         case "1":
             if (bombStock > 0) {
-                if (player.getGold() > bombPrice) {
+                if (player.getGold() >= bombPrice) {
                     player.setGold(player.getGold() - bombPrice);
                     player.setBombNumber(player.getBombNumber() + 1);
                     bombStock = (bombStock - 1);
@@ -72,7 +72,7 @@ do {
             break;
         case "2":
             if (potionStock > 0) {
-                if (player.getGold() > potionPrice) {
+                if (player.getGold() >= potionPrice) {
                     player.setGold(player.getGold() - potionPrice);
                     player.setPotionNumber(player.getPotionNumber() + 1);
                     potionStock = (potionStock - 1);
@@ -85,7 +85,7 @@ do {
             break;
         case "3":
             if (armorStock > 0) {
-                if (player.getGold() > armorPrice) {
+                if (player.getGold() >= armorPrice) {
                     player.setGold(player.getGold() - armorPrice);
                     player.setArmor(player.getArmor() + 15);
                     armorStock = (armorStock - 1);
@@ -98,7 +98,7 @@ do {
             break;
         case "4":
             if (redRingStock > 0) {
-                if (player.getGold() > redRingPrice) {
+                if (player.getGold() >= redRingPrice) {
                     player.setGold(player.getGold() - redRingPrice);
                     player.setDMG(player.getDMG() + 15);
                     redRingStock = (redRingStock - 1);
@@ -111,7 +111,7 @@ do {
             break;
         case "5":
             if (greenRingStock > 0) {
-                if (player.getGold() > greenRingPrice) {
+                if (player.getGold() >= greenRingPrice) {
                     player.setGold(player.getGold() - greenRingPrice);
                     player.setHP(player.getHP() + 20);
                     player.setMaxHP(player.getHP() + 20);
