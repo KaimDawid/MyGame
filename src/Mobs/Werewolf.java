@@ -5,8 +5,8 @@ import java.util.Random;
 
 public  class Werewolf extends Monster {
     int gold;
-    public Werewolf(int hp, int dmg, double x, double y, String name, int giveXP,int gold, double level) {
-        super(hp, dmg, x, y, name, giveXP, level);
+    public Werewolf(int hp, int dmg, double x, double y, String name, int giveXP,int gold, double level, int floor) {
+        super(hp, dmg, x, y, name, giveXP, level, floor);
         this.gold = gold;
     }
 

@@ -18,8 +18,17 @@ public class Player {
    public int X;
    public int Y;
 
+   int floor = 1;
 
-int gold;
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
+    int gold;
 int bombNumber;
 int potionNumber;
 int armor;
@@ -57,11 +66,11 @@ int manaRegen = 10;
         this.mana = mana;
     }
 
-    public int chosenSkill1;
-    public int chosenSkill2;
-    public int chosenSkill3;
-    public int chosenSkill4;
-    public int chosenSkill5;
+    public int chosenSkill1 = 0;
+    public int chosenSkill2 = 0;
+    public int chosenSkill3 = 0;
+    public int chosenSkill4 = 0;
+    public int chosenSkill5 = 0;
 
     int attributePoints;
 
@@ -81,6 +90,16 @@ int manaRegen = 10;
 
     public void setEscapeInvulnerability(int escapeInvulnerability) {
         this.escapeInvulnerability = escapeInvulnerability;
+    }
+
+    int freeze = 0;
+
+    public int getFreeze() {
+        return freeze;
+    }
+
+    public void setFreeze(int freeze) {
+        this.freeze = freeze;
     }
 
     public static int getICE() {

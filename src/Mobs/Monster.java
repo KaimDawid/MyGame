@@ -30,6 +30,17 @@ public abstract class Monster {
     double level;
     public static int number = 0;
     public static Item eqNumber[] = new Item[100];
+
+    int floor;
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
     public void drop(){
 
 
@@ -69,13 +80,14 @@ public abstract class Monster {
     }
 
 
-    public Monster(int hp, int dmg, double x, double y, String name, int giveXP, double level) {
+    public Monster(int hp, int dmg, double x, double y, String name, int giveXP, double level, int floor) {
         this.hp = hp;
         this.dmg = dmg;
         this.x = x;
         this.y = y;
         this.name = name;
         this.giveXP = giveXP;
+        this.floor = floor;
     /*    this.gold = gold;*/
     }
 

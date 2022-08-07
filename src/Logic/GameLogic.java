@@ -58,18 +58,21 @@ public class GameLogic {
             if ((valueX > 5 || valueX < 3) || (valueY > 5 || valueY < 3)) {
                 if (valid < 1) {
                     spawnedMonsters++;
-                    if (mobType < 26) {
-                        monsterBase[i] = new Goblin(70, 30, valueX, valueY, "goblin", 40, 10, 2);
-                    } else if (mobType < 51 && mobType > 25) {
-                        monsterBase[i] = new Spider(80, 20, valueX, valueY, "pająk", 20, 1);
+                    if (mobType < 21) {
+                        monsterBase[i] = new Goblin(70, 30, valueX, valueY, "goblin", 40, 10, 2, 1);
+                    } else if (mobType < 41 && mobType > 20) {
+                        monsterBase[i] = new Spider(80, 20, valueX, valueY, "pająk", 20, 1, 1);
                     }
                     //
                     //        Tu ustawiasz szansę na pojawienie się danego typu przeciwnika
                     //
-                    else if (mobType < 76 && mobType > 50) {
-                        monsterBase[i] = new Werewolf(150, 40, valueX, valueY, "wilkołak", 60, 20, 4);
-                    } else if (mobType > 75) {
-                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3);
+                    else if (mobType < 61 && mobType > 40) {
+                        monsterBase[i] = new Werewolf(150, 40, valueX, valueY, "wilkołak", 60, 20, 4, 1);
+                    } else if (mobType < 81 && mobType > 60) {
+                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3,1 );
+                    }
+                    else if (mobType > 80){
+                        monsterBase[i] = new Mutant(200, 60, valueX, valueY, "mutant", 120, 50, 5, 1);
                     }
                     int emptyslots = mobsNumber;
 
@@ -101,7 +104,7 @@ public class GameLogic {
 
     public static void checker(Player player, Monster monster) throws InterruptedException {
         try {
-            if (player.getX() == monster.getX() && player.getY() == monster.getY()) {
+            if (player.getX() == monster.getX() && player.getY() == monster.getY() && player.getFloor() == monster.getFloor()) {
                 Fight.Turn(player, monster);
                 checkSuccesful = 1;
             }
@@ -123,7 +126,9 @@ public class GameLogic {
                 0, 0);
         Dawid.setClassNumber(1);
         Dawid.setMana(100);
-        Minotaur minotaur = new Minotaur(600, 60, 2, 8, "minotaur", 400, 8);
+        Minotaur minotaur = new Minotaur(600, 60, 2, 8, "minotaur", 400, 8, 1);
+      /*  Mutant mutant = new Mutant(100, 30, 5, 5, "mutant", 100, 50, 3, 1);*/
+        /*Goblin goblin = new Goblin(10,10,4,5,"Goblin", 40, 999, 1, 1);*/
         /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
        /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
         Vampire vampire = new Vampire(160, 50, 4,2,"wampir",120,80, 3);*/
@@ -156,6 +161,7 @@ public class GameLogic {
         Dawid.setEscapeInvulnerability(0);
 
         do {
+
             if (Dawid.getEscapeInvulnerability() > 0) {
                 System.out.println("Uciekłeś przed walką!");
             }
@@ -1430,7 +1436,7 @@ break;
                     break;
                 case "ABCDE":
                     Dawid.setHP(10000);
-                    Dawid.setDMG(10000);
+                    Dawid.setDMG(5);
                     Dawid.setMaxHP(10000);
                     eqNumber[0] = new DrakeHelmet(1);
                     eqNumber[1] = new DrakeHelmet(1);

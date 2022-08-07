@@ -20,6 +20,11 @@ public class Fight {
 
     static final int BDMG = 80;
 
+    void isFrozen(Player player){
+        if (player.getFreeze() > 0){
+            System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
+        }
+    }
 
     public static void Turn(Player player, Monster monster) throws InterruptedException {
 
@@ -56,7 +61,7 @@ public class Fight {
             Thread.sleep(800);
             System.out.println("Punkty zdrowia przeciwnika: " + monster.getHp() + " Jego obrażenia: " + monster.getDmg());
             Thread.sleep(800);
-Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
+Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
             Scanner scanner = new Scanner(System.in);
             String input3 = scanner.nextLine().toUpperCase();
             if (spider.getI() > 0){
@@ -68,7 +73,13 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1);
 
             switch (input3) {
                 case "1":
-                    player.Attack(monster, player);
+                    if (player.getFreeze() < 1) {
+                        player.Attack(monster, player);
+                    }
+                    else if (player.getFreeze() > 0){
+                        System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
+                        player.setFreeze(player.getFreeze() - 1);
+                    }
                         Thread.sleep(1000);
                     if (monster.getHp() > 0 && monster.getFreeze() == 0){
                     monster.Attack(monster, player);
