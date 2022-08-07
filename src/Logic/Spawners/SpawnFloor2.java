@@ -16,9 +16,7 @@ int spawnedMonstersFloor2 = 1;
 
 
             checkme[i] = (valueX * 100 + valueY);
-            //
-            // Potwory nie pojawią się na polach 2,5 -- 5,5 i tak dalej, żeby gracz miał trochę swojego miejsca
-            //
+
             double mobType = random.nextInt(100);
             int valid = 0;
 

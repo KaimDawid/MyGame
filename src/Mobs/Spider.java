@@ -3,6 +3,7 @@ package Mobs;
 
 import Logic.Fight;
 import Logic.Status.Poison;
+import Logic.Status.Status;
 
 import java.util.Random;
 
@@ -73,9 +74,7 @@ public class Spider extends Monster {
        double roll = random.nextDouble(100);
        double missRoll = (20 - (monster.getLevel() * 3) + (player.getLevel() * 3));
        if (roll > 80){
-           player.setPoison(2);
-           player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
-           System.out.println("Przeciwnik Cię zatruł za 20 obrażeń i zadał " + monster.getDmg() + " obrażeń!");
+           Status.POISON(player, monster);
        }
        else if (roll < 81 && roll > missRoll){
            System.out.println("Otrzymałeś " + monster.getDmg() + " obrażeń");

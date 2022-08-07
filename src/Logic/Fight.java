@@ -53,24 +53,18 @@ public class Fight {
                 int poisonDMG = 20;
                 player.setHP(player.getHP()- poisonDMG);
                 System.out.println("Otrzymałeś " + poisonDMG + "obrażeń od trucizny");
-                boolean poisoned = true;
 
                 player.setPoison(player.getPoison()-1);
             }
             System.out.println("Twoje punkty zdrowia: " + player.getHP() + "/"+ player.getMaxHP() + " Twoje obrażenia :"
                     + player.getDMG() + "            Mana: " + player.getMana());
-            Thread.sleep(800);
+
             System.out.println("Punkty zdrowia przeciwnika: " + monster.getHp() + " Jego obrażenia: " + monster.getDmg());
-            Thread.sleep(800);
-Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
+
+
             Scanner scanner = new Scanner(System.in);
             String input3 = scanner.nextLine().toUpperCase();
-            if (spider.getI() > 0){
-                int poisonDMG = 20;
-                player.setHP(player.getHP()- poisonDMG);
-                System.out.println("Otrzymałeś " + poisonDMG + "obrażeń od trucizny");
-                spider.setI(spider.getI() - 1);
-            }
+
 
             switch (input3) {
                 case "1":
@@ -81,10 +75,10 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
                         System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
                         player.setFreeze(player.getFreeze() - 1);
                     }
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                     if (monster.getHp() > 0 && monster.getFreeze() == 0){
                     monster.Attack(monster, player);
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                     }
                     else if (monster.getFreeze() > 0){
                         System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
@@ -120,7 +114,7 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
                         monster.setHp(monster.getHp() - BDMG);
                         if (monster.getHp() > 0 && monster.getFreeze() == 0){
                             monster.Attack(monster, player);
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         }
                         else if (monster.getFreeze() > 0){
                             System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
@@ -144,7 +138,7 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
                         }
                         if (monster.getHp() > 0 && monster.getFreeze() == 0){
                             monster.Attack(monster, player);
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         }
                         else if (monster.getFreeze() > 0){
                             System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
@@ -174,7 +168,7 @@ Spider spider = new Spider(1,1,1,1,"Dupa",1,1,1);
                         player.Fireball(monster, player);
                         if (monster.getHp() > 0 && monster.getFreeze() == 0){
                             monster.Attack(monster, player);
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         }
                         else if (monster.getFreeze() > 0){
                             System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
