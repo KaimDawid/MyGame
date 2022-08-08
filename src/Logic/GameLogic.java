@@ -520,7 +520,7 @@ public class GameLogic {
                             " przedmioty lub 0 aby wyjść z ekwipunku");
                     for (int i = 0; i < 50; i++) {
                         try {
-                            System.out.println((i + 1) + ". " + eqNumber[i].getName());
+                            System.out.println((i) + ". " + eqNumber[i].getName());
                             if (eqNumber[i].getEqValue() > 0) {
                                 System.out.println("(Założony)");
                             }

@@ -1044,7 +1044,7 @@ static Scanner scanner = new Scanner(System.in);
                     System.out.println("Nie masz tego przedmiotu");
                 }
                 break;
-            case "190":
+            case "20":
                 try {
                     if (eqNumber[19].getHelmEquip() > 0 && Monster.helmEQ < 1 && eqNumber[19].getIsON() < 1) {
                         eqNumber[19].eqON(Dawid);
