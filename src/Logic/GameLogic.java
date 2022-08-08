@@ -187,7 +187,7 @@ public class GameLogic {
         // Podstawowe potwory są wyłączone bo generują się automatycznie
         //
 
-        Player Dawid = new Player(2, 200, 30, 0, 0, 4, 4, 20, 0,
+        Player Dawid = new Player(200, 200, 30, 0, 0, 4, 4, 20, 0,
                 0, 0);
         Dawid.setFloor(1);
         Dawid.setClassNumber(1);
