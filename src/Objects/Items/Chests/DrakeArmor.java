@@ -205,6 +205,12 @@ public class DrakeArmor extends Item {
     public void eqOFF(Player player){
         if (chestEquip > 1) {
             player.setMaxHP(player.getMaxHP() - DrakeArmor.this.HP);
+            if (player.getHP() - HP < 1){
+                player.setHP(1);
+            }
+            else {
+                player.setHP(player.getHP() - HP);
+            }
             if (player.getHP() > player.getMaxHP()){
                 double difference = (player.getHP() - player.getMaxHP());
                 player.setHP(player.getHP() - difference);

@@ -34,20 +34,20 @@ int spawnedMonstersFloor2 = 1;
                 if (valid < 1) {
                     spawnedMonstersFloor2++;
                     if (mobType < 21) {
-                        monsterBase[i] = new Mutant(200, 70, valueX, valueY, "mutant", 120, 60, 6, 2);
+                        monsterBase[i] = new Mutant(250, 70, valueX, valueY, "mutant", 120, 60, 6, 2);
                     } else if (mobType < 41 && mobType > 20) {
-                        monsterBase[i] = new Imp(120, 50, valueX, valueY, "imp", 80, 20, 5, 2);
+                        monsterBase[i] = new Imp(200, 80, valueX, valueY, "imp", 80, 20, 5, 2);
                     }
                     //
                     //        Tu ustawiasz szansę na pojawienie się danego typu przeciwnika
                     //
                     else if (mobType < 61 && mobType > 40) {
-                        monsterBase[i] = new Skeleton(150, 50, valueX, valueY, "szkielet", 100, 20, 5, 2);
+                        monsterBase[i] = new Skeleton(200, 50, valueX, valueY, "szkielet", 100, 20, 5, 2);
                     } else if (mobType < 81 && mobType > 60) {
-                        monsterBase[i] = new Vampire(250, 70, valueX, valueY, "elite wampir", 160, 50, 3,2 );
+                        monsterBase[i] = new Vampire(300, 70, valueX, valueY, "elite wampir", 160, 50, 3,2 );
                     }
                     else if (mobType > 80){
-                        monsterBase[i] = new Mutant(300, 90, valueX, valueY, "elite mutant", 200, 70, 5, 2);
+                        monsterBase[i] = new Mutant(350, 90, valueX, valueY, "elite mutant", 200, 70, 5, 2);
                     }
                     int emptyslots = mobsNumber;
 

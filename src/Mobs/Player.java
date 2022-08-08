@@ -43,9 +43,9 @@ public class Player {
 
     int magic = 0;
     int classNumber;
-    int mana;
+    double mana;
 
-    int manaRegen = 10;
+    double manaRegen = 10;
 
 
 
@@ -64,7 +64,7 @@ int weaponCapacity = 1;
     int freeze = 0;
 
 
-    int critChance;
+    double critChance;
 
 
     public Player(double HP, double maxHP, int DMG, int XP, int level, int x, int y, int gold, int bombNumber, int potionNumber,
@@ -361,11 +361,11 @@ int weaponCapacity = 1;
         this.magic = magic;
     }
 
-    public int getCritChance() {
+    public double getCritChance() {
         return critChance;
     }
 
-    public void setCritChance(int critChance) {
+    public void setCritChance(double critChance) {
         this.critChance = critChance;
     }
 
@@ -422,19 +422,19 @@ int weaponCapacity = 1;
     public void setMaxMana(int maxMana) {
         this.maxMana = maxMana;
     }
-    public int getManaRegen() {
+    public double getManaRegen() {
         return manaRegen;
     }
 
-    public void setManaRegen(int manaRegen) {
+    public void setManaRegen(double manaRegen) {
         this.manaRegen = manaRegen;
     }
 
-    public int getMana() {
+    public double getMana() {
         return mana;
     }
 
-    public void setMana(int mana) {
+    public void setMana(double mana) {
         this.mana = mana;
     }
 

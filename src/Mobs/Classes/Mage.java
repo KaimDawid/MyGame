@@ -11,7 +11,9 @@ public class Mage extends Player {
         super(HP, maxHP, DMG, XP, level, x, y, gold, bombNumber, potionNumber, armor);
 
 
-    }int mana;
+    }
+
+    double mana;
     int classNumber = 1;
     public int chosenSkill1;
     public int chosenSkill2;
@@ -69,11 +71,11 @@ public class Mage extends Player {
         this.chosenSkill5 = chosenSkill5;
     }
 
-    public int getMana() {
+    public double getMana() {
         return mana;
     }
 
-    public void setMana(int mana) {
+    public void setMana(double mana) {
         this.mana = mana;
     }
 

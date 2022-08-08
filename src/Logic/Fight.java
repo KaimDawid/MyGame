@@ -469,7 +469,7 @@ break;
             if (player.getMana() < player.getMaxMana()) {
 
                 player.setMana(player.getMana() + player.getManaRegen());
-                int manaDiff = (player.getMana() - player.getMaxMana());
+                double manaDiff = (player.getMana() - player.getMaxMana());
                 if (manaDiff > 0) {
                     player.setMana(player.getMana() - manaDiff);
                 }

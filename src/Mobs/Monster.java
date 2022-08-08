@@ -211,7 +211,12 @@ abstract public int getGold();
             System.out.println("Przeciwnik zadał cios krytyczny za "+ monster.getDmg()*1.2 + " punktów obrażeń!");
         }
         else if (roll < 81 && roll > missRoll){
-            player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
+            if (player.getAdrenalineValue() == 1){
+                player.setHP(player.getHP() - (monster.getDmg()*1.3));
+            }
+            else {
+                player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
+            }
         }
         else if (roll < missRoll){
             System.out.println("Przeciwnik chybił!");

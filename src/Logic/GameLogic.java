@@ -17,8 +17,7 @@ import java.util.Scanner;
 
 
 
-//          To do:
-//                - fabuła
+// TODO: 08.08.2022 - fabuła
 //                - NPC
 //                - Questy
 //                - Weapon enchants
@@ -27,8 +26,6 @@ import java.util.Scanner;
 //                - żywioły ( jeśli rzucisz błyskawice na potwora który otrzymał wodnym pociskiem, dostaje stuna )
 //                - system dnia i nocy
 //                - więcej sklepów i przedmiotów do kupienia!
-//
-//
 //
 
 import static Mobs.Monster.eqNumber;
@@ -86,19 +83,19 @@ public class GameLogic {
                 if (valid < 1) {
                     spawnedMonsters++;
                     if (mobType < 21) {
-                        monsterBase[i] = new Goblin(70, 30, valueX, valueY, "goblin", 40, 10, 2, 1);
+                        monsterBase[i] = new Goblin(120, 30, valueX, valueY, "goblin", 40, 10, 2, 1);
                     } else if (mobType < 41 && mobType > 20) {
-                        monsterBase[i] = new Spider(80, 20, valueX, valueY, "pająk", 20, 1, 1);
+                        monsterBase[i] = new Spider(130, 20, valueX, valueY, "pająk", 20, 1, 1);
                     }
                     //
                     //        Tu ustawiasz szansę na pojawienie się danego typu przeciwnika
                     //
                     else if (mobType < 61 && mobType > 40) {
-                        monsterBase[i] = new Werewolf(150, 40, valueX, valueY, "wilkołak", 60, 20, 4, 1);
+                        monsterBase[i] = new Werewolf(200, 40, valueX, valueY, "wilkołak", 60, 20, 4, 1);
                     } else if (mobType < 81 && mobType > 60) {
-                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3, 1);
+                        monsterBase[i] = new Vampire(210, 50, valueX, valueY, "wampir", 70, 14, 3, 1);
                     } else if (mobType > 80) {
-                        monsterBase[i] = new Mutant(200, 60, valueX, valueY, "mutant", 120, 50, 5, 1);
+                        monsterBase[i] = new Mutant(250, 60, valueX, valueY, "mutant", 120, 50, 5, 1);
                     }
                     int emptyslots = mobsNumber;
 
@@ -190,7 +187,7 @@ public class GameLogic {
         // Podstawowe potwory są wyłączone bo generują się automatycznie
         //
 
-        Player Dawid = new Player(130, 130, 30, 0, 0, 4, 4, 20, 0,
+        Player Dawid = new Player(2, 200, 30, 0, 0, 4, 4, 20, 0,
                 0, 0);
         Dawid.setFloor(1);
         Dawid.setClassNumber(1);
@@ -452,9 +449,9 @@ public class GameLogic {
                         System.out.println("Wybierz którą statystykę chcesz podnieść: ");
                         System.out.println("1. Atak (+1)");
                         System.out.println("2. Moc zaklęć (+5)");
-                        System.out.println("3. Punkty życia (+3)");
-                        System.out.println("4. Szansa na cios krytyczny (+1%)");
-                        System.out.println("5. Regeneracja many (+2 na turę)");
+                        System.out.println("3. Punkty życia (+6)");
+                        System.out.println("4. Szansa na cios krytyczny (+0,5%)");
+                        System.out.println("5. Regeneracja many (+0,5 na turę)");
                         System.out.println("0. Wyjdź");
 
                         attributes = scanner.nextLine();
@@ -477,8 +474,8 @@ public class GameLogic {
                                 break;
                             case "3":
                                 if (Dawid.getAttributePoints() > 0) {
-                                    Dawid.setMaxHP(Dawid.getMaxHP() + 3);
-                                    Dawid.setHP(Dawid.getHP() + 3);
+                                    Dawid.setMaxHP(Dawid.getMaxHP() + 6);
+                                    Dawid.setHP(Dawid.getHP() + 6);
                                     Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
                                 } else {
                                     System.out.println("Nie masz już punktów umiejętności");
@@ -486,7 +483,7 @@ public class GameLogic {
                                 break;
                             case "4":
                                 if (Dawid.getAttributePoints() > 0) {
-                                    Dawid.setCritChance(Dawid.getCritChance() + 1);
+                                    Dawid.setCritChance(Dawid.getCritChance() + 0.5);
                                     Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
                                 } else {
                                     System.out.println("Nie masz już punktów umiejętności");
@@ -494,7 +491,7 @@ public class GameLogic {
                                 break;
                             case "5":
                                 if (Dawid.getAttributePoints() > 0) {
-                                    Dawid.setManaRegen(Dawid.getManaRegen() + 2);
+                                    Dawid.setManaRegen(Dawid.getManaRegen() + 0.5);
                                     Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
                                 } else {
                                     System.out.println("Nie masz już punktów umiejętności");
@@ -541,6 +538,16 @@ public class GameLogic {
                     break;
                 case "EXIT":
                     input = exit;
+                    break;
+                case "GIVEITEMS":
+                    eqNumber[0] = new Dagger(1);
+                    eqNumber[1] = new Dagger(1);
+                    eqNumber[2] = new DrakeHelmet(1);
+                    eqNumber[3] = new DrakeHelmet(1);
+                    eqNumber[4] = new MailShirt(1);
+                    eqNumber[5] = new PearlNecklace(1);
+                    eqNumber[6] = new BasiliskGloves(1);
+                    eqNumber[7] = new LeatherHelmet(1);
                     break;
                 case "ABCDE":
                     Dawid.setHP(10000);
