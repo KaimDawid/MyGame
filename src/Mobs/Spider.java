@@ -2,7 +2,7 @@ package Mobs;
 
 
 import Logic.Fight;
-import Logic.Status.Poison;
+
 import Logic.Status.Status;
 
 import java.util.Random;
@@ -77,11 +77,11 @@ public class Spider extends Monster {
            Status.POISON(player, monster);
        }
        else if (roll < 81 && roll > missRoll){
-           System.out.println("Otrzymałeś " + monster.getDmg() + " obrażeń");
+           System.out.println("Pająk ukąsił Cię za " + monster.getDmg() + " obrażeń");
            player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
        }
        else if (roll < missRoll){
-           System.out.println("Przeciwnik chybił!");
+           System.out.println("Pająk chybił!");
        }
    }
 

@@ -2,16 +2,17 @@ package Objects.Items.Helmets;
 
 import Mobs.Player;
 
-public class DrakeHelmet extends Helmet {
- int HP = 25;
- int DMG = 5;
- int crit = 5;
- int magic = 22;
+public class JewelledCrown extends Helmet{
 
- int stock = 0;
+    int HP = 40;
+    int DMG = 10;
+    int crit = 5;
+    int magic = 30;
+
+    int stock = 0;
     int isON = 0;
 
- String name = ("Smoczy hełm [HEAD] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+    String name = ("Hełm wysadzany klejnotami [HEAD] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
     int helmEquip = 1;
     int chestEquip;
     int handsEquip;
@@ -69,11 +70,11 @@ public class DrakeHelmet extends Helmet {
     }
 
     public boolean isDhEquip() {
-        return dhEquip;
+        return jcEquip;
     }
 
-    public void setDhEquip(boolean dhEquip) {
-        this.dhEquip = dhEquip;
+    public void setDhEquip(boolean jcEquip) {
+        this.jcEquip = jcEquip;
     }
 
     @Override
@@ -86,7 +87,7 @@ public class DrakeHelmet extends Helmet {
         this.eqValue = eqValue;
     }
 
-    public DrakeHelmet(int stock) {
+    public JewelledCrown(int stock) {
         this.stock = stock;
     }
 
@@ -161,40 +162,40 @@ public class DrakeHelmet extends Helmet {
 
     boolean equip = false;
 
-    boolean dhEquip = false;
+    boolean jcEquip = false;
 
     @Override
-public void eqON(Player player) {
-    if (helmEquip < 2) {
-        player.setMaxHP(player.getMaxHP() + DrakeHelmet.this.HP);
-        player.setHP(player.getHP() + DrakeHelmet.this.HP);
-        player.setDMG(player.getDMG() + DrakeHelmet.this.DMG);
-        player.setCritChance(player.getCritChance() + DrakeHelmet.this.crit);
-        player.setMagic(player.getMagic() + DrakeHelmet.this.magic);
-        helmEquip = 2;
-        System.out.println("Założyłeś " + name);
-        eqValue = 1;
+    public void eqON(Player player) {
+        if (helmEquip < 2) {
+            player.setMaxHP(player.getMaxHP() + JewelledCrown.this.HP);
+            player.setHP(player.getHP() + JewelledCrown.this.HP);
+            player.setDMG(player.getDMG() + JewelledCrown.this.DMG);
+            player.setCritChance(player.getCritChance() + JewelledCrown.this.crit);
+            player.setMagic(player.getMagic() + JewelledCrown.this.magic);
+            helmEquip = 2;
+            System.out.println("Założyłeś " + name);
+            eqValue = 1;
 
-    }
-    else if (dhEquip && helmEquip > 1){
-        player.setMaxHP(player.getMaxHP() - DrakeHelmet.this.HP);
-        if (player.getHP() > player.getMaxHP()){
-            double difference = (player.getHP() - player.getMaxHP());
-            player.setHP(player.getHP() - difference);
         }
-        player.setDMG(player.getDMG() - DrakeHelmet.this.DMG);
-        player.setCritChance(player.getCritChance() - DrakeHelmet.this.crit);
-        player.setMagic(player.getMagic() - DrakeHelmet.this.magic);
-        dhEquip = false;
-        helmEquip = 1;
-        System.out.println("Zdjąłeś " + name);
-        eqValue = 0;
-    }
-    else if (!dhEquip && eqValue>0){
-        System.out.println("Najpierw zdejmij swój poprzedni hełm");
-    }
+        else if (jcEquip && helmEquip > 1){
+            player.setMaxHP(player.getMaxHP() - JewelledCrown.this.HP);
+            if (player.getHP() > player.getMaxHP()){
+                double difference = (player.getHP() - player.getMaxHP());
+                player.setHP(player.getHP() - difference);
+            }
+            player.setDMG(player.getDMG() - JewelledCrown.this.DMG);
+            player.setCritChance(player.getCritChance() - JewelledCrown.this.crit);
+            player.setMagic(player.getMagic() - JewelledCrown.this.magic);
+            jcEquip = false;
+            helmEquip = 1;
+            System.out.println("Zdjąłeś " + name);
+            eqValue = 0;
+        }
+        else if (!jcEquip && eqValue>0){
+            System.out.println("Najpierw zdejmij swój poprzedni hełm");
+        }
 
-}
+    }
 
 
 
@@ -202,17 +203,18 @@ public void eqON(Player player) {
     @Override
     public void eqOFF(Player player){
         if (helmEquip > 1) {
-            player.setMaxHP(player.getMaxHP() - DrakeHelmet.this.HP);
+            player.setMaxHP(player.getMaxHP() - JewelledCrown.this.HP);
             if (player.getHP() > player.getMaxHP()){
                 double difference = (player.getHP() - player.getMaxHP());
                 player.setHP(player.getHP() - difference);
             }
-            player.setDMG(player.getDMG() - DrakeHelmet.this.DMG);
-            player.setCritChance(player.getCritChance() - DrakeHelmet.this.crit);
-            player.setMagic(player.getMagic() - DrakeHelmet.this.magic);
+            player.setDMG(player.getDMG() - JewelledCrown.this.DMG);
+            player.setCritChance(player.getCritChance() - JewelledCrown.this.crit);
+            player.setMagic(player.getMagic() - JewelledCrown.this.magic);
             helmEquip = 1;
             eqValue = 0;
             isON = 0;
         }
-}
+    }
+    
 }

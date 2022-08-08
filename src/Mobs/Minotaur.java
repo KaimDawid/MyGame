@@ -28,14 +28,14 @@ public class Minotaur extends  Monster{
         double missRoll = (20 - (monster.getLevel() * 3) + (player.getLevel() * 3));
         if (roll > 80){
             player.setHP(player.getHP() - (monster.getDmg() * 1.2) + player.getArmor());
-            System.out.println("Przeciwnik zadał cios krytyczny za "+ monster.getDmg()*1.2 + " punktów obrażeń!");
+            System.out.println("Minotaur zadał cios krytyczny za "+ monster.getDmg()*1.2 + " punktów obrażeń!");
         }
         else if (roll < 81 && roll > missRoll){
             player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
-            System.out.println("Przeciwnik uderzył Cię za " + monster.getDmg() + " obrażeń");
+            System.out.println("Minotaur uderzył Cię za " + monster.getDmg() + " obrażeń");
         }
         else if (roll < missRoll){
-            System.out.println("Przeciwnik chybił!");
+            System.out.println("Minotaur chybił!");
         }
     }
 

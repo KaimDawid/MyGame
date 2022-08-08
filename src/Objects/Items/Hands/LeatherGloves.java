@@ -1,22 +1,29 @@
-package Objects.Items.Helmets;
+package Objects.Items.Hands;
 
 import Mobs.Player;
+import Objects.Items.Item;
 
-public class DrakeHelmet extends Helmet {
- int HP = 25;
- int DMG = 5;
- int crit = 5;
- int magic = 22;
+public class LeatherGloves extends Item {
 
- int stock = 0;
-    int isON = 0;
+    int HP = 30;
+    int DMG = 20;
+    int crit = 7;
+    int magic = 0;
 
- String name = ("Smoczy hełm [HEAD] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
-    int helmEquip = 1;
+    int stock = 0;
+
+    String name = ("Skórzane rękawice [HANDS] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+    int helmEquip;
     int chestEquip;
-    int handsEquip;
+    int isON = 0;
+    int handsEquip = 1;
     int weaponEquip;
     int neckEquip;
+
+    int eqValue;
+    public LeatherGloves(int stock) {
+        this.stock = stock;
+    }
 
     @Override
     public int getHelmEquip() {
@@ -68,13 +75,6 @@ public class DrakeHelmet extends Helmet {
         this.neckEquip = neckEquip;
     }
 
-    public boolean isDhEquip() {
-        return dhEquip;
-    }
-
-    public void setDhEquip(boolean dhEquip) {
-        this.dhEquip = dhEquip;
-    }
 
     @Override
     public int getEqValue() {
@@ -86,9 +86,7 @@ public class DrakeHelmet extends Helmet {
         this.eqValue = eqValue;
     }
 
-    public DrakeHelmet(int stock) {
-        this.stock = stock;
-    }
+
 
     @Override
     public int getHP() {
@@ -157,62 +155,67 @@ public class DrakeHelmet extends Helmet {
     public void setEquip(boolean equip) {
         this.equip = equip;
     }
-
+/*   public DrakeHelmet(int HP, int DMG, int crit, int magic) {
+        this.HP = HP;
+        this.DMG = DMG;
+        this.crit = crit;
+        this.magic = magic;
+    }*/
 
     boolean equip = false;
 
-    boolean dhEquip = false;
+    boolean lgEquip = false;
 
     @Override
-public void eqON(Player player) {
-    if (helmEquip < 2) {
-        player.setMaxHP(player.getMaxHP() + DrakeHelmet.this.HP);
-        player.setHP(player.getHP() + DrakeHelmet.this.HP);
-        player.setDMG(player.getDMG() + DrakeHelmet.this.DMG);
-        player.setCritChance(player.getCritChance() + DrakeHelmet.this.crit);
-        player.setMagic(player.getMagic() + DrakeHelmet.this.magic);
-        helmEquip = 2;
-        System.out.println("Założyłeś " + name);
-        eqValue = 1;
+    public void eqON(Player player) {
+        if (handsEquip < 2) {
+            player.setMaxHP(player.getMaxHP() + LeatherGloves.this.HP);
+            player.setHP(player.getHP() + LeatherGloves.this.HP);
+            player.setDMG(player.getDMG() + LeatherGloves.this.DMG);
+            player.setCritChance(player.getCritChance() + LeatherGloves.this.crit);
+            player.setMagic(player.getMagic() + LeatherGloves.this.magic);
+            handsEquip = 2;
+            System.out.println("Założyłeś " + name);
+            eqValue = 1;
 
-    }
-    else if (dhEquip && helmEquip > 1){
-        player.setMaxHP(player.getMaxHP() - DrakeHelmet.this.HP);
-        if (player.getHP() > player.getMaxHP()){
-            double difference = (player.getHP() - player.getMaxHP());
-            player.setHP(player.getHP() - difference);
         }
-        player.setDMG(player.getDMG() - DrakeHelmet.this.DMG);
-        player.setCritChance(player.getCritChance() - DrakeHelmet.this.crit);
-        player.setMagic(player.getMagic() - DrakeHelmet.this.magic);
-        dhEquip = false;
-        helmEquip = 1;
-        System.out.println("Zdjąłeś " + name);
-        eqValue = 0;
-    }
-    else if (!dhEquip && eqValue>0){
-        System.out.println("Najpierw zdejmij swój poprzedni hełm");
-    }
+        else if (lgEquip && handsEquip > 1){
+            player.setMaxHP(player.getMaxHP() - LeatherGloves.this.HP);
+            if (player.getHP() > player.getMaxHP()){
+                double difference = (player.getHP() - player.getMaxHP());
+                player.setHP(player.getHP() - difference);
+            }
+            player.setDMG(player.getDMG() - LeatherGloves.this.DMG);
+            player.setCritChance(player.getCritChance() - LeatherGloves.this.crit);
+            player.setMagic(player.getMagic() - LeatherGloves.this.magic);
+            lgEquip = false;
+            handsEquip = 1;
+            System.out.println("Zdjąłeś " + name);
+            eqValue = 0;
+        }
+        else if (!lgEquip && eqValue>0){
+            System.out.println("Najpierw zdejmij swoją poprzednią zbroję");
+        }
 
-}
+    }
 
 
 
 
     @Override
     public void eqOFF(Player player){
-        if (helmEquip > 1) {
-            player.setMaxHP(player.getMaxHP() - DrakeHelmet.this.HP);
+        if (handsEquip > 1) {
+            player.setMaxHP(player.getMaxHP() - LeatherGloves.this.HP);
             if (player.getHP() > player.getMaxHP()){
                 double difference = (player.getHP() - player.getMaxHP());
                 player.setHP(player.getHP() - difference);
             }
-            player.setDMG(player.getDMG() - DrakeHelmet.this.DMG);
-            player.setCritChance(player.getCritChance() - DrakeHelmet.this.crit);
-            player.setMagic(player.getMagic() - DrakeHelmet.this.magic);
-            helmEquip = 1;
+            player.setDMG(player.getDMG() - LeatherGloves.this.DMG);
+            player.setCritChance(player.getCritChance() - LeatherGloves.this.crit);
+            player.setMagic(player.getMagic() - LeatherGloves.this.magic);
+            handsEquip = 1;
             eqValue = 0;
             isON = 0;
         }
-}
+    }
 }

@@ -112,7 +112,7 @@ public class Mutant extends Monster{
             player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
         }
         else if (roll < missRoll){
-            System.out.println("Przeciwnik chybił!");
+            System.out.println("Mutant chybił!");
         }
 
     }

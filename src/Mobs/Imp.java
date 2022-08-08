@@ -1,6 +1,6 @@
 package Mobs;
 
-import Logic.Status.Burn;
+
 import Logic.Status.Status;
 
 import java.util.Random;
@@ -38,12 +38,14 @@ public class Imp extends Monster {
         if (roll > 80){
             Status.BURN(player);
 
+
         }
         else if (roll < 81 && roll > missRoll){
             player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
+            System.out.println("Imp uderzył Cię za " + monster.getDmg() + " obrażeń");
         }
         else if (roll < missRoll){
-            System.out.println("Przeciwnik chybił!");
+            System.out.println("Imp chybił!");
         }
     }
 

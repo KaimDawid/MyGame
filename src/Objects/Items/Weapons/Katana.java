@@ -1,30 +1,12 @@
-package Objects.Items.Helmets;
+package Objects.Items.Weapons;
 
 import Mobs.Player;
 
-public class LeatherHelmet extends Helmet {
-    int HP = 10;
-    int DMG = 0;
-    int crit = 2;
-    int magic = 10;
-
-    int stock = 0;
-  /*  int eqValue;*/
-
-    @Override
-    public int getEqValue() {
-        return eqValue;
-    }
-
-    @Override
-    public void setEqValue(int eqValue) {
-        this.eqValue = eqValue;
-    }
-
-    int helmEquip = 1;
+public class Katana extends Weapon {
+    int helmEquip;
     int chestEquip;
     int handsEquip;
-    int weaponEquip;
+    int weaponEquip = 1;
     int neckEquip;
 
     @Override
@@ -77,17 +59,26 @@ public class LeatherHelmet extends Helmet {
         this.neckEquip = neckEquip;
     }
 
-    public boolean isLhEquip() {
-        return lhEquip;
+    public boolean isDagEquip() {
+        return KatEquip;
     }
 
-    public void setLhEquip(boolean lhEquip) {
-        this.lhEquip = lhEquip;
+    public void setDagEquip(boolean KatEquip) {
+        this.KatEquip = KatEquip;
     }
 
-    String name = ("Skórzany hełm [HEAD] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+    int HP = 0;
+    int DMG = 40;
+    int crit = 10;
+    int magic = 10;
+    int isON = 0;
 
-    public LeatherHelmet(int stock) {
+    int stock = 0;
+
+    String name = ("Katana [WEAPON] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+
+
+    public Katana(int stock) {
         this.stock = stock;
     }
 
@@ -95,7 +86,6 @@ public class LeatherHelmet extends Helmet {
     public int getHP() {
         return HP;
     }
-    int isON = 0;
 
     @Override
     public void setHP(int HP) {
@@ -159,6 +149,16 @@ public class LeatherHelmet extends Helmet {
     public void setEquip(boolean equip) {
         this.equip = equip;
     }
+
+    @Override
+    public int getEqValue() {
+        return eqValue;
+    }
+
+    @Override
+    public void setEqValue(int eqValue) {
+        this.eqValue = eqValue;
+    }
 /*   public DrakeHelmet(int HP, int DMG, int crit, int magic) {
         this.HP = HP;
         this.DMG = DMG;
@@ -167,50 +167,55 @@ public class LeatherHelmet extends Helmet {
     }*/
 
     boolean equip = false;
-    boolean lhEquip = false;
-
+    boolean KatEquip = false;
     @Override
     public void eqON(Player player) {
 
-            if (helmEquip < 2) {
-                player.setMaxHP(player.getMaxHP() + LeatherHelmet.this.HP);
-                player.setHP(player.getHP() + LeatherHelmet.this.HP);
-                player.setDMG(player.getDMG() + LeatherHelmet.this.DMG);
-                player.setCritChance(player.getCritChance() + LeatherHelmet.this.crit);
-                player.setMagic(player.getMagic() + LeatherHelmet.this.magic);
-                helmEquip = 2;
-                System.out.println("Założyłeś " + name);
-                eqValue = 1;
-            }
-            else if (lhEquip){
-                player.setMaxHP(player.getMaxHP() - LeatherHelmet.this.HP);
-                player.setHP(player.getHP() - LeatherHelmet.this.HP);
-                player.setDMG(player.getDMG() - LeatherHelmet.this.DMG);
-                player.setCritChance(player.getCritChance() - LeatherHelmet.this.crit);
-                player.setMagic(player.getMagic() - LeatherHelmet.this.magic);
-                lhEquip = false;
-                helmEquip = 1;
-                System.out.println("Zdjąłeś " + name);
-                eqValue = 0;
-            }
-            else if (!lhEquip && helmEquip > 1){
-                System.out.println("Najpierw zdejmij swój poprzedni hełm");
-            }
-
+        if (weaponEquip < 2) {
+            player.setMaxHP(player.getMaxHP() + Katana.this.HP);
+            player.setHP(player.getHP() + Katana.this.HP);
+            player.setDMG(player.getDMG() + Katana.this.DMG);
+            player.setCritChance(player.getCritChance() + Katana.this.crit);
+            player.setMagic(player.getMagic() + Katana.this.magic);
+            weaponEquip = 2;
+            KatEquip = true;
+            System.out.println("Założyłeś " + name);
+            eqValue = 1;
         }
-
-    @Override
-    public void eqOFF(Player player) {
-        if (helmEquip > 1) {
-            player.setMaxHP(player.getMaxHP() - LeatherHelmet.this.HP);
+        else if (KatEquip){
+            player.setMaxHP(player.getMaxHP() - Katana.this.HP);
             if (player.getHP() > player.getMaxHP()){
                 double difference = (player.getHP() - player.getMaxHP());
                 player.setHP(player.getHP() - difference);
             }
-            player.setDMG(player.getDMG() - LeatherHelmet.this.DMG);
-            player.setCritChance(player.getCritChance() - LeatherHelmet.this.crit);
-            player.setMagic(player.getMagic() - LeatherHelmet.this.magic);
-            helmEquip = 1;
+            player.setDMG(player.getDMG() - Katana.this.DMG);
+            player.setCritChance(player.getCritChance() - Katana.this.crit);
+            player.setMagic(player.getMagic() - Katana.this.magic);
+            KatEquip = false;
+            weaponEquip = 0;
+            System.out.println("Zdjąłeś " + name);
+        }
+        else if (!KatEquip && weaponEquip > 0){
+            System.out.println("Najpierw zdejmij swój poprzednią broń");
+        }
+
+    }
+
+
+
+
+    @Override
+    public void eqOFF(Player player){
+        if (weaponEquip > 1) {
+            player.setMaxHP(player.getMaxHP() - Katana.this.HP);
+            if (player.getHP() > player.getMaxHP()){
+                double difference = (player.getHP() - player.getMaxHP());
+                player.setHP(player.getHP() - difference);
+            }
+            player.setDMG(player.getDMG() - Katana.this.DMG);
+            player.setCritChance(player.getCritChance() - Katana.this.crit);
+            player.setMagic(player.getMagic() - Katana.this.magic);
+            weaponEquip = 1;
             eqValue = 0;
             isON = 0;
         }

@@ -22,10 +22,10 @@ public class GameLogic {
 
 
     Scanner scanner = new Scanner(System.in);
-    Monster[] monsterBase = new Monster[100];
-    Monster[] monsterBase2 = new Monster[100];
+    public static Monster[] monsterBase = new Monster[100];
+    static Monster[] monsterBase2 = new Monster[100];
     double[] field = new double[999];
-    int spawnedMonsters = 1;
+    public static int spawnedMonsters = 1;
 int spawnedMonstersFloor2 = 1;
 
     double checkme[] = new double[1000];
@@ -107,7 +107,7 @@ int spawnedMonstersFloor2 = 1;
 
     public static void checker(Player player, Monster monster) throws InterruptedException {
         try {
-            if (player.getX() == monster.getX() && player.getY() == monster.getY() && player.getFloor() == monster.getFloor()) {
+            if (player.getX() == monster.getX() && player.getY() == monster.getY() && player.getFloor() == monster.getFloor() && monster.getHp()>0) {
                 Fight.Turn(player, monster);
                 checkSuccesful = 1;
             }
@@ -175,7 +175,7 @@ int spawnedMonstersFloor2 = 1;
         Dawid.setClassNumber(1);
         Dawid.setMana(100);
         Minotaur minotaur = new Minotaur(600, 60, 2, 8, "minotaur", 400, 8, 1);
-
+        
         Random random = new Random();
         /*int ladderCoordsX = random.nextInt(8);
         int ladderCoordsY = random.nextInt(8);*/
@@ -419,7 +419,7 @@ break;
                     break;
                 case "ABCDE":
                     Dawid.setHP(10000);
-                    Dawid.setDMG(5);
+                    Dawid.setDMG(10000);
                     Dawid.setMaxHP(10000);
                     eqNumber[0] = new DrakeHelmet(1);
                     eqNumber[1] = new DrakeHelmet(1);

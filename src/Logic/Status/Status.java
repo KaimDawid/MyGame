@@ -10,7 +10,7 @@ public class Status {
         player.setBurn(2);
             int burningDMG = 40;
             player.setHP(player.getHP()- burningDMG);
-            System.out.println("Otrzymałeś " + burningDMG + "obrażeń od podpalenia");
+            System.out.println("Zostałeś podpalony i otrzymałeś " + burningDMG + "obrażeń od podpalenia");
 
     }
     public static void POISON(Player player, Monster monster){
@@ -18,8 +18,8 @@ public class Status {
             int poisonDMG = 20;
             player.setPoison(2);
             player.setHP(player.getHP()- poisonDMG);
-            player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
-            System.out.println("Przeciwnik Cię zatruł za 20 obrażeń i zadał " + monster.getDmg() + " obrażeń!");
+            /*player.setHP(player.getHP() - monster.getDmg() + player.getArmor());*/
+            System.out.println("Przeciwnik Cię zatruł za 20 obrażeń!");
 
 
     }

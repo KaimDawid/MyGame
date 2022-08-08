@@ -1106,4 +1106,18 @@ public class Trash {
                         default:
                             break;
                     }*/
+
+
+//              Mapa:
+//    _______________________
+//    |x  x  x  x  x  x  x  x|
+//    |x  x  x  x  x  x  x  x|
+//    |x  x  x  x  x  x  x  x|
+//    |x  x  x  x  x  x  x  x|
+//    |x  x  x  x  x  x  x  x|
+//    |x  x  x  x  x  x  x  x|
+//    |x  x  x  x  x  x  x  x|
+//    |x  x  x  x  x  x  x  x|
+//    ------------------------
+
 }

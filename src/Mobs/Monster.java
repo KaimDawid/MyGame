@@ -1,5 +1,7 @@
 package Mobs;
 
+import Logic.Drop.Drop;
+import Logic.GameLogic;
 import Objects.Items.Chests.MailShirt;
 import Objects.Items.Hands.BasiliskGloves;
 import Objects.Items.Helmets.DrakeHelmet;
@@ -51,38 +53,29 @@ public abstract class Monster {
 
 
         Random random = new Random();
-        double drop = random.nextDouble(100);
-        if (drop<6){
-            eqNumber[number] = new DrakeHelmet(1);
-            number++;
-            System.out.println("Znalazłeś Smoczy hełm!");
-        }
-        else if (drop>5 && drop < 15){
-            eqNumber[number] = new LeatherHelmet(1);
-            number++;
-            System.out.println("Znalazłeś skórzany hełm!");
-        }
-        else if (drop>14 && drop < 31){
-            eqNumber[number] = new Dagger(1);
-            number++;
-            System.out.println("Znalazłeś sztylet!");
-        }
-        else if (drop>31 && drop < 35){
-            eqNumber[number] = new MailShirt(1);
-            number++;
-            System.out.println("Znalazłeś zbroję łuskową!");
-        }
-        else if (drop>34 && drop< 39){
-            eqNumber[number] = new PearlNecklace(1);
-            number++;
-            System.out.println("Znalazłeś perłowy naszyjnik!");
-        }
-        else if (drop>38 && drop< 46){
-            eqNumber[number] = new BasiliskGloves(1);
-            number++;
-            System.out.println("Znalazłeś rękawice bazyliszka!");
-        }
-
+       /* double drop = random.nextDouble(100);
+        if (drop<11) {*/
+            double dropArmor = random.nextDouble(100);
+            if (dropArmor <100) {
+                Drop.dropArmor();
+            }
+            double dropNeck = random.nextDouble(100);
+            if (dropNeck <100) {
+                Drop.dropNeck();
+            }
+            double dropWeapon = random.nextDouble(100);
+            if (dropWeapon <100) {
+                Drop.dropWeapon();
+            }
+            double dropGloves = random.nextDouble(100);
+            if (dropGloves <100) {
+                Drop.dropGloves();
+            }
+            double dropHelmet = random.nextDouble(100);
+            if (dropHelmet <100) {
+                Drop.dropHelmet();
+            }
+        /*}*/
     }
 
 
@@ -181,5 +174,6 @@ abstract public int getGold();
             System.out.println("Przeciwnik chybił!");
         }
     }
+
 }
 
