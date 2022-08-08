@@ -49,33 +49,14 @@ public abstract class Monster {
         this.floor = floor;
     }
 
-    public void drop(){
+    public void Drop(){
 
+        Drop.dropNeck();
+        Drop.dropWeapon();
+        Drop.dropGloves();
+        Drop.dropArmor();
+        Drop.dropHelmet();
 
-        Random random = new Random();
-       /* double drop = random.nextDouble(100);
-        if (drop<11) {*/
-            double dropArmor = random.nextDouble(100);
-            if (dropArmor <100) {
-                Drop.dropArmor();
-            }
-            double dropNeck = random.nextDouble(100);
-            if (dropNeck <100) {
-                Drop.dropNeck();
-            }
-            double dropWeapon = random.nextDouble(100);
-            if (dropWeapon <100) {
-                Drop.dropWeapon();
-            }
-            double dropGloves = random.nextDouble(100);
-            if (dropGloves <100) {
-                Drop.dropGloves();
-            }
-            double dropHelmet = random.nextDouble(100);
-            if (dropHelmet <100) {
-                Drop.dropHelmet();
-            }
-        /*}*/
     }
 
 

@@ -330,12 +330,13 @@ break;
                     monster.setX(100);
                     monster.setY(100);
                     player.setXP(player.getXP() + monster.getGiveXP() + GameLogic.monsterBase[joined].getGiveXP());
-                    GameLogic.monsterBase[joined].drop();
-                    Drop.dropHelmet();
+                    GameLogic.monsterBase[joined].Drop();
+                   monster.Drop();
+                   /* Drop.dropHelmet();
                     Drop.dropArmor();
                     Drop.dropGloves();
                     Drop.dropWeapon();
-                    Drop.dropNeck();
+                    Drop.dropNeck();*/
                     player.setGold(player.getGold() + monster.getGold() + GameLogic.monsterBase[joined].getGold());
                     joined = 1;
                     doubleStrike = 0;
@@ -352,13 +353,13 @@ break;
                   /*  int dropchance = random.nextInt(100);
                     if (dropchance < 101){*/
 
-                        Drop.dropHelmet();
+                        /*Drop.dropHelmet();
                         Drop.dropArmor();
                         Drop.dropGloves();
                         Drop.dropWeapon();
-                        Drop.dropNeck();
+                        Drop.dropNeck();*/
                     /*}*/
-                    /*monster.drop();*/
+                    monster.Drop();
                     joined = 1;
                     doubleStrike = 0;
                     escape = 1;
