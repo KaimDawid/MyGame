@@ -24,13 +24,13 @@ public class GameLogic {
     Scanner scanner = new Scanner(System.in);
     public static Monster[] monsterBase = new Monster[50];
     static Monster[] monsterBase2 = new Monster[50];
-    static Monster[] monsterbase3 = new Monster[50];
+    static Monster[] monsterBase3 = new Monster[50];
 
-    static Monster[] monsterbase4 = new Monster[50];
+    static Monster[] monsterBase4 = new Monster[50];
 
-    static Monster[] monsterbase5 = new Monster[50];
+    static Monster[] monsterBase5 = new Monster[50];
 
-    static Monster[] monsterbase6 = new Monster[50];
+    static Monster[] monsterBase6 = new Monster[50];
 
     double[] field = new double[100];
     public static int spawnedMonsters = 1;
@@ -232,7 +232,81 @@ public class GameLogic {
                 f = f - 1;
             }
         }
+        LadderDOWN ladderDOWN3 = new LadderDOWN(1, 1, 3);
+        LadderUP ladderUP3 = new LadderUP(1, 1, 4);
+        for (int f3 = 0; f3 < 1; f3++) {
+            int LadderX3;
+            int LadderY3;
+            LadderX3 = (random.nextInt(8) + 1);
+            LadderY3 = (random.nextInt(8) + 1);
 
+
+            if ((LadderX3 > (ladderUP2.getX() + 4) || LadderX3 < (ladderUP2.getX() - 4)) || (LadderY3 > (ladderUP2.getY() + 4) || LadderY3 < (ladderUP2.getY() - 4))) {
+
+
+                ladderDOWN3.setX(LadderX3);
+                ladderDOWN3.setY(LadderY3);
+
+                ladderUP3.setX(LadderX3);
+                ladderUP3.setY(LadderY3);
+                System.out.println("Koordy drabiny 3 to: ");
+                System.out.println("X: " + LadderX3);
+                System.out.println("Y: " + LadderY3);
+                System.out.println("floor: " + ladderUP3.getFloor());
+            } else {
+                f3 = f3 - 1;
+            }
+        }
+        LadderDOWN ladderDOWN4 = new LadderDOWN(1, 1, 4);
+        LadderUP ladderUP4 = new LadderUP(1, 1, 5);
+        for (int f4 = 0; f4 < 1; f4++) {
+            int LadderX4;
+            int LadderY4;
+            LadderX4 = (random.nextInt(8) + 1);
+            LadderY4 = (random.nextInt(8) + 1);
+
+
+            if ((LadderX4 > (ladderUP3.getX() + 4) || LadderX4 < (ladderUP3.getX() - 4)) || (LadderY4 > (ladderUP3.getY() + 4) || LadderY4 < (ladderUP3.getY() - 4))) {
+
+
+                ladderDOWN4.setX(LadderX4);
+                ladderDOWN4.setY(LadderY4);
+
+                ladderUP4.setX(LadderX4);
+                ladderUP4.setY(LadderY4);
+                System.out.println("Koordy drabiny 4 to: ");
+                System.out.println("X: " + LadderX4);
+                System.out.println("Y: " + LadderY4);
+                System.out.println("floor: " + ladderUP4.getFloor());
+            } else {
+                f4 = f4 - 1;
+            }
+        }
+        LadderDOWN ladderDOWN5 = new LadderDOWN(1, 1, 5);
+        LadderUP ladderUP5 = new LadderUP(1, 1, 6);
+        for (int f5 = 0; f5 < 1; f5++) {
+            int LadderX5;
+            int LadderY5;
+            LadderX5 = (random.nextInt(8) + 1);
+            LadderY5 = (random.nextInt(8) + 1);
+
+
+            if ((LadderX5 > (ladderUP4.getX() + 4) || LadderX5 < (ladderUP4.getX() - 4)) || (LadderY5 > (ladderUP4.getY() + 4) || LadderY5 < (ladderUP4.getY() - 4))) {
+
+
+                ladderDOWN5.setX(LadderX5);
+                ladderDOWN5.setY(LadderY5);
+
+                ladderUP5.setX(LadderX5);
+                ladderUP5.setY(LadderY5);
+                System.out.println("Koordy drabiny 5 to: ");
+                System.out.println("X: " + LadderX5);
+                System.out.println("Y: " + LadderY5);
+                System.out.println("floor: " + ladderUP5.getFloor());
+            } else {
+                f5 = f5 - 1;
+            }
+        }
 
 
 
@@ -267,10 +341,10 @@ public class GameLogic {
         String exit = "0";
         spawn(27, monsterBase);
         SpawnFloor2.SPAWN(27, monsterBase2);
-        SpawnFloor3.SPAWN(27, monsterbase3);
-        SpawnFloor4.SPAWN(27,monsterbase4);
-        SpawnFloor5.SPAWN(27,monsterbase5);
-        SpawnFloor6.SPAWN(27,monsterbase6);
+        SpawnFloor3.SPAWN(27, monsterBase3);
+        SpawnFloor4.SPAWN(27,monsterBase4);
+        SpawnFloor5.SPAWN(27,monsterBase5);
+        SpawnFloor6.SPAWN(27,monsterBase6);
         int helmEQ = 0;
         int weaponEQ = 0;
         int neckEQ = 0;
@@ -485,12 +559,22 @@ public class GameLogic {
             LadderCheckUP(ladderUP1, Dawid);
             LadderCheckDOWN(ladderDOWN2, Dawid);
             LadderCheckUP(ladderUP2, Dawid);
+            LadderCheckDOWN(ladderDOWN3, Dawid);
+            LadderCheckUP(ladderUP3, Dawid);
+            LadderCheckDOWN(ladderDOWN4, Dawid);
+            LadderCheckUP(ladderUP4, Dawid);
+            LadderCheckDOWN(ladderDOWN5, Dawid);
+            LadderCheckUP(ladderUP5, Dawid);
             /*checker(Dawid, mutant);*/
             if (Dawid.getEscapeInvulnerability() < 1) {
 
                 for (int icheck = 1; icheck < spawnedMonsters; icheck++) {
                     checker(Dawid, monsterBase[icheck]);
                     checker(Dawid, monsterBase2[icheck]);
+                    checker(Dawid, monsterBase3[icheck]);
+                    checker(Dawid, monsterBase4[icheck]);
+                    checker(Dawid, monsterBase5[icheck]);
+                    checker(Dawid, monsterBase6[icheck]);
                     if (checkSuccesful > 0) {
                         checkSuccesful = 0;
                         break;
