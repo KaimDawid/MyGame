@@ -418,10 +418,9 @@ break;
                     player.setGold(player.getGold() + monster.getGold() + GameLogic.monsterBase[joined].getGold());
                     joined = 1;
                     doubleStrike = 0;
-                    escape = 1;
-                    player.setAdrenalineValue(0);
-                    player.setIronSkinValue(0);
                     PlayerStatusWearOff(player);
+                    escape = 1;
+
                 }
             } else if (doubleStrike == 0) {
                 if (monster.getHp() <= 0) {
@@ -442,11 +441,10 @@ break;
                     monster.Drop();
                     joined = 1;
                     doubleStrike = 0;
-                    escape = 1;
                     player.setGold(player.getGold() + monster.getGold());
-                    player.setAdrenalineValue(0);
-                    player.setIronSkinValue(0);
                     PlayerStatusWearOff(player);
+                    escape = 1;
+
                 }
             }
 
