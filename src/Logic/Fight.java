@@ -24,14 +24,14 @@ public class Fight {
     static final int BDMG = 80;
     public static int joined = 1;
     public static int doubleStrike = 0;
-    void isFrozen(Player player){
-        if (player.getFreeze() > 0){
+
+    void isFrozen(Player player) {
+        if (player.getFreeze() > 0) {
             System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
         }
     }
 
-    public static void groupFight(Monster[] monsterTable, Player player){
-
+    public static void groupFight(Monster[] monsterTable, Player player) {
 
 
         //
@@ -65,31 +65,30 @@ public class Fight {
 
     public static void Turn(Player player, Monster monster) throws InterruptedException {
 
-         int toxic = 0;
+        int toxic = 0;
         int escape = 0;
         int burnDMG = 40;
 
-        System.out.println("Napotkałeś na swojej drodze " + monster.getName() +"a" + " walcz!");
-       /* int doubleStrike = 0;*/
-
-
+        System.out.println("Napotkałeś na swojej drodze " + monster.getName() + "a" + " walcz!");
+        /* int doubleStrike = 0;*/
 
 
         System.out.println("1 - zatakuj");
         System.out.println("RUN - spróbuj uciec");
         if (player.getChosenSkill1() == Player.ICE || player.getChosenSkill2() == Player.ICE || player.getChosenSkill3() == Player.ICE ||
-                player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() == Player.ICE ){
+                player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() == Player.ICE) {
             System.out.println("ICE - rzuć lodowy pocisk (zamraża na 2 tury)");
         }
         if (player.getChosenSkill1() == Player.FIREBALL || player.getChosenSkill2() == Player.FIREBALL || player.getChosenSkill3() == Player.FIREBALL ||
-                player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() == Player.FIREBALL ){
+                player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() == Player.FIREBALL) {
             System.out.println("FIRE - rzuć kulę ognia (zadaje 120 obrażeń)");
         }
-        if (player.getBombNumber()>0){
-            System.out.println("2 - rzuć bombę za 80 obrażeń (" + player.getBombNumber() +")");}
-        if (player.getPotionNumber()>0){
-            System.out.println("3 - użyj eliksiru leczącego (" + player.getPotionNumber() +")");}
-
+        if (player.getBombNumber() > 0) {
+            System.out.println("2 - rzuć bombę za 80 obrażeń (" + player.getBombNumber() + ")");
+        }
+        if (player.getPotionNumber() > 0) {
+            System.out.println("3 - użyj eliksiru leczącego (" + player.getPotionNumber() + ")");
+        }
 
 
         do {
@@ -97,14 +96,13 @@ public class Fight {
 
             if (player.getPoison() > 0) {
                 int poisonDMG = 20;
-                player.setHP(player.getHP()- poisonDMG);
+                player.setHP(player.getHP() - poisonDMG);
                 System.out.println("Otrzymałeś " + poisonDMG + " obrażeń od trucizny");
 
-                player.setPoison(player.getPoison()-1);
+                player.setPoison(player.getPoison() - 1);
             }
-            System.out.println("Twoje punkty zdrowia: " + player.getHP() + "/"+ player.getMaxHP() + " Twoje obrażenia :"
+            System.out.println("Twoje punkty zdrowia: " + player.getHP() + "/" + player.getMaxHP() + " Twoje obrażenia :"
                     + player.getDMG() + "            Mana: " + player.getMana());
-
 
 
             System.out.println("Punkty zdrowia przeciwnika: " + monster.getHp() + " Jego obrażenia: " + monster.getDmg());
@@ -120,105 +118,103 @@ public class Fight {
 
             switch (input3) {
                 case "1":
-                   /* groupFight(GameLogic.monsterBase, player);*/
-if (doubleStrike == 0) {
-    if (player.getFreeze() < 1) {
-        player.Attack(monster, player);
-    } else if (player.getFreeze() > 0) {
-        System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
-        player.setFreeze(player.getFreeze() - 1);
-    }
-    if (doubleStrike == 1) {
-        GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
-    }
-    Thread.sleep(500);
-    if (monster.getHp() > 0 && monster.getFreeze() == 0) {
-        monster.Attack(monster, player);
-        Thread.sleep(500);
-    } else if (monster.getFreeze() > 0) {
-        System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
-                + " tury");
-        monster.setFreeze(monster.getFreeze() - 1);
-    }
-    if (player.getBurn() > 0) {
-        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
-        player.setHP(player.getHP() - burnDMG);
-    }
-}
+                    /* groupFight(GameLogic.monsterBase, player);*/
+                    if (doubleStrike == 0) {
+                        if (player.getFreeze() < 1) {
+                            player.Attack(monster, player);
+                        } else if (player.getFreeze() > 0) {
+                            System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
+                            player.setFreeze(player.getFreeze() - 1);
+                        }
+                        if (doubleStrike == 1 && GameLogic.monsterBase[joined].getFreeze() == 0) {
+                            GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
+                        }
+                        Thread.sleep(500);
+                        if (monster.getHp() > 0 && monster.getFreeze() == 0) {
+                            monster.Attack(monster, player);
+                            Thread.sleep(500);
+                        } else if (monster.getFreeze() > 0) {
+                            System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                    + " tury");
+                            monster.setFreeze(monster.getFreeze() - 1);
+                        }
+                        if (player.getBurn() > 0) {
+                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
+                            player.setHP(player.getHP() - burnDMG);
+                        }
+                    } else if (doubleStrike == 1) {
+                        System.out.println("Kogo chcesz zaatakować?");
+                        System.out.println("A. " + monster.getName() + " (" + monster.getHp() + ") HP");
+                        System.out.println("B. " + GameLogic.monsterBase[joined].getName() + " (" + GameLogic.monsterBase[joined].getHp() + ") HP");
 
-else if (doubleStrike == 1) {
-    System.out.println("Kogo chcesz zaatakować?");
-    System.out.println("A. " + monster.getName() + " (" + monster.getHp() + ") HP");
-    System.out.println("B. " + GameLogic.monsterBase[joined].getName() + " (" + GameLogic.monsterBase[joined].getHp()+") HP");
+                        String choice = scanner.nextLine().toUpperCase();
 
-    String choice = scanner.nextLine().toUpperCase();
+                        switch (choice) {
 
-    switch (choice){
+                            case "A":
 
-        case "A":
+                                if (player.getFreeze() < 1) {
+                                    player.Attack(monster, player);
+                                } else if (player.getFreeze() > 0) {
+                                    System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
+                                    player.setFreeze(player.getFreeze() - 1);
+                                }
+                                if (GameLogic.monsterBase[joined].getHp() > 0) {
+                                    GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
+                                }
+                                Thread.sleep(500);
+                                if (monster.getHp() > 0 && monster.getFreeze() == 0) {
+                                    monster.Attack(monster, player);
+                                    Thread.sleep(500);
+                                } else if (monster.getFreeze() > 0) {
+                                    System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                            + " tury");
+                                    monster.setFreeze(monster.getFreeze() - 1);
+                                }
+                                if (player.getBurn() > 0) {
+                                    System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
+                                    player.setHP(player.getHP() - burnDMG);
+                                }
 
-                if (player.getFreeze() < 1) {
-                    player.Attack(monster, player);
-                } else if (player.getFreeze() > 0) {
-                    System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
-                    player.setFreeze(player.getFreeze() - 1);
-                }
-                if (GameLogic.monsterBase[joined].getHp() > 0) {
-                    GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
-                }
-                Thread.sleep(500);
-                if (monster.getHp() > 0 && monster.getFreeze() == 0) {
-                    monster.Attack(monster, player);
-                    Thread.sleep(500);
-                } else if (monster.getFreeze() > 0) {
-                    System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
-                            + " tury");
-                    monster.setFreeze(monster.getFreeze() - 1);
-                }
-                if (player.getBurn() > 0) {
-                    System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
-                    player.setHP(player.getHP() - burnDMG);
-                }
+                                break;
 
-            break;
+                            case "B":
 
-        case "B":
+                                if (player.getFreeze() < 1) {
+                                    player.Attack(GameLogic.monsterBase[joined], player);
+                                } else if (player.getFreeze() > 0) {
+                                    System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
+                                    player.setFreeze(player.getFreeze() - 1);
+                                }
+                                if (GameLogic.monsterBase[joined].getHp() > 0) {
+                                    GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
+                                }
+                                Thread.sleep(500);
+                                if (monster.getHp() > 0 && monster.getFreeze() == 0) {
+                                    monster.Attack(monster, player);
+                                    Thread.sleep(500);
+                                } else if (monster.getFreeze() > 0) {
+                                    System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                            + " tury");
+                                    monster.setFreeze(monster.getFreeze() - 1);
+                                }
+                                if (player.getBurn() > 0) {
+                                    System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
+                                    player.setHP(player.getHP() - burnDMG);
+                                }
 
-                if (player.getFreeze() < 1) {
-                    player.Attack(GameLogic.monsterBase[joined], player);
-                } else if (player.getFreeze() > 0) {
-                    System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
-                    player.setFreeze(player.getFreeze() - 1);
-                }
-            if (GameLogic.monsterBase[joined].getHp() > 0) {
-                GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
-            }
-                Thread.sleep(500);
-                if (monster.getHp() > 0 && monster.getFreeze() == 0) {
-                    monster.Attack(monster, player);
-                    Thread.sleep(500);
-                } else if (monster.getFreeze() > 0) {
-                    System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
-                            + " tury");
-                    monster.setFreeze(monster.getFreeze() - 1);
-                }
-                if (player.getBurn() > 0) {
-                    System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
-                    player.setHP(player.getHP() - burnDMG);
-                }
+                                break;
 
-            break;
+                        }
 
-    }
-
-}
-break;
+                    }
+                    break;
                 case "RUN":
-                    if (player.getBurn() > 0){
-                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                    if (player.getBurn() > 0) {
+                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
                         player.setHP(player.getHP() - burnDMG);
                     }
-                    System.out.println("Udało Ci się uciec, Twoje koordynaty to: X: " + player.getX() +", Y: " + player.getY());
+                    System.out.println("Udało Ci się uciec, Twoje koordynaty to: X: " + player.getX() + ", Y: " + player.getY());
                   /*  System.out.println("Udało Ci się uciec, ale otrzymałeś " + monster.getDmg() + " obrażeń");
                     if (monster.getHp() > 0 && monster.getFreeze() == 0){
                         monster.Attack(monster, player);
@@ -234,20 +230,19 @@ break;
                     doubleStrike = 0;
                     break;
                 case "2":
-                    if (player.getBombNumber() > 0){
+                    if (player.getBombNumber() > 0) {
                         monster.setHp(monster.getHp() - BDMG);
-                        if (monster.getHp() > 0 && monster.getFreeze() == 0){
+                        if (monster.getHp() > 0 && monster.getFreeze() == 0) {
                             monster.Attack(monster, player);
                             Thread.sleep(500);
-                        }
-                        else if (monster.getFreeze() > 0){
+                        } else if (monster.getFreeze() > 0) {
                             System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
                                     + " tury");
                             monster.setFreeze(monster.getFreeze() - 1);
                         }
                         System.out.println("Rzuciłeś bombę za 80 obrażeń!");
-                        if (player.getBurn() > 0){
-                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                        if (player.getBurn() > 0) {
+                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
                             player.setHP(player.getHP() - burnDMG);
                         }
                         if (doubleStrike == 1) {
@@ -256,24 +251,23 @@ break;
                     }
                     break;
                 case "3":
-                    if (player.getPotionNumber()> 0){
+                    if (player.getPotionNumber() > 0) {
                         player.setPotionNumber(player.getPotionNumber() - 1);
                         player.setHP(player.getHP() + 100);
                         double difference = player.getHP() - player.getMaxHP();
-                        if (player.getHP() > player.getMaxHP()){
+                        if (player.getHP() > player.getMaxHP()) {
                             player.setHP(player.getHP() - difference);
                         }
-                        if (monster.getHp() > 0 && monster.getFreeze() == 0){
+                        if (monster.getHp() > 0 && monster.getFreeze() == 0) {
                             monster.Attack(monster, player);
                             Thread.sleep(500);
-                        }
-                        else if (monster.getFreeze() > 0){
+                        } else if (monster.getFreeze() > 0) {
                             System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
                                     + " tury");
                             monster.setFreeze(monster.getFreeze() - 1);
                         }
-                        if (player.getBurn() > 0){
-                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                        if (player.getBurn() > 0) {
+                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
                             player.setHP(player.getHP() - burnDMG);
                         }
                         if (doubleStrike == 1) {
@@ -283,35 +277,55 @@ break;
                     break;
                 case "ICE":
                     if (player.getChosenSkill1() == Player.ICE || player.getChosenSkill2() == Player.ICE
-                    || player.getChosenSkill3() == Player.ICE || player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() ==
-                    Player.ICE) {
-                        player.Freeze(monster);
+                            || player.getChosenSkill3() == Player.ICE || player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() ==
+                            Player.ICE) {
+                        if (doubleStrike == 1) {
+                            System.out.println("Kogo chcesz zamrozić?");
+                            System.out.println("A. " + monster.getName());
+                            System.out.println("B. " + GameLogic.monsterBase[joined].getName());
+
+                            String choice = scanner.nextLine().toUpperCase();
+                            switch (choice) {
+                                case "A":
+                                    player.Freeze(monster);
+                                    break;
+                                case "B":
+                                    player.Freeze(GameLogic.monsterBase[joined]);
+                                    break;
+                            }
+                        }
+                        else {
+                            player.Freeze(monster);
+                        }
+
                     }
-                    if (player.getBurn() > 0){
-                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                    if (player.getBurn() > 0) {
+                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
                         player.setHP(player.getHP() - burnDMG);
                     }
-                    if (doubleStrike == 1) {
+                    if (doubleStrike == 1 && GameLogic.monsterBase[joined].getFreeze() == 0) {
                         GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
+                    }
+                    if (monster.getFreeze() == 0) {
+                        monster.Attack(monster, player);
                     }
                     break;
                 case "FIRE":
                     if (player.getChosenSkill1() == Player.FIREBALL || player.getChosenSkill2() == Player.FIREBALL
                             || player.getChosenSkill3() == Player.FIREBALL || player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() ==
-                            Player.FIREBALL){
+                            Player.FIREBALL) {
                         player.Fireball(monster, player);
-                        if (monster.getHp() > 0 && monster.getFreeze() == 0){
+                        if (monster.getHp() > 0 && monster.getFreeze() == 0) {
                             monster.Attack(monster, player);
                             Thread.sleep(500);
-                        }
-                        else if (monster.getFreeze() > 0){
+                        } else if (monster.getFreeze() > 0) {
                             System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
                                     + " tury");
                             monster.setFreeze(monster.getFreeze() - 1);
                         }
                         System.out.println("Zdrowie przeciwnika: " + monster.getHp());
-                        if (player.getBurn() > 0){
-                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!" );
+                        if (player.getBurn() > 0) {
+                            System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
                             player.setHP(player.getHP() - burnDMG);
                         }
                         if (doubleStrike == 1) {
@@ -322,8 +336,8 @@ break;
 
 
             }
-            if (doubleStrike == 1){
-                if (monster.getHp() <= 0 && GameLogic.monsterBase[joined].getHp() <= 0){
+            if (doubleStrike == 1) {
+                if (monster.getHp() <= 0 && GameLogic.monsterBase[joined].getHp() <= 0) {
                     System.out.println("Pokonałeś obu wrogów!");
                     GameLogic.monsterBase[joined].setX(100);
                     GameLogic.monsterBase[joined].setY(100);
@@ -331,7 +345,7 @@ break;
                     monster.setY(100);
                     player.setXP(player.getXP() + monster.getGiveXP() + GameLogic.monsterBase[joined].getGiveXP());
                     GameLogic.monsterBase[joined].Drop();
-                   monster.Drop();
+                    monster.Drop();
                    /* Drop.dropHelmet();
                     Drop.dropArmor();
                     Drop.dropGloves();
@@ -342,9 +356,8 @@ break;
                     doubleStrike = 0;
                     escape = 10;
                 }
-            }
-            else if (doubleStrike == 0){
-                if (monster.getHp() <= 0){
+            } else if (doubleStrike == 0) {
+                if (monster.getHp() <= 0) {
                     System.out.println("Wygrałeś!");
                     monster.setX(100);
                     monster.setY(100);
@@ -386,9 +399,10 @@ break;
 
             }*/
             if (player.getMana() < player.getMaxMana()) {
-                int manaDiff = (player.getMana() - player.getMaxMana());
+
                 player.setMana(player.getMana() + player.getManaRegen());
-                if (manaDiff > 0){
+                int manaDiff = (player.getMana() - player.getMaxMana());
+                if (manaDiff > 0) {
                     player.setMana(player.getMana() - manaDiff);
                 }
             }

@@ -1,6 +1,6 @@
 package Logic;
 
-import Logic.Spawners.SpawnFloor2;
+import Logic.Spawners.*;
 import Mobs.*;
 import Objects.*;
 import Objects.Items.Chests.MailShirt;
@@ -22,13 +22,21 @@ public class GameLogic {
 
 
     Scanner scanner = new Scanner(System.in);
-    public static Monster[] monsterBase = new Monster[100];
-    static Monster[] monsterBase2 = new Monster[100];
-    double[] field = new double[999];
-    public static int spawnedMonsters = 1;
-int spawnedMonstersFloor2 = 1;
+    public static Monster[] monsterBase = new Monster[50];
+    static Monster[] monsterBase2 = new Monster[50];
+    static Monster[] monsterbase3 = new Monster[50];
 
-    double checkme[] = new double[1000];
+    static Monster[] monsterbase4 = new Monster[50];
+
+    static Monster[] monsterbase5 = new Monster[50];
+
+    static Monster[] monsterbase6 = new Monster[50];
+
+    double[] field = new double[100];
+    public static int spawnedMonsters = 1;
+    int spawnedMonstersFloor2 = 1;
+
+    double checkme[] = new double[500];
 
     public void spawn(int mobsNumber, Monster[] monsterBase) {
 
@@ -70,9 +78,8 @@ int spawnedMonstersFloor2 = 1;
                     else if (mobType < 61 && mobType > 40) {
                         monsterBase[i] = new Werewolf(150, 40, valueX, valueY, "wilkołak", 60, 20, 4, 1);
                     } else if (mobType < 81 && mobType > 60) {
-                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3,1 );
-                    }
-                    else if (mobType > 80){
+                        monsterBase[i] = new Vampire(160, 50, valueX, valueY, "wampir", 70, 14, 3, 1);
+                    } else if (mobType > 80) {
                         monsterBase[i] = new Mutant(200, 60, valueX, valueY, "mutant", 120, 50, 5, 1);
                     }
                     int emptyslots = mobsNumber;
@@ -107,7 +114,7 @@ int spawnedMonstersFloor2 = 1;
 
     public static void checker(Player player, Monster monster) throws InterruptedException {
         try {
-            if (player.getX() == monster.getX() && player.getY() == monster.getY() && player.getFloor() == monster.getFloor() && monster.getHp()>0) {
+            if (player.getX() == monster.getX() && player.getY() == monster.getY() && player.getFloor() == monster.getFloor() && monster.getHp() > 0) {
                 Fight.Turn(player, monster);
                 checkSuccesful = 1;
             }
@@ -117,16 +124,13 @@ int spawnedMonstersFloor2 = 1;
     }
 
 
-
-
-
-    public static void LadderCheckUP(LadderUP ladder, Player player){
+    public static void LadderCheckUP(LadderUP ladder, Player player) {
         Scanner scanner1 = new Scanner(System.in);
-        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor()){
+        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor()) {
             System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
             System.out.println("UP - wejdź piętro wyżej,      0: wyjdź");
             String ladderChoice = scanner1.nextLine().toUpperCase();
-            switch (ladderChoice){
+            switch (ladderChoice) {
 
                 case "UP":
                     Ladder.ASCEND(player);
@@ -140,14 +144,13 @@ int spawnedMonstersFloor2 = 1;
     }
 
 
-
-    public static void LadderCheckDOWN(LadderDOWN ladder, Player player){
+    public static void LadderCheckDOWN(LadderDOWN ladder, Player player) {
         Scanner scanner1 = new Scanner(System.in);
-        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor()){
+        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor()) {
             System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
             System.out.println("DOWN - zejdź piętro niżej,      0: wyjdź");
             String ladderChoice = scanner1.nextLine().toUpperCase();
-            switch (ladderChoice){
+            switch (ladderChoice) {
 
                 case "DOWN":
                     Ladder.DESCEND(player);
@@ -174,39 +177,66 @@ int spawnedMonstersFloor2 = 1;
         Dawid.setFloor(1);
         Dawid.setClassNumber(1);
         Dawid.setMana(100);
-        Minotaur minotaur = new Minotaur(600, 60, 2, 8, "minotaur", 400, 8, 1);
-        
-        Random random = new Random();
-        /*int ladderCoordsX = random.nextInt(8);
-        int ladderCoordsY = random.nextInt(8);*/
+        Minotaur minotaur = new Minotaur(600, 60, 2, 8, "minotaur", 400, 8, 2);
 
-        int ladderCoordsX = 5;
-        int ladderCoordsY = 5;
-        LadderDOWN ladderDOWN1 = new LadderDOWN(1,1,1);
-        LadderUP ladderUP1 = new LadderUP(1,1,2);
+        Random random = new Random();
+
+        LadderDOWN ladderDOWN1 = new LadderDOWN(1, 1, 1);
+        LadderUP ladderUP1 = new LadderUP(1, 1, 2);
         for (int k = 0; k < 1; k++) {
             int LadderX;
             int LadderY;
-            LadderX = (random.nextInt(8) + 1 );
-            LadderY = (random.nextInt(8) + 1 );
-
+            LadderX = (random.nextInt(8) + 1);
+            LadderY = (random.nextInt(8) + 1);
 
 
             if ((LadderX > 6 || LadderX < 3) || (LadderY > 6 || LadderY < 3)) {
 
 
-                 ladderDOWN1.setX(LadderX);
-                 ladderDOWN1.setY(LadderY);
+                ladderDOWN1.setX(LadderX);
+                ladderDOWN1.setY(LadderY);
 
-                 ladderUP1.setX(LadderX);
-                 ladderUP1.setY(LadderY);
-                 System.out.println("Koordy drabiny to: ");
+                ladderUP1.setX(LadderX);
+                ladderUP1.setY(LadderY);
+                System.out.println("Koordy drabiny to: ");
                 System.out.println("X: " + LadderX);
                 System.out.println("Y: " + LadderY);
+                System.out.println("floor: " + ladderUP1.getFloor());
             } else {
                 k = k - 1;
             }
         }
+
+        LadderDOWN ladderDOWN2 = new LadderDOWN(1, 1, 2);
+        LadderUP ladderUP2 = new LadderUP(1, 1, 3);
+        for (int f = 0; f < 1; f++) {
+            int LadderX2;
+            int LadderY2;
+            LadderX2 = (random.nextInt(8) + 1);
+            LadderY2 = (random.nextInt(8) + 1);
+
+
+            if ((LadderX2 > (ladderUP1.getX() + 4) || LadderX2 < (ladderUP1.getX() - 4)) || (LadderY2 > (ladderUP1.getY() + 4) || LadderY2 < (ladderUP1.getY() - 4))) {
+
+
+                ladderDOWN2.setX(LadderX2);
+                ladderDOWN2.setY(LadderY2);
+
+                ladderUP2.setX(LadderX2);
+                ladderUP2.setY(LadderY2);
+                System.out.println("Koordy drabiny 2 to: ");
+                System.out.println("X: " + LadderX2);
+                System.out.println("Y: " + LadderY2);
+                System.out.println("floor: " + ladderUP2.getFloor());
+            } else {
+                f = f - 1;
+            }
+        }
+
+
+
+
+
        /* LadderDOWN ladderDOWN1 = new LadderDOWN(5,5,1);
 
         LadderUP ladderUP1 = new LadderUP(5, 5, 2);*/
@@ -217,6 +247,7 @@ int spawnedMonstersFloor2 = 1;
         Vampire vampire = new Vampire(160, 50, 4,2,"wampir",120,80, 3);*/
 
         Shop shop = new Shop(3, 4);
+        shop.setFloor(1);
         Scanner scanner = new Scanner(System.in);
         String welcome = """
                           
@@ -236,6 +267,10 @@ int spawnedMonstersFloor2 = 1;
         String exit = "0";
         spawn(27, monsterBase);
         SpawnFloor2.SPAWN(27, monsterBase2);
+        SpawnFloor3.SPAWN(27, monsterbase3);
+        SpawnFloor4.SPAWN(27,monsterbase4);
+        SpawnFloor5.SPAWN(27,monsterbase5);
+        SpawnFloor6.SPAWN(27,monsterbase6);
         int helmEQ = 0;
         int weaponEQ = 0;
         int neckEQ = 0;
@@ -251,15 +286,15 @@ int spawnedMonstersFloor2 = 1;
             }
             System.out.printf("Twoje punkty życia to: %.0f/%.0f\n", Dawid.getHP(), Dawid.getMaxHP());
             System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY() +
-                    "             Piętro: " + Dawid.getFloor() +  "          Mana: " + Dawid.getMana()
-             + "/" + Dawid.getMaxMana());
-            System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ,         Atrybuty : LVLUP");
+                    "             Piętro: " + Dawid.getFloor() + "          Mana: " + Dawid.getMana()
+                    + "/" + Dawid.getMaxMana());
+            System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ,            Atrybuty : LVLUP");
             if (Dawid.getChosenSkill1() == Player.TP || Dawid.getChosenSkill2() == Player.TP ||
                     Dawid.getChosenSkill3() == Player.TP || Dawid.getChosenSkill4() == Player.TP ||
                     Dawid.getChosenSkill5() == Player.TP) {
                 System.out.println("Teleportacja: TP");
             }
-            System.out.println("Wyświetl informacje: " + INFO);
+            System.out.println("Wyświetl informacje: " + INFO + "                                   Wyjdź z gry: EXIT");
             input = scanner.nextLine().toUpperCase();
 
 
@@ -322,78 +357,73 @@ int spawnedMonstersFloor2 = 1;
                     do {
 
                         System.out.println("Masz " + Dawid.getAttributePoints() + " punktów umiejętności");
-                System.out.println("Wybierz którą statystykę chcesz podnieść: ");
-                System.out.println("1. Atak (+1)");
-                System.out.println("2. Moc zaklęć (+5)");
-                System.out.println("3. Punkty życia (+3)");
-                System.out.println("4. Szansa na cios krytyczny (+1%)");
-                System.out.println("5. Regeneracja many (+2 na turę)");
+                        System.out.println("Wybierz którą statystykę chcesz podnieść: ");
+                        System.out.println("1. Atak (+1)");
+                        System.out.println("2. Moc zaklęć (+5)");
+                        System.out.println("3. Punkty życia (+3)");
+                        System.out.println("4. Szansa na cios krytyczny (+1%)");
+                        System.out.println("5. Regeneracja many (+2 na turę)");
                         System.out.println("0. Wyjdź");
 
-                attributes = scanner.nextLine();
-                    switch (attributes){
-                        case "1":
-                            if (Dawid.getAttributePoints() > 0) {
-                                Dawid.setDMG(Dawid.getDMG() + 1);
-                                Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
-                            }
-                            else {
-                                System.out.println("Nie masz już punktów umiejętności");
-                            }
-                            break;
-                        case "2":
-                            if (Dawid.getAttributePoints() > 0) {
-                                Dawid.setMagic(Dawid.getMagic() + 5);
-                                Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
-                            }
-                             else {
-                            System.out.println("Nie masz już punktów umiejętności");
+                        attributes = scanner.nextLine();
+                        switch (attributes) {
+                            case "1":
+                                if (Dawid.getAttributePoints() > 0) {
+                                    Dawid.setDMG(Dawid.getDMG() + 1);
+                                    Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                                } else {
+                                    System.out.println("Nie masz już punktów umiejętności");
+                                }
+                                break;
+                            case "2":
+                                if (Dawid.getAttributePoints() > 0) {
+                                    Dawid.setMagic(Dawid.getMagic() + 5);
+                                    Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                                } else {
+                                    System.out.println("Nie masz już punktów umiejętności");
+                                }
+                                break;
+                            case "3":
+                                if (Dawid.getAttributePoints() > 0) {
+                                    Dawid.setMaxHP(Dawid.getMaxHP() + 3);
+                                    Dawid.setHP(Dawid.getHP() + 3);
+                                    Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                                } else {
+                                    System.out.println("Nie masz już punktów umiejętności");
+                                }
+                                break;
+                            case "4":
+                                if (Dawid.getAttributePoints() > 0) {
+                                    Dawid.setCritChance(Dawid.getCritChance() + 1);
+                                    Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                                } else {
+                                    System.out.println("Nie masz już punktów umiejętności");
+                                }
+                                break;
+                            case "5":
+                                if (Dawid.getAttributePoints() > 0) {
+                                    Dawid.setManaRegen(Dawid.getManaRegen() + 2);
+                                    Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
+                                } else {
+                                    System.out.println("Nie masz już punktów umiejętności");
+                                }
+                                break;
+                            case "0":
+                                attributes = "0";
+                                break;
+                            default:
+                                attributes = "0";
                         }
-                            break;
-                        case "3":
-                            if (Dawid.getAttributePoints() > 0) {
-                            Dawid.setHP(Dawid.getHP()+3);
-                            Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
-                            }
-                             else {
-                            System.out.println("Nie masz już punktów umiejętności");
-                        }
-                            break;
-                        case "4":
-                            if (Dawid.getAttributePoints() > 0) {
-                            Dawid.setCritChance(Dawid.getCritChance()+ 1);
-                            Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
-                            }
-                             else {
-                            System.out.println("Nie masz już punktów umiejętności");
-                        }
-                            break;
-                        case "5":
-                            if (Dawid.getAttributePoints() > 0) {
-                            Dawid.setManaRegen(Dawid.getManaRegen()+2);
-                            Dawid.setAttributePoints(Dawid.getAttributePoints() - 1);
-                            }
-                             else {
-                            System.out.println("Nie masz już punktów umiejętności");
-                        }
-                            break;
-                        case "0":
-                            attributes = "0";
-                            break;
-                            }
 
 
                     }
-                    while (attributes!= "0");
+                    while (attributes != "0");
 
 
-break;
-
-
+                    break;
 
 
                 case "EQ":
-
 
 
                     System.out.println("Twoje przedmioty: ");
@@ -416,6 +446,9 @@ break;
                     break;
                 case INFO:
                     Test.PlayerInfo(Dawid);
+                    break;
+                case "EXIT":
+                    input = exit;
                     break;
                 case "ABCDE":
                     Dawid.setHP(10000);
@@ -450,7 +483,9 @@ break;
             }
             LadderCheckDOWN(ladderDOWN1, Dawid);
             LadderCheckUP(ladderUP1, Dawid);
-/*checker(Dawid, mutant);*/
+            LadderCheckDOWN(ladderDOWN2, Dawid);
+            LadderCheckUP(ladderUP2, Dawid);
+            /*checker(Dawid, mutant);*/
             if (Dawid.getEscapeInvulnerability() < 1) {
 
                 for (int icheck = 1; icheck < spawnedMonsters; icheck++) {
@@ -469,7 +504,7 @@ break;
                     }
                 }*/
                 checker(Dawid, minotaur);
-                if (Dawid.getX() == shop.getX() && Dawid.getY() == shop.getY()) {
+                if (Dawid.getX() == shop.getX() && Dawid.getY() == shop.getY() && Dawid.getFloor() == shop.getFloor()) {
                     Test.store(Dawid, shop);
                 }
 

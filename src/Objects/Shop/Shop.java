@@ -8,6 +8,16 @@ public class Shop {
     int X;
     int Y;
 
+    int floor;
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
     public Shop(int x, int y) {
         X = x;
         Y = y;
