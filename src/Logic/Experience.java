@@ -31,6 +31,8 @@ public class Experience {
                 System.out.println("1. Lodowy pocisk (zamraża przeciwnika na 2 tury, 20p many)");
                 System.out.println("2. Kula ognia (zadaje 120 obrażeń, 50p many)");
                 System.out.println("3. Teleportacja (przenieś się na dowolne pole, darmowe)");
+                System.out.println("4. Adrenalina (Zadajesz i przyjmujesz więcej obrażeń)");
+                System.out.println("5. Skóra z żelaza (+30 armor w trakcie walki)");
                 String input = scanner.nextLine();
                 switch (input) {
                     case "1":
@@ -41,6 +43,12 @@ public class Experience {
                         break;
                     case "3":
                         player.setChosenSkill1(Player.TP);
+                        break;
+                    case "4":
+                        player.setChosenSkill1(Player.ADRENALINE);
+                        break;
+                    case "5":
+                        player.setChosenSkill1(Player.IRONSKIN);
                         break;
                 }
                 System.out.println("Nauczyłeś się nowej umiejętności!");
@@ -70,6 +78,13 @@ public class Experience {
                 if (player.getChosenSkill1() != Player.TP) {
                     System.out.println("3. Teleportacja (przenieś się na dowolne pole, darmowe)");
                 }
+                if (player.getChosenSkill1() != Player.ADRENALINE){
+                    System.out.println("4. Adrenalina (Zadajesz i przyjmujesz więcej obrażeń)");
+                }
+                if (player.getChosenSkill1() != Player.IRONSKIN){
+                    System.out.println("5. Skóra z żelaza (+30 armor w trakcie walki)");
+                }
+
                 String input = scanner.nextLine();
                 switch (input) {
                     case "1":
@@ -80,6 +95,12 @@ public class Experience {
                         break;
                     case "3":
                         player.setChosenSkill2(Player.TP);
+                        break;
+                    case "4":
+                        player.setChosenSkill2(Player.ADRENALINE);
+                        break;
+                    case "5":
+                        player.setChosenSkill2(Player.IRONSKIN);
                         break;
                 }
 
@@ -109,6 +130,12 @@ public class Experience {
                 if (player.getChosenSkill1() != Player.TP && player.getChosenSkill2() != Player.TP) {
                     System.out.println("3. Teleportacja (przenieś się na dowolne pole, darmowe)");
                 }
+                if (player.getChosenSkill1() != Player.ADRENALINE && player.getChosenSkill2() != Player.ADRENALINE){
+                    System.out.println("4. Adrenalina (Zadajesz i przyjmujesz więcej obrażeń)");
+                }
+                if (player.getChosenSkill1() != Player.IRONSKIN && player.getChosenSkill2() != Player.IRONSKIN){
+                    System.out.println("5. Skóra z żelaza (+30 armor w trakcie walki)");
+                }
                 String input = scanner.nextLine();
                 switch (input) {
                     case "1":
@@ -119,6 +146,12 @@ public class Experience {
                         break;
                     case "3":
                         player.setChosenSkill3(Player.TP);
+                        break;
+                    case "4":
+                        player.setChosenSkill3(Player.ADRENALINE);
+                        break;
+                    case "5":
+                        player.setChosenSkill3(Player.IRONSKIN);
                         break;
                 }
                 System.out.println("Nauczyłeś się nowej umiejętności!");

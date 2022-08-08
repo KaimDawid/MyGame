@@ -13,6 +13,23 @@ import Objects.Shop.Shop;
 import java.util.Random;
 import java.util.Scanner;
 
+
+
+
+//          To do:
+//                - fabuła
+//                - NPC
+//                - Questy
+//                - Weapon enchants
+//                - Status invulnerability
+//                - dungeons (grota wampirów, piekło)
+//                - żywioły ( jeśli rzucisz błyskawice na potwora który otrzymał wodnym pociskiem, dostaje stuna )
+//                - system dnia i nocy
+//                - więcej sklepów i przedmiotów do kupienia!
+//
+//
+//
+
 import static Mobs.Monster.eqNumber;
 
 public class GameLogic {

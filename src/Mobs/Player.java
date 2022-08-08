@@ -8,73 +8,46 @@ public class Player {
 
     public final static int TP = 61;
     public final static int FIREBALL = 62;
- private double HP = 120;
- private double MaxHP = 120;
+
+    public final static int ADRENALINE = 63;
+
+    public final static int IRONSKIN = 64;
+
+    private double HP = 120;
+    private double MaxHP = 120;
     int DMG = 20;
-   public int XP = 0;
+    public int XP = 0;
 
-   public double level = 0;
+    public double level = 0;
 
-   public int X;
-   public int Y;
+    public int X;
+    public int Y;
 
-   int floor = 1;
+    int floor = 1;
 
-    public int getFloor() {
-        return floor;
-    }
 
-    public void setFloor(int floor) {
-        this.floor = floor;
-    }
 
     int gold;
-int bombNumber;
-int potionNumber;
-int armor;
-int poison;
+    int bombNumber;
+    int potionNumber;
+    int armor;
+    int poison;
 
-int burn;
-
-    public int getBurn() {
-        return burn;
-    }
-
-    public void setBurn(int burn) {
-        this.burn = burn;
-    }
-
+    int burn;
     int maxMana = 100;
 
-    public int getMaxMana() {
-        return maxMana;
-    }
+    int ironSkinValue = 0;
+    int adrenalineValue = 0;
 
-    public void setMaxMana(int maxMana) {
-        this.maxMana = maxMana;
-    }
+
 
     int magic = 0;
-int classNumber;
-int mana;
+    int classNumber;
+    int mana;
 
-int manaRegen = 10;
+    int manaRegen = 10;
 
-    public int getManaRegen() {
-        return manaRegen;
-    }
 
-    public void setManaRegen(int manaRegen) {
-        this.manaRegen = manaRegen;
-    }
-
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
 
     public int chosenSkill1 = 0;
     public int chosenSkill2 = 0;
@@ -83,6 +56,134 @@ int manaRegen = 10;
     public int chosenSkill5 = 0;
 
     int attributePoints;
+
+
+
+    int freeze = 0;
+
+
+    int critChance;
+
+
+    public Player(double HP, double maxHP, int DMG, int XP, int level, int x, int y, int gold, int bombNumber, int potionNumber,
+                  int armor) {
+        this.HP = HP;
+        MaxHP = maxHP;
+        this.DMG = DMG;
+        this.XP = XP;
+        this.level = level;
+        X = x;
+        Y = y;
+        this.gold = gold;
+        this.bombNumber = bombNumber;
+        this.potionNumber = potionNumber;
+        this.armor = armor;
+    }
+
+
+    public void Freeze(Monster target) {
+        double iceDMG = 25 + (0.25 * magic);
+        if (mana > 49) {
+            System.out.println(target.getName() + " został zamrożony na 2 tury i otrzymał " + iceDMG + " obrażeń");
+            target.setHp(target.getHp() - (DMG * 0.25));
+            target.setFreeze(1);
+            mana = mana - 50;
+        } else {
+            System.out.println("Masz za mało many!");
+        }
+    }
+
+    public void Teleport(Player player) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Wybierz gdzie chcesz się przeteleportować.");
+        System.out.println("X :");
+        int inputX = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Y: ");
+        int inputY = scanner.nextInt();
+        scanner.nextLine();
+        player.setX(inputX);
+        player.setY(inputY);
+        System.out.println("Twoje nowe koordynaty to: " + inputX + "," + inputY);
+
+    }
+
+    public void Fireball(Monster monster, Player player) {
+        double fireDMG = 80 + magic;
+        if (mana > 19) {
+            mana = mana - 30;
+            monster.setHp(monster.getHp() - fireDMG);
+            System.out.println("Rzuciłeś kulą ognia za " + fireDMG + " obrażeń");
+        } else {
+            System.out.println("Masz za mało many!");
+        }
+    }
+
+    public void IronSkin(Player player) {
+        String skillName = "Żelazna skóra";
+        int ironSkinValue = 30;
+        if (player.getIronSkinValue() == 0) {
+            System.out.println("Użyłeś czaru " + skillName + " i otrzymałeś " + ironSkinValue + " punktów zbroi na 2 tury");
+            player.setArmor(player.getArmor() + ironSkinValue);
+            player.setIronSkinValue(1);
+        }
+
+    }
+
+
+    public void Adrenaline(Player player) {
+
+        String skillName = "Adrenalina";
+
+        if (player.getAdrenalineValue() == 0) {
+            double adrenalineAttackValue = (player.getDMG() * 1.5);
+            double adrenalineArmorValue = (player.getArmor() - 40);
+
+            player.setDMG((int) adrenalineAttackValue);
+            player.setArmor((int) adrenalineArmorValue);
+
+            System.out.println("Użyłeś umiejętności " + skillName + ", zadajesz 50% więcej obrażeń ale sam jesteś bardziej podatny na obrażenia");
+            player.setAdrenalineValue(1);
+        }
+
+        // 29% w dół
+
+    }
+
+    public void Cleave(Player player, Monster monster, Monster monster2) {
+
+        player.setDMG(player.getDMG() + 20);
+        System.out.println("Bierzesz zamach i atakujesz obu wrogów naraz ze zwiększoną siłą");
+        player.Attack(monster, player);
+        player.Attack(monster2, player);
+        player.setDMG(player.getDMG() - 20);
+
+
+    }
+
+
+    public void Attack(Monster monster, Player player) {
+        Random random = new Random();
+        double missRoll = (20 - (player.getLevel() * 3) + (monster.getLevel() * 3));
+        double roll = random.nextDouble(100);
+        double critRoll = (80 - player.getCritChance());
+        if (roll > critRoll) {
+            monster.setHp(monster.getHp() - (player.getDMG() * 1.2) + monster.getArmor());
+            System.out.println("Zadałeś cios krytyczny za " + player.getDMG() * 1.2 + " punktów obrażeń!");
+            if (monster.getArmor() > 0) {
+                System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
+            }
+        } else if (roll < critRoll && roll > missRoll) {
+            monster.setHp(monster.getHp() - player.getDMG() + monster.getArmor());
+            System.out.println("Zadałeś " + player.getDMG() + " obrażeń");
+            if (monster.getArmor() > 0) {
+                System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
+            }
+        } else if (roll < missRoll) {
+            System.out.println("Chybiłeś!");
+        }
+    }
 
     public int getAttributePoints() {
         return attributePoints;
@@ -102,7 +203,85 @@ int manaRegen = 10;
         this.escapeInvulnerability = escapeInvulnerability;
     }
 
-    int freeze = 0;
+    public int getIronSkinValue() {
+        return ironSkinValue;
+    }
+
+    public void setIronSkinValue(int ironSkinValue) {
+        this.ironSkinValue = ironSkinValue;
+    }
+
+    public int getAdrenalineValue() {
+        return adrenalineValue;
+    }
+
+    public void setAdrenalineValue(int adrenalineValue) {
+        this.adrenalineValue = adrenalineValue;
+    }
+
+    public double getHP() {
+        return HP;
+    }
+
+    public void setHP(double HP) {
+        this.HP = HP;
+    }
+
+    public double getMaxHP() {
+        return MaxHP;
+    }
+
+    public void setMaxHP(double maxHP) {
+        MaxHP = maxHP;
+    }
+
+    public int getDMG() {
+        return DMG;
+    }
+
+    public void setDMG(int DMG) {
+        this.DMG = DMG;
+    }
+
+    public int getXP() {
+        return XP;
+    }
+
+    public void setXP(int XP) {
+        this.XP = XP;
+    }
+
+    public double getLevel() {
+        return level;
+    }
+
+    public void setLevel(double level) {
+        this.level = level;
+    }
+
+    public int getX() {
+        return X;
+    }
+
+    public void setX(int x) {
+        X = x;
+    }
+
+    public int getY() {
+        return Y;
+    }
+
+    public void setY(int y) {
+        Y = y;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
 
     public int getFreeze() {
         return freeze;
@@ -176,8 +355,6 @@ int manaRegen = 10;
         this.magic = magic;
     }
 
-    int critChance;
-
     public int getCritChance() {
         return critChance;
     }
@@ -217,144 +394,44 @@ int manaRegen = 10;
     public void setBombNumber(int bombNumber) {
         this.bombNumber = bombNumber;
     }
-
-    public Player(double HP, double maxHP, int DMG, int XP, int level, int x, int y, int gold, int bombNumber, int potionNumber,
-                  int armor) {
-        this.HP = HP;
-        MaxHP = maxHP;
-        this.DMG = DMG;
-        this.XP = XP;
-        this.level = level;
-        X = x;
-        Y = y;
-        this.gold = gold;
-        this.bombNumber = bombNumber;
-        this.potionNumber = potionNumber;
-        this.armor = armor;
+    public int getBurn() {
+        return burn;
     }
 
-    public double getHP() {
-        return HP;
+    public void setBurn(int burn) {
+        this.burn = burn;
     }
 
-    public void setHP(double HP) {
-        this.HP = HP;
+    public int getFloor() {
+        return floor;
     }
 
-    public double getMaxHP() {
-        return MaxHP;
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+    public int getMaxMana() {
+        return maxMana;
     }
 
-    public void setMaxHP(double maxHP) {
-        MaxHP = maxHP;
+    public void setMaxMana(int maxMana) {
+        this.maxMana = maxMana;
+    }
+    public int getManaRegen() {
+        return manaRegen;
     }
 
-    public int getDMG() {
-        return DMG;
+    public void setManaRegen(int manaRegen) {
+        this.manaRegen = manaRegen;
     }
 
-    public void setDMG(int DMG) {
-        this.DMG = DMG;
+    public int getMana() {
+        return mana;
     }
 
-    public int getXP() {
-        return XP;
+    public void setMana(int mana) {
+        this.mana = mana;
     }
 
-    public void setXP(int XP) {
-        this.XP = XP;
-    }
 
-    public double getLevel() {
-        return level;
-    }
 
-    public void setLevel(double level) {
-        this.level = level;
-    }
-
-    public int getX() {
-        return X;
-    }
-
-    public void setX(int x) {
-        X = x;
-    }
-
-    public int getY() {
-        return Y;
-    }
-
-    public void setY(int y) {
-        Y = y;
-    }
-
-    public int getGold() {
-        return gold;
-    }
-
-    public void setGold(int gold) {
-        this.gold = gold;
-    }
-
-    public void Freeze(Monster target){
-        double iceDMG = 25 + (0.25* magic);
-        if (mana > 49){
-        System.out.println(target.getName() + " został zamrożony na 2 tury i otrzymał " + iceDMG + " obrażeń");
-        target.setHp(target.getHp() - (DMG * 0.25));
-        target.setFreeze(1);
-        mana = mana - 50;}
-        else {
-            System.out.println("Masz za mało many!");
-        }
-    }
-    public void Teleport(Player player){
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Wybierz gdzie chcesz się przeteleportować.");
-        System.out.println("X :");
-        int inputX = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Y: ");
-        int inputY = scanner.nextInt();
-        scanner.nextLine();
-        player.setX(inputX);
-        player.setY(inputY);
-        System.out.println("Twoje nowe koordynaty to: " + inputX + "," + inputY);
-
-    }
-    public void Fireball(Monster monster, Player player){
-        double fireDMG = 80 + magic;
-        if (mana > 19) {
-            mana = mana - 30;
-            monster.setHp(monster.getHp() - fireDMG);
-            System.out.println("Rzuciłeś kulą ognia za " + fireDMG + " obrażeń");
-        }
-        else {
-            System.out.println("Masz za mało many!");
-        }
-        }
-    public void Attack(Monster monster, Player player){
-        Random random = new Random();
-        double missRoll = (20 - (player.getLevel() * 3) + (monster.getLevel() * 3));
-        double roll = random.nextDouble(100);
-        double critRoll = (80 - player.getCritChance());
-        if (roll > critRoll){
-            monster.setHp(monster.getHp() - (player.getDMG() * 1.2)  + monster.getArmor());
-            System.out.println("Zadałeś cios krytyczny za "+ player.getDMG()*1.2 + " punktów obrażeń!");
-            if (monster.getArmor() > 0) {
-                System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
-            }
-        }
-        else if (roll < critRoll && roll > missRoll){
-            monster.setHp(monster.getHp() - player.getDMG() + monster.getArmor());
-            System.out.println("Zadałeś " + player.getDMG() + " obrażeń");
-            if (monster.getArmor() > 0){
-                System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
-            }
-        }
-        else if (roll < missRoll){
-            System.out.println("Chybiłeś!");
-        }
-    }
 }

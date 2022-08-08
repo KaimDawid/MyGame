@@ -25,6 +25,10 @@ public class Fight {
     public static int joined = 1;
     public static int doubleStrike = 0;
 
+    public static int ironSkinDuration;
+
+    public static int adrenalineDuration;
+
     void isFrozen(Player player) {
         if (player.getFreeze() > 0) {
             System.out.println("Zostałeś zamrożony, nie możesz się ruszać przez " + player.getFreeze() + " tury");
@@ -83,6 +87,14 @@ public class Fight {
                 player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() == Player.FIREBALL) {
             System.out.println("FIRE - rzuć kulę ognia (zadaje 120 obrażeń)");
         }
+        if (player.getChosenSkill1() == Player.ADRENALINE || player.getChosenSkill2() == Player.ADRENALINE || player.getChosenSkill3() == Player.ADRENALINE ||
+                player.getChosenSkill4() == Player.ADRENALINE || player.getChosenSkill5() == Player.ADRENALINE) {
+            System.out.println("ADRENALINE: Zadajesz więcej obrażeń, ale też otrzymujesz więcej");
+        }
+        if (player.getChosenSkill1() == Player.IRONSKIN || player.getChosenSkill2() == Player.IRONSKIN || player.getChosenSkill3() == Player.IRONSKIN ||
+                player.getChosenSkill4() == Player.IRONSKIN || player.getChosenSkill5() == Player.IRONSKIN) {
+            System.out.println("IRONSKIN: + 30 armor na 2 tury");
+        }
         if (player.getBombNumber() > 0) {
             System.out.println("2 - rzuć bombę za 80 obrażeń (" + player.getBombNumber() + ")");
         }
@@ -117,6 +129,63 @@ public class Fight {
 
 
             switch (input3) {
+
+                case "ADRENALINE":
+                    if (player.getAdrenalineValue() == 0) {
+                        player.Adrenaline(player);
+                        player.setAdrenalineValue(1);
+                        adrenalineDuration = 2;
+                    }
+                    else {
+                        player.Attack(monster, player);
+                    }
+                    if (doubleStrike == 1 && GameLogic.monsterBase[joined].getFreeze() == 0) {
+                        GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
+                    }
+                    Thread.sleep(500);
+                    if (monster.getHp() > 0 && monster.getFreeze() == 0) {
+                        monster.Attack(monster, player);
+                        Thread.sleep(500);
+                    } else if (monster.getFreeze() > 0) {
+                        System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                + " tury");
+                        monster.setFreeze(monster.getFreeze() - 1);
+                    }
+                    if (player.getBurn() > 0) {
+                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
+                        player.setHP(player.getHP() - burnDMG);
+                    }
+                    adrenalineDuration--;
+                    break;
+
+                case "IRONSKIN":
+                    if (player.getIronSkinValue() == 0) {
+                        player.IronSkin(player);
+                        player.setIronSkinValue(1);
+                        ironSkinDuration = 2;
+                    }
+                    else {
+                        player.Attack(monster, player);
+                    }
+                    if (doubleStrike == 1 && GameLogic.monsterBase[joined].getFreeze() == 0) {
+                        GameLogic.monsterBase[joined].Attack(GameLogic.monsterBase[joined], player);
+                    }
+                    Thread.sleep(500);
+                    if (monster.getHp() > 0 && monster.getFreeze() == 0) {
+                        monster.Attack(monster, player);
+                        Thread.sleep(500);
+                    } else if (monster.getFreeze() > 0) {
+                        System.out.println("Przeciwnik jest zamrożony, nie może się ruszać przez " + monster.getFreeze()
+                                + " tury");
+                        monster.setFreeze(monster.getFreeze() - 1);
+                    }
+                    if (player.getBurn() > 0) {
+                        System.out.println("Otrzymałeś " + burnDMG + " obrażeń od ognia!");
+                        player.setHP(player.getHP() - burnDMG);
+                    }
+                    ironSkinDuration--;
+break;
+
                 case "1":
                     /* groupFight(GameLogic.monsterBase, player);*/
                     if (doubleStrike == 0) {
@@ -346,15 +415,13 @@ public class Fight {
                     player.setXP(player.getXP() + monster.getGiveXP() + GameLogic.monsterBase[joined].getGiveXP());
                     GameLogic.monsterBase[joined].Drop();
                     monster.Drop();
-                   /* Drop.dropHelmet();
-                    Drop.dropArmor();
-                    Drop.dropGloves();
-                    Drop.dropWeapon();
-                    Drop.dropNeck();*/
                     player.setGold(player.getGold() + monster.getGold() + GameLogic.monsterBase[joined].getGold());
                     joined = 1;
                     doubleStrike = 0;
-                    escape = 10;
+                    escape = 1;
+                    player.setAdrenalineValue(0);
+                    player.setIronSkinValue(0);
+                    PlayerStatusWearOff(player);
                 }
             } else if (doubleStrike == 0) {
                 if (monster.getHp() <= 0) {
@@ -377,6 +444,9 @@ public class Fight {
                     doubleStrike = 0;
                     escape = 1;
                     player.setGold(player.getGold() + monster.getGold());
+                    player.setAdrenalineValue(0);
+                    player.setIronSkinValue(0);
+                    PlayerStatusWearOff(player);
                 }
             }
 
@@ -409,6 +479,25 @@ public class Fight {
 
 
         } while (player.getHP() > 0 && escape == 0);
+
+
+    }
+
+    public static void PlayerStatusWearOff(Player player){
+
+        if (player.getAdrenalineValue() == 1){
+            player.setDMG((int) (player.getDMG() * 0.71));
+            player.setArmor(player.getArmor() + 40);
+        }
+
+        if (player.getIronSkinValue() == 1){
+
+            player.setArmor(player.getArmor() - 30);
+
+        }
+
+        player.setFreeze(0);
+        player.setPoison(0);
 
 
     }

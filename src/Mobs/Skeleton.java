@@ -48,7 +48,7 @@ public class Skeleton extends Monster{
             System.out.println("Szkielet podniósł wartość swojej zbroi o " + armorUP + " punktów.");
         } else if (roll < 81 && roll > missRoll) {
             player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
-            System.out.println("Szkielet uderzył Cię za " + monster.getDmg() + " obrażeń");
+            System.out.println("Szkielet uderzył Cię za " + (monster.getDmg() - player.getArmor()) + " obrażeń");
         } else if (roll < missRoll) {
             System.out.println("Szkielet chybił!");
         }
