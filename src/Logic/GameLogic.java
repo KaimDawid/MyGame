@@ -8,6 +8,7 @@ import Objects.Items.Hands.BasiliskGloves;
 import Objects.Items.Helmets.DrakeHelmet;
 import Objects.Items.Helmets.LeatherHelmet;
 import Objects.Items.Necklaces.PearlNecklace;
+import Objects.Items.Weapons.Dagger;
 import Objects.Shop.Shop;
 
 import java.util.Random;
@@ -545,8 +546,8 @@ public class GameLogic {
                     Dawid.setHP(10000);
                     Dawid.setDMG(10000);
                     Dawid.setMaxHP(10000);
-                    eqNumber[0] = new DrakeHelmet(1);
-                    eqNumber[1] = new DrakeHelmet(1);
+                    eqNumber[0] = new Dagger(1);
+                    eqNumber[1] = new Dagger(1);
                     eqNumber[2] = new DrakeHelmet(1);
                     eqNumber[3] = new DrakeHelmet(1);
                     eqNumber[4] = new MailShirt(1);
@@ -570,6 +571,11 @@ public class GameLogic {
                             "     ( \\_.=\"_.=\"     `--------`     \"=._\"=._/ )\n" +
                             "      > _.=\"                            \"=._ <\n" +
                             "     (_/             WPISANO KODY!!!        \\_)");
+                    break;
+
+                case "MOREEXP":
+                    Dawid.setXP(Dawid.getXP() + 100);
+                    System.out.println("Dodałeś 100 expa, teraz masz " + Dawid.getXP());
                     break;
             }
             LadderCheckDOWN(ladderDOWN1, Dawid);

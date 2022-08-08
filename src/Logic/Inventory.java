@@ -21,10 +21,10 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[0].eqON(Dawid);
                         eqNumber[0].setIsON(1);
                         Monster.helmEQ = 1;
-                    } else if (eqNumber[0].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[0].getIsON() < 1) {
+                    } else if (eqNumber[0].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[0].getIsON() < 1) {
                         eqNumber[0].eqON(Dawid);
                         eqNumber[0].setIsON(1);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                     } else if (eqNumber[0].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[0].getIsON() < 1) {
                         eqNumber[0].eqON(Dawid);
                         eqNumber[0].setIsON(1);
@@ -45,7 +45,7 @@ static Scanner scanner = new Scanner(System.in);
                     } else if (eqNumber[0].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[0].getIsON() > 0) {
                         eqNumber[0].eqOFF(Dawid);
                         eqNumber[0].setIsON(0);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[0].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[0].getIsON() > 0) {
                         eqNumber[0].eqOFF(Dawid);
@@ -75,10 +75,10 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[1].eqON(Dawid);
                         eqNumber[1].setIsON(1);
                         Monster.helmEQ = 1;
-                    } else if (eqNumber[1].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[1].getIsON() < 1) {
+                    } else if (eqNumber[1].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[1].getIsON() < 1) {
                         eqNumber[1].eqON(Dawid);
                         eqNumber[1].setIsON(1);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                     } else if (eqNumber[1].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[1].getIsON() < 1) {
                         eqNumber[1].eqON(Dawid);
                         eqNumber[1].setIsON(1);
@@ -98,7 +98,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[1].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[1].getIsON() > 0) {
                         eqNumber[1].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[1].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[1].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[1].getIsON() > 0) {
@@ -129,9 +129,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[2].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[2].setIsON(1);
-                    } else if (eqNumber[2].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[2].getIsON() < 1) {
+                    } else if (eqNumber[2].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[2].getIsON() < 1) {
                         eqNumber[2].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[2].setIsON(1);
                     } else if (eqNumber[2].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[2].getIsON() < 1) {
                         eqNumber[2].eqON(Dawid);
@@ -152,7 +152,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[2].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[2].getIsON() > 0) {
                         eqNumber[2].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[2].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[2].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[2].getIsON() > 0) {
@@ -183,9 +183,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[3].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[3].setIsON(1);
-                    } else if (eqNumber[3].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[3].getIsON() < 1) {
+                    } else if (eqNumber[3].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[3].getIsON() < 1) {
                         eqNumber[3].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[3].setIsON(1);
                     } else if (eqNumber[3].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[3].getIsON() < 1) {
                         eqNumber[3].eqON(Dawid);
@@ -206,7 +206,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[3].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[3].getIsON() > 0) {
                         eqNumber[3].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[3].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[3].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[3].getIsON() > 0) {
@@ -237,9 +237,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[4].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[4].setIsON(1);
-                    } else if (eqNumber[4].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[4].getIsON() < 1) {
+                    } else if (eqNumber[4].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[4].getIsON() < 1) {
                         eqNumber[4].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[4].setIsON(1);
                     } else if (eqNumber[4].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[4].getIsON() < 1) {
                         eqNumber[4].eqON(Dawid);
@@ -260,7 +260,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[4].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[4].getIsON() > 0) {
                         eqNumber[4].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[4].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[4].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[4].getIsON() > 0) {
@@ -291,9 +291,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[5].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[5].setIsON(1);
-                    } else if (eqNumber[5].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[5].getIsON() < 1) {
+                    } else if (eqNumber[5].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[5].getIsON() < 1) {
                         eqNumber[5].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[5].setIsON(1);
                     } else if (eqNumber[5].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[5].getIsON() < 1) {
                         eqNumber[5].eqON(Dawid);
@@ -314,7 +314,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[5].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[5].getIsON() > 0) {
                         eqNumber[5].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[5].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[5].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[5].getIsON() > 0) {
@@ -345,9 +345,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[6].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[6].setIsON(1);
-                    } else if (eqNumber[6].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[6].getIsON() < 1) {
+                    } else if (eqNumber[6].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[6].getIsON() < 1) {
                         eqNumber[6].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[6].setIsON(1);
                     } else if (eqNumber[6].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[6].getIsON() < 1) {
                         eqNumber[6].eqON(Dawid);
@@ -368,7 +368,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[6].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[6].getIsON() > 0) {
                         eqNumber[6].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[6].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[6].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[6].getIsON() > 0) {
@@ -399,9 +399,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[7].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[7].setIsON(1);
-                    } else if (eqNumber[7].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[7].getIsON() < 1) {
+                    } else if (eqNumber[7].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[7].getIsON() < 1) {
                         eqNumber[7].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[7].setIsON(1);
                     } else if (eqNumber[7].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[7].getIsON() < 1) {
                         eqNumber[7].eqON(Dawid);
@@ -422,7 +422,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[7].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[7].getIsON() > 0) {
                         eqNumber[7].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[7].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[7].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[7].getIsON() > 0) {
@@ -453,9 +453,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[8].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[8].setIsON(1);
-                    } else if (eqNumber[8].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[8].getIsON() < 1) {
+                    } else if (eqNumber[8].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[8].getIsON() < 1) {
                         eqNumber[8].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[8].setIsON(1);
                     } else if (eqNumber[8].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[8].getIsON() < 1) {
                         eqNumber[8].eqON(Dawid);
@@ -476,7 +476,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[8].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[8].getIsON() > 0) {
                         eqNumber[8].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[8].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[8].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[8].getIsON() > 0) {
@@ -508,9 +508,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[9].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[9].setIsON(1);
-                    } else if (eqNumber[9].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[9].getIsON() < 1) {
+                    } else if (eqNumber[9].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[9].getIsON() < 1) {
                         eqNumber[9].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[9].setIsON(1);
                     } else if (eqNumber[9].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[9].getIsON() < 1) {
                         eqNumber[9].eqON(Dawid);
@@ -531,7 +531,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[9].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[9].getIsON() > 0) {
                         eqNumber[9].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[9].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[9].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[9].getIsON() > 0) {
@@ -562,9 +562,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[10].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[10].setIsON(1);
-                    } else if (eqNumber[10].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[10].getIsON() < 1) {
+                    } else if (eqNumber[10].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[10].getIsON() < 1) {
                         eqNumber[10].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[10].setIsON(1);
                     } else if (eqNumber[10].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[10].getIsON() < 1) {
                         eqNumber[10].eqON(Dawid);
@@ -585,7 +585,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[10].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[10].getIsON() > 0) {
                         eqNumber[10].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[10].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[10].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[10].getIsON() > 0) {
@@ -616,9 +616,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[11].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[11].setIsON(1);
-                    } else if (eqNumber[11].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[11].getIsON() < 1) {
+                    } else if (eqNumber[11].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[11].getIsON() < 1) {
                         eqNumber[11].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[11].setIsON(1);
                     } else if (eqNumber[11].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[11].getIsON() < 1) {
                         eqNumber[11].eqON(Dawid);
@@ -639,7 +639,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[11].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[11].getIsON() > 0) {
                         eqNumber[11].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[11].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[11].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[11].getIsON() > 0) {
@@ -670,9 +670,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[12].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[12].setIsON(1);
-                    } else if (eqNumber[12].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[12].getIsON() < 1) {
+                    } else if (eqNumber[12].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[12].getIsON() < 1) {
                         eqNumber[12].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[12].setIsON(1);
                     } else if (eqNumber[12].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[12].getIsON() < 1) {
                         eqNumber[12].eqON(Dawid);
@@ -693,7 +693,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[12].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[12].getIsON() > 0) {
                         eqNumber[12].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[12].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[12].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[12].getIsON() > 0) {
@@ -724,9 +724,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[13].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[13].setIsON(1);
-                    } else if (eqNumber[13].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[13].getIsON() < 1) {
+                    } else if (eqNumber[13].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[13].getIsON() < 1) {
                         eqNumber[13].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[13].setIsON(1);
                     } else if (eqNumber[13].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[13].getIsON() < 1) {
                         eqNumber[13].eqON(Dawid);
@@ -747,7 +747,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[13].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[13].getIsON() > 0) {
                         eqNumber[13].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[13].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[13].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[13].getIsON() > 0) {
@@ -779,9 +779,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[14].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[14].setIsON(1);
-                    } else if (eqNumber[14].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[14].getIsON() < 1) {
+                    } else if (eqNumber[14].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[14].getIsON() < 1) {
                         eqNumber[14].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[14].setIsON(1);
                     } else if (eqNumber[14].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[14].getIsON() < 1) {
                         eqNumber[14].eqON(Dawid);
@@ -802,7 +802,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[14].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[14].getIsON() > 0) {
                         eqNumber[14].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[14].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[14].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[14].getIsON() > 0) {
@@ -834,9 +834,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[15].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[15].setIsON(1);
-                    } else if (eqNumber[15].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[15].getIsON() < 1) {
+                    } else if (eqNumber[15].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[15].getIsON() < 1) {
                         eqNumber[15].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[15].setIsON(1);
                     } else if (eqNumber[15].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[15].getIsON() < 1) {
                         eqNumber[15].eqON(Dawid);
@@ -857,7 +857,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[15].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[15].getIsON() > 0) {
                         eqNumber[15].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[15].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[15].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[15].getIsON() > 0) {
@@ -888,9 +888,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[16].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[16].setIsON(1);
-                    } else if (eqNumber[16].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[16].getIsON() < 1) {
+                    } else if (eqNumber[16].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[16].getIsON() < 1) {
                         eqNumber[16].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[16].setIsON(1);
                     } else if (eqNumber[16].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[16].getIsON() < 1) {
                         eqNumber[16].eqON(Dawid);
@@ -911,7 +911,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[16].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[16].getIsON() > 0) {
                         eqNumber[16].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[16].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[16].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[16].getIsON() > 0) {
@@ -942,9 +942,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[17].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[17].setIsON(1);
-                    } else if (eqNumber[17].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[17].getIsON() < 1) {
+                    } else if (eqNumber[17].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[17].getIsON() < 1) {
                         eqNumber[17].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[17].setIsON(1);
                     } else if (eqNumber[17].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[17].getIsON() < 1) {
                         eqNumber[17].eqON(Dawid);
@@ -965,7 +965,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[17].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[17].getIsON() > 0) {
                         eqNumber[17].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[17].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[17].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[17].getIsON() > 0) {
@@ -996,9 +996,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[18].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[18].setIsON(1);
-                    } else if (eqNumber[18].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[18].getIsON() < 1) {
+                    } else if (eqNumber[18].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[18].getIsON() < 1) {
                         eqNumber[18].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[18].setIsON(1);
                     } else if (eqNumber[18].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[18].getIsON() < 1) {
                         eqNumber[18].eqON(Dawid);
@@ -1019,7 +1019,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[18].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[18].getIsON() > 0) {
                         eqNumber[18].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[18].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[18].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[18].getIsON() > 0) {
@@ -1050,9 +1050,9 @@ static Scanner scanner = new Scanner(System.in);
                         eqNumber[19].eqON(Dawid);
                         Monster.helmEQ = 1;
                         eqNumber[19].setIsON(1);
-                    } else if (eqNumber[19].getWeaponEquip() > 0 && Monster.weaponEQ < 1 && eqNumber[19].getIsON() < 1) {
+                    } else if (eqNumber[19].getWeaponEquip() > 0 && eqNumber[19].getIsON() < 1 && Monster.weaponEQ < Dawid.getWeaponCapacity()) {
                         eqNumber[19].eqON(Dawid);
-                        Monster.weaponEQ = 1;
+                        Monster.weaponEQ++;
                         eqNumber[19].setIsON(1);
                     } else if (eqNumber[19].getNeckEquip() > 0 && Monster.neckEQ < 1 && eqNumber[19].getIsON() < 1) {
                         eqNumber[19].eqON(Dawid);
@@ -1073,7 +1073,7 @@ static Scanner scanner = new Scanner(System.in);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[19].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[19].getIsON() > 0) {
                         eqNumber[19].eqOFF(Dawid);
-                        Monster.weaponEQ = 0;
+                        Monster.weaponEQ--;
                         eqNumber[19].setIsON(0);
                         System.out.println("Zdjąłeś przedmiot");
                     } else if (eqNumber[19].getNeckEquip() > 0 && Monster.neckEQ > 0 && eqNumber[19].getIsON() > 0) {
@@ -1109,7 +1109,7 @@ static Scanner scanner = new Scanner(System.in);
                     }
                 }
                 Monster.helmEQ = 0;
-                Monster.weaponEQ = 0;
+                Monster.weaponEQ--;
                 Monster.neckEQ = 0;
                 Monster.chestEQ = 0;
                 Monster.handsEQ = 0;

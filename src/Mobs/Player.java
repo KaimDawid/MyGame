@@ -57,6 +57,8 @@ public class Player {
 
     int attributePoints;
 
+int weaponCapacity = 1;
+
 
 
     int freeze = 0;
@@ -80,6 +82,10 @@ public class Player {
         this.armor = armor;
     }
 
+
+    public void DualWield(Player player){
+        player.setWeaponCapacity(2);
+    }
 
     public void Freeze(Monster target) {
         double iceDMG = 25 + (0.25 * magic);
@@ -432,6 +438,12 @@ public class Player {
         this.mana = mana;
     }
 
+    public int getWeaponCapacity() {
+        return weaponCapacity;
+    }
 
+    public void setWeaponCapacity(int weaponCapacity) {
+        this.weaponCapacity = weaponCapacity;
+    }
 
 }
