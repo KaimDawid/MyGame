@@ -1,7 +1,15 @@
 package Mobs;
 
+import Logic.Numbers;
+import Logic.Size;
+import Logic.Skills;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Random;
 import java.util.Scanner;
+
+@Getter @Setter
 
 public class Player {
     public static int ICE = 60;
@@ -21,11 +29,13 @@ public class Player {
     public int XP = 0;
 
     public double level = 0;
+    int escapeInvulnerability = 0;
 
     public int X;
     public int Y;
 
     int floor = 1;
+
 
 
 
@@ -56,6 +66,18 @@ public class Player {
     public int chosenSkill3 = 0;
     public int chosenSkill4 = 0;
     public int chosenSkill5 = 0;
+
+    public int chosenSkill6 = 0;
+
+    public int chosenSkill7 = 0;
+
+    public int chosenSkill8 = 0;
+
+    public int chosenSkill9 = 0;
+
+
+
+    public int chosenSkill10 = 0;
 
     int attributePoints;
 
@@ -163,6 +185,7 @@ int weaponCapacity = 1;
 
         player.setDMG(player.getDMG() + 20);
         System.out.println("Bierzesz zamach i atakujesz obu wrogów naraz ze zwiększoną siłą");
+        System.out.println("Zadajesz obu potworom " + player.getDMG() + " obrażeń");
         player.Attack(monster, player);
         player.Attack(monster2, player);
         player.setDMG(player.getDMG() - 20);
@@ -193,259 +216,6 @@ int weaponCapacity = 1;
         }
     }
 
-    public int getAttributePoints() {
-        return attributePoints;
-    }
 
-    public void setAttributePoints(int attributePoints) {
-        this.attributePoints = attributePoints;
-    }
-
-    int escapeInvulnerability = 0;
-
-    public int getEscapeInvulnerability() {
-        return escapeInvulnerability;
-    }
-
-    public void setEscapeInvulnerability(int escapeInvulnerability) {
-        this.escapeInvulnerability = escapeInvulnerability;
-    }
-
-    public int getIronSkinValue() {
-        return ironSkinValue;
-    }
-
-    public void setIronSkinValue(int ironSkinValue) {
-        this.ironSkinValue = ironSkinValue;
-    }
-
-    public int getAdrenalineValue() {
-        return adrenalineValue;
-    }
-
-    public void setAdrenalineValue(int adrenalineValue) {
-        this.adrenalineValue = adrenalineValue;
-    }
-
-    public double getHP() {
-        return HP;
-    }
-
-    public void setHP(double HP) {
-        this.HP = HP;
-    }
-
-    public double getMaxHP() {
-        return MaxHP;
-    }
-
-    public void setMaxHP(double maxHP) {
-        MaxHP = maxHP;
-    }
-
-    public int getDMG() {
-        return DMG;
-    }
-
-    public void setDMG(int DMG) {
-        this.DMG = DMG;
-    }
-
-    public int getXP() {
-        return XP;
-    }
-
-    public void setXP(int XP) {
-        this.XP = XP;
-    }
-
-    public double getLevel() {
-        return level;
-    }
-
-    public void setLevel(double level) {
-        this.level = level;
-    }
-
-    public int getX() {
-        return X;
-    }
-
-    public void setX(int x) {
-        X = x;
-    }
-
-    public int getY() {
-        return Y;
-    }
-
-    public void setY(int y) {
-        Y = y;
-    }
-
-    public int getGold() {
-        return gold;
-    }
-
-    public void setGold(int gold) {
-        this.gold = gold;
-    }
-
-    public int getFreeze() {
-        return freeze;
-    }
-
-    public void setFreeze(int freeze) {
-        this.freeze = freeze;
-    }
-
-    public static int getICE() {
-        return ICE;
-    }
-
-    public static void setICE(int ICE) {
-        Player.ICE = ICE;
-    }
-
-    public int getChosenSkill1() {
-        return chosenSkill1;
-    }
-
-    public void setChosenSkill1(int chosenSkill1) {
-        this.chosenSkill1 = chosenSkill1;
-    }
-
-    public int getChosenSkill2() {
-        return chosenSkill2;
-    }
-
-    public void setChosenSkill2(int chosenSkill2) {
-        this.chosenSkill2 = chosenSkill2;
-    }
-
-    public int getChosenSkill3() {
-        return chosenSkill3;
-    }
-
-    public void setChosenSkill3(int chosenSkill3) {
-        this.chosenSkill3 = chosenSkill3;
-    }
-
-    public int getChosenSkill4() {
-        return chosenSkill4;
-    }
-
-    public void setChosenSkill4(int chosenSkill4) {
-        this.chosenSkill4 = chosenSkill4;
-    }
-
-    public int getChosenSkill5() {
-        return chosenSkill5;
-    }
-
-    public void setChosenSkill5(int chosenSkill5) {
-        this.chosenSkill5 = chosenSkill5;
-    }
-
-    public int getClassNumber() {
-        return classNumber;
-    }
-
-    public void setClassNumber(int classNumber) {
-        this.classNumber = classNumber;
-    }
-
-    public int getMagic() {
-        return magic;
-    }
-
-    public void setMagic(int magic) {
-        this.magic = magic;
-    }
-
-    public double getCritChance() {
-        return critChance;
-    }
-
-    public void setCritChance(double critChance) {
-        this.critChance = critChance;
-    }
-
-    public int getPoison() {
-        return poison;
-    }
-
-    public void setPoison(int poison) {
-        this.poison = poison;
-    }
-
-    public int getArmor() {
-        return armor;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
-
-    public int getPotionNumber() {
-        return potionNumber;
-    }
-
-    public void setPotionNumber(int potionNumber) {
-        this.potionNumber = potionNumber;
-    }
-
-    public int getBombNumber() {
-        return bombNumber;
-    }
-
-    public void setBombNumber(int bombNumber) {
-        this.bombNumber = bombNumber;
-    }
-    public int getBurn() {
-        return burn;
-    }
-
-    public void setBurn(int burn) {
-        this.burn = burn;
-    }
-
-    public int getFloor() {
-        return floor;
-    }
-
-    public void setFloor(int floor) {
-        this.floor = floor;
-    }
-    public int getMaxMana() {
-        return maxMana;
-    }
-
-    public void setMaxMana(int maxMana) {
-        this.maxMana = maxMana;
-    }
-    public double getManaRegen() {
-        return manaRegen;
-    }
-
-    public void setManaRegen(double manaRegen) {
-        this.manaRegen = manaRegen;
-    }
-
-    public double getMana() {
-        return mana;
-    }
-
-    public void setMana(double mana) {
-        this.mana = mana;
-    }
-
-    public int getWeaponCapacity() {
-        return weaponCapacity;
-    }
-
-    public void setWeaponCapacity(int weaponCapacity) {
-        this.weaponCapacity = weaponCapacity;
-    }
 
 }

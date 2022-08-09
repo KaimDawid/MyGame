@@ -12,15 +12,7 @@ import Objects.Shop.Bomb;
 import java.util.Random;
 import java.util.Scanner;
 
-//
-// Ta klasa przechowuje pętlę walki ATTACK / RUN do momentu aż jeden z celów osiągnie 0 pkt życia
-// lub użytkownik wpisze komendę "RUN".
-// W przyszłości dodać:
-//                     - system obrony (HP = (HP - (DMG - DEF)))
-//                     - szansę na trafienie zależną od poziomu przeciwnika
-//                     - random.nextInt(100)
-//                      int chance = 90 - (MobLVL*10) + (PlayerLevel*7)
-//                      if (random.nextInt(100) > chance) { miss }
+
 public class Fight {
 
     static final int BDMG = 80;
@@ -40,12 +32,8 @@ public class Fight {
     public static void groupFight(Monster[] monsterTable, Player player) {
 
 
-        //
-        //
-        //   Jakby Ci coś nie działało to linijka 324 !!!
-        //
-        //
-        //
+
+
 
         Random random = new Random();
         if (doubleStrike == 0) {
@@ -70,6 +58,8 @@ public class Fight {
     }
     public static int escape = 0;
     public static void Turn(Player player, Monster monster) throws InterruptedException {
+
+        escape = 0;
 
         int toxic = 0;
 
@@ -302,13 +292,31 @@ public class Fight {
                     if (player.getChosenSkill1() == Player.FIREBALL || player.getChosenSkill2() == Player.FIREBALL
                             || player.getChosenSkill3() == Player.FIREBALL || player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() ==
                             Player.FIREBALL) {
-                        player.Fireball(monster, player);
+                        if (doubleStrike == 1) {
+                            FightLogic.WhoDoYouWantToAttack(monster, joined);
+
+                            String choice = scanner.nextLine().toUpperCase();
+                            switch (choice) {
+                                case "A":
+                                    player.Fireball(monster, player);
+                                    break;
+                                case "B":
+                                    player.Fireball(GameLogic.monsterBase[joined], player);
+                                    break;
+                            }
+                        } else {
+                            player.Fireball(monster, player);
+                        }
                         EnemyAttack(player, monster);
                         System.out.println("Zdrowie przeciwnika: " + monster.getHp());
 
                     }
                     break;
 
+                case "CLEAVE":
+                    player.Cleave(player,monster, GameLogic.monsterBase[joined]);
+                    EnemyAttack(player,monster);
+                   break;
 
             }
 

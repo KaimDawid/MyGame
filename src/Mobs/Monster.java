@@ -10,11 +10,13 @@ import Objects.Items.Necklaces.CopperNecklace;
 import Objects.Items.Necklaces.PearlNecklace;
 import Objects.Items.Necklaces.SilverNecklace;
 import Objects.Items.Weapons.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Random;
 import java.util.function.Function;
 
-
+@Getter  @Setter
 public abstract class Monster {
     public double hp;
     public int dmg;
@@ -23,13 +25,7 @@ public abstract class Monster {
     public String name;
     int freeze = 0;
 
-    public int getFreeze() {
-        return freeze;
-    }
 
-    public void setFreeze(int freeze) {
-        this.freeze = freeze;
-    }
 
 
 
@@ -55,67 +51,14 @@ public abstract class Monster {
 
     int shockInvulnerability;
 
-    public void setX(double x) {
-        this.x = x;
-    }
 
-    public void setY(double y) {
-        this.y = y;
-    }
 
-    public void setLevel(double level) {
-        this.level = level;
-    }
 
-    public int getPoisonInvulnerability() {
-        return poisonInvulnerability;
-    }
 
-    public void setPoisonInvulnerability(int poisonInvulnerability) {
-        this.poisonInvulnerability = poisonInvulnerability;
-    }
-
-    public int getFireInvulnerability() {
-        return fireInvulnerability;
-    }
-
-    public void setFireInvulnerability(int fireInvulnerability) {
-        this.fireInvulnerability = fireInvulnerability;
-    }
-
-    public int getIceInvulnerability() {
-        return iceInvulnerability;
-    }
-
-    public void setIceInvulnerability(int iceInvulnerability) {
-        this.iceInvulnerability = iceInvulnerability;
-    }
-
-    public int getWaterInvulnerability() {
-        return waterInvulnerability;
-    }
-
-    public void setWaterInvulnerability(int waterInvulnerability) {
-        this.waterInvulnerability = waterInvulnerability;
-    }
-
-    public int getShockInvulnerability() {
-        return shockInvulnerability;
-    }
-
-    public void setShockInvulnerability(int shockInvulnerability) {
-        this.shockInvulnerability = shockInvulnerability;
-    }
 
     int floor;
 
-    public int getFloor() {
-        return floor;
-    }
 
-    public void setFloor(int floor) {
-        this.floor = floor;
-    }
 
     public void Drop(){
 
@@ -141,61 +84,7 @@ public abstract class Monster {
 
     int armor;
 
-    public int getArmor() {
-        return armor;
-    }
 
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
-
-    public double getHp() {
-        return hp;
-    }
-
-    public void setHp(double hp) {
-        this.hp = hp;
-    }
-
-    public int getDmg() {
-        return dmg;
-    }
-
-    public void setDmg(int dmg) {
-        this.dmg = dmg;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getGiveXP() {
-        return giveXP;
-    }
-
-    public void setGiveXP(int giveXP) {
-        this.giveXP = giveXP;
-    }
 
 abstract public int getGold();
     abstract public void setGold();
