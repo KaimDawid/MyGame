@@ -499,12 +499,13 @@ public class Fight {
         if (player.getAdrenalineValue() == 1) {
             player.setDMG((int) (player.getDMG() * 0.71));
             player.setArmor(player.getArmor() + 40);
+            player.setAdrenalineValue(0);
         }
 
         if (player.getIronSkinValue() == 1) {
 
             player.setArmor(player.getArmor() - 30);
-
+            player.setIronSkinValue(0);
         }
 
         player.setFreeze(0);
