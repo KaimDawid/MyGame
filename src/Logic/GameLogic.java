@@ -1,5 +1,6 @@
 package Logic;
 
+import Logic.FightLogic.Fight;
 import Logic.Spawners.*;
 import Mobs.*;
 import Objects.*;
@@ -11,6 +12,7 @@ import Objects.Items.Necklaces.PearlNecklace;
 import Objects.Items.Weapons.Dagger;
 import Objects.Shop.Shop;
 
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -40,6 +42,8 @@ public class GameLogic {
     public static Monster[] monsterBase = new Monster[50];
     static Monster[] monsterBase2 = new Monster[50];
     static Monster[] monsterBase3 = new Monster[50];
+
+
 
     static Monster[] monsterBase4 = new Monster[50];
 
@@ -371,6 +375,7 @@ public class GameLogic {
         int handsEQ = 0;
         int chestEQ = 0;
         Dawid.setEscapeInvulnerability(0);
+        Date chuj = new Date();
 
         do {
 

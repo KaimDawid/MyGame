@@ -1,11 +1,10 @@
 package Logic;
 
-import Mobs.Goblin;
+import Logic.FightLogic.Fight;
 import Mobs.Monster;
 import Mobs.Player;
 import Objects.Shop.Shop;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Test {

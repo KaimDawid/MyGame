@@ -1,8 +1,6 @@
 package Mobs;
 
 
-import Logic.Fight;
-
 import Logic.Status.Status;
 
 import java.util.Random;
