@@ -89,11 +89,11 @@ public class Fight {
         }
         if (player.getChosenSkill1() == Player.ADRENALINE || player.getChosenSkill2() == Player.ADRENALINE || player.getChosenSkill3() == Player.ADRENALINE ||
                 player.getChosenSkill4() == Player.ADRENALINE || player.getChosenSkill5() == Player.ADRENALINE) {
-            System.out.println("ADRENALINE: Zadajesz więcej obrażeń, ale też otrzymujesz więcej");
+            System.out.println("ADRENALINE: Zadajesz więcej obrażeń, ale też otrzymujesz więcej (3 tury)");
         }
         if (player.getChosenSkill1() == Player.IRONSKIN || player.getChosenSkill2() == Player.IRONSKIN || player.getChosenSkill3() == Player.IRONSKIN ||
                 player.getChosenSkill4() == Player.IRONSKIN || player.getChosenSkill5() == Player.IRONSKIN) {
-            System.out.println("IRONSKIN: + 30 armor na 2 tury");
+            System.out.println("IRONSKIN: + 30 armor (3 tury)");
         }
         if (player.getBombNumber() > 0) {
             System.out.println("2 - rzuć bombę za 80 obrażeń (" + player.getBombNumber() + ")");
