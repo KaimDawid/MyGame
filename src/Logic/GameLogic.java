@@ -214,9 +214,9 @@ public class GameLogic {
                 ladderUP1.setX(LadderX);
                 ladderUP1.setY(LadderY);
                 System.out.println("Koordy drabiny to: ");
-                System.out.println("X: " + LadderX);
+       /*         System.out.println("X: " + LadderX);
                 System.out.println("Y: " + LadderY);
-                System.out.println("floor: " + ladderUP1.getFloor());
+                System.out.println("floor: " + ladderUP1.getFloor());*/
             } else {
                 k = k - 1;
             }
@@ -240,9 +240,9 @@ public class GameLogic {
                 ladderUP2.setX(LadderX2);
                 ladderUP2.setY(LadderY2);
                 System.out.println("Koordy drabiny 2 to: ");
-                System.out.println("X: " + LadderX2);
+             /*   System.out.println("X: " + LadderX2);
                 System.out.println("Y: " + LadderY2);
-                System.out.println("floor: " + ladderUP2.getFloor());
+                System.out.println("floor: " + ladderUP2.getFloor());*/
             } else {
                 f = f - 1;
             }
@@ -264,10 +264,10 @@ public class GameLogic {
 
                 ladderUP3.setX(LadderX3);
                 ladderUP3.setY(LadderY3);
-                System.out.println("Koordy drabiny 3 to: ");
+              /*  System.out.println("Koordy drabiny 3 to: ");
                 System.out.println("X: " + LadderX3);
                 System.out.println("Y: " + LadderY3);
-                System.out.println("floor: " + ladderUP3.getFloor());
+                System.out.println("floor: " + ladderUP3.getFloor());*/
             } else {
                 f3 = f3 - 1;
             }
@@ -289,10 +289,10 @@ public class GameLogic {
 
                 ladderUP4.setX(LadderX4);
                 ladderUP4.setY(LadderY4);
-                System.out.println("Koordy drabiny 4 to: ");
+       /*         System.out.println("Koordy drabiny 4 to: ");
                 System.out.println("X: " + LadderX4);
                 System.out.println("Y: " + LadderY4);
-                System.out.println("floor: " + ladderUP4.getFloor());
+                System.out.println("floor: " + ladderUP4.getFloor());*/
             } else {
                 f4 = f4 - 1;
             }
@@ -314,10 +314,10 @@ public class GameLogic {
 
                 ladderUP5.setX(LadderX5);
                 ladderUP5.setY(LadderY5);
-                System.out.println("Koordy drabiny 5 to: ");
+               /* System.out.println("Koordy drabiny 5 to: ");
                 System.out.println("X: " + LadderX5);
                 System.out.println("Y: " + LadderY5);
-                System.out.println("floor: " + ladderUP5.getFloor());
+                System.out.println("floor: " + ladderUP5.getFloor());*/
             } else {
                 f5 = f5 - 1;
             }
@@ -340,9 +340,14 @@ public class GameLogic {
         Scanner scanner = new Scanner(System.in);
         String welcome = """
                           
-                          
-                Zostałeś uwięziony w labiryncie minotaura.
-                Znajdź lepszy ekwipunek zanim stawisz mu czoła.
+                Dzięki za zagranie w grę :) Twoim zadaniem jest          
+                zabicie bossa, najpierw musisz jednak rozwinąć postać
+                Poluj na mniejsze potwory, zdobywaj poziomy
+                I znajdź drabinę która przeniesie Cię na kolejny poziom lochu
+                Jest wiele różnych sposobów na grę, możesz skupić się na magii,
+                ataku i ciosach krytycznych, czy wytrwałości.
+                Eksperymentuj z różnymi stylami gry i baw się dobrze :)
+                
                 Wybierz w którą stronę checsz iść: 
                 Góra: W, dół: S, lewo: A, prawo: D
                       """;

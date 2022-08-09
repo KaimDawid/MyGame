@@ -37,22 +37,25 @@ public class Experience {
                 String input = scanner.nextLine();
                 switch (input) {
                     case "1":
-                        player.setChosenSkill1(Player.ICE);
+                        LearnSkill(player,Player.ICE,1);
                         break;
                     case "2":
-                        player.setChosenSkill1(Player.FIREBALL);
+                        LearnSkill(player,Player.FIREBALL,1);
                         break;
                     case "3":
-                        player.setChosenSkill1(Player.TP);
+                        LearnSkill(player,Player.TP,1);
                         break;
                     case "4":
-                        player.setChosenSkill1(Player.ADRENALINE);
+                        LearnSkill(player,Player.ADRENALINE,1);
                         break;
                     case "5":
-                        player.setChosenSkill1(Player.IRONSKIN);
+                        LearnSkill(player,Player.IRONSKIN,1);
                         break;
                     case "6":
                         player.DualWield(player);
+                        break;
+                    case "7":
+                        LearnSkill(player,Player.CLEAVE, 1);
                         break;
                 }
                 System.out.println("Nauczyłeś się nowej umiejętności!");
@@ -96,22 +99,25 @@ public class Experience {
                 String input = scanner.nextLine();
                 switch (input) {
                     case "1":
-                        player.setChosenSkill2(Player.ICE);
+                        LearnSkill(player,Player.ICE,2);
                         break;
                     case "2":
-                        player.setChosenSkill2(Player.FIREBALL);
+                        LearnSkill(player,Player.FIREBALL,2);
                         break;
                     case "3":
-                        player.setChosenSkill2(Player.TP);
+                        LearnSkill(player,Player.TP,2);
                         break;
                     case "4":
-                        player.setChosenSkill2(Player.ADRENALINE);
+                        LearnSkill(player,Player.ADRENALINE,2);
                         break;
                     case "5":
-                        player.setChosenSkill2(Player.IRONSKIN);
+                        LearnSkill(player,Player.IRONSKIN,2);
                         break;
                     case "6":
                         player.DualWield(player);
+                        break;
+                    case "7":
+                        LearnSkill(player,Player.CLEAVE, 2);
                         break;
                 }
 
@@ -153,22 +159,25 @@ public class Experience {
                 String input = scanner.nextLine();
                 switch (input) {
                     case "1":
-                        player.setChosenSkill3(Player.ICE);
+                        LearnSkill(player,Player.ICE,3);
                         break;
                     case "2":
-                        player.setChosenSkill3(Player.FIREBALL);
+                        LearnSkill(player,Player.FIREBALL,3);
                         break;
                     case "3":
-                        player.setChosenSkill3(Player.TP);
+                        LearnSkill(player,Player.TP,3);
                         break;
                     case "4":
-                        player.setChosenSkill3(Player.ADRENALINE);
+                        LearnSkill(player,Player.ADRENALINE,3);
                         break;
                     case "5":
-                        player.setChosenSkill3(Player.IRONSKIN);
+                        LearnSkill(player,Player.IRONSKIN,3);
                         break;
                     case "6":
                         player.DualWield(player);
+                        break;
+                    case "7":
+                        LearnSkill(player,Player.CLEAVE, 3);
                         break;
                 }
                 System.out.println("Nauczyłeś się nowej umiejętności!");
@@ -214,22 +223,25 @@ public class Experience {
                 String input = scanner.nextLine();
                 switch (input) {
                     case "1":
-                        player.setChosenSkill4(Player.ICE);
+                        LearnSkill(player,Player.ICE,4);
                         break;
                     case "2":
-                        player.setChosenSkill4(Player.FIREBALL);
+                        LearnSkill(player,Player.FIREBALL,4);
                         break;
                     case "3":
-                        player.setChosenSkill4(Player.TP);
+                        LearnSkill(player,Player.TP,4);
                         break;
                     case "4":
-                        player.setChosenSkill4(Player.ADRENALINE);
+                        LearnSkill(player,Player.ADRENALINE,4);
                         break;
                     case "5":
-                        player.setChosenSkill4(Player.IRONSKIN);
+                        LearnSkill(player,Player.IRONSKIN,4);
                         break;
                     case "6":
                         player.DualWield(player);
+                        break;
+                    case "7":
+                        LearnSkill(player,Player.CLEAVE, 4);
                         break;
                 }
                 System.out.println("Nauczyłeś się nowej umiejętności!");
@@ -273,22 +285,25 @@ public class Experience {
                 String input = scanner.nextLine();
                 switch (input) {
                     case "1":
-                        player.setChosenSkill5(Player.ICE);
+                        LearnSkill(player,Player.ICE,5);
                         break;
                     case "2":
-                        player.setChosenSkill5(Player.FIREBALL);
+                        LearnSkill(player,Player.FIREBALL,5);
                         break;
                     case "3":
-                        player.setChosenSkill5(Player.TP);
+                        LearnSkill(player,Player.TP,5);
                         break;
                     case "4":
-                        player.setChosenSkill5(Player.ADRENALINE);
+                        LearnSkill(player,Player.ADRENALINE,5);
                         break;
                     case "5":
-                        player.setChosenSkill5(Player.IRONSKIN);
+                        LearnSkill(player,Player.IRONSKIN,5);
                         break;
                     case "6":
                         player.DualWield(player);
+                        break;
+                    case "7":
+                        LearnSkill(player,Player.CLEAVE, 5);
                         break;
                 }
                 System.out.println("Nauczyłeś się nowej umiejętności!");
@@ -322,4 +337,27 @@ public class Experience {
             System.out.println("Złoto: " + player.getGold());
         }
     }
-}
+
+    public static void LearnSkill(Player player, int skillNumber, int skillSlot){
+        if (player.getChosenSkill1() != skillNumber && player.getChosenSkill2() != skillNumber && player.getChosenSkill3() != skillNumber &&
+                player.getChosenSkill4() != skillNumber &&  player.getChosenSkill5() != skillNumber) {
+            if (skillSlot == 1) {
+                player.setChosenSkill1(skillNumber);
+            } else if (skillSlot == 2) {
+                player.setChosenSkill2(skillNumber);
+            } else if (skillSlot == 3) {
+                player.setChosenSkill3(skillNumber);
+            } else if (skillSlot == 4) {
+                player.setChosenSkill4(skillNumber);
+            } else if (skillSlot == 5) {
+                player.setChosenSkill5(skillNumber);
+            }
+        } else {
+            System.out.println("Umiesz już ten czar");
+            }
+
+
+        }
+    }
+
+

@@ -12,6 +12,8 @@ import Objects.Items.Necklaces.SilverNecklace;
 import Objects.Items.Weapons.*;
 
 import java.util.Random;
+import java.util.function.Function;
+
 
 public abstract class Monster {
     public double hp;
@@ -28,6 +30,10 @@ public abstract class Monster {
     public void setFreeze(int freeze) {
         this.freeze = freeze;
     }
+
+
+
+
 
     public int giveXP;
     double level;

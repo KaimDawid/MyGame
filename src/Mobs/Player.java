@@ -13,6 +13,8 @@ public class Player {
 
     public final static int IRONSKIN = 64;
 
+    public final static int CLEAVE = 65;
+
     private double HP = 120;
     private double MaxHP = 120;
     int DMG = 20;
