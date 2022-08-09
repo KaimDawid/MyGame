@@ -512,7 +512,7 @@ public class Fight {
     public static void PlayerStatusWearOff(Player player) {
 
         if (player.getAdrenalineValue() > 0) {
-            player.setDMG((int) (player.getDMG() * 0.71));
+            player.setDMG( (player.getDMG() - 60));
             player.setArmor(player.getArmor() + 40);
             player.setAdrenalineValue(0);
         }

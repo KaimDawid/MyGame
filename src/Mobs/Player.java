@@ -145,7 +145,7 @@ int weaponCapacity = 1;
         String skillName = "Adrenalina";
 
         if (player.getAdrenalineValue() == 0) {
-            double adrenalineAttackValue = (player.getDMG() * 1.5);
+            double adrenalineAttackValue = (player.getDMG() + 60);
             double adrenalineArmorValue = (player.getArmor() - 40);
 
             player.setDMG((int) adrenalineAttackValue);
