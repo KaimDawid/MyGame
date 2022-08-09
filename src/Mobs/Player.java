@@ -134,7 +134,7 @@ int weaponCapacity = 1;
         if (player.getIronSkinValue() == 0) {
             System.out.println("Użyłeś czaru " + skillName + " i otrzymałeś " + ironSkinValue + " punktów zbroi na 2 tury");
             player.setArmor(player.getArmor() + ironSkinValue);
-            player.setIronSkinValue(3);
+            player.setIronSkinValue(1);
         }
 
     }
@@ -152,7 +152,7 @@ int weaponCapacity = 1;
             player.setArmor((int) adrenalineArmorValue);
 
             System.out.println("Użyłeś umiejętności " + skillName + ", zadajesz 50% więcej obrażeń ale sam jesteś bardziej podatny na obrażenia");
-            player.setAdrenalineValue(3);
+            player.setAdrenalineValue(1);
         }
 
         // 29% w dół

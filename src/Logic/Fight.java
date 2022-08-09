@@ -157,7 +157,7 @@ public class Fight {
                     if (player.getAdrenalineValue() == 0) {
                         player.Adrenaline(player);
                         player.setAdrenalineValue(1);
-                        adrenalineDuration = 2;
+                        adrenalineDuration = 3;
                     } else {
                         player.Attack(monster, player);
                     }
@@ -184,7 +184,7 @@ public class Fight {
                     if (player.getIronSkinValue() == 0) {
                         player.IronSkin(player);
                         player.setIronSkinValue(1);
-                        ironSkinDuration = 2;
+                        ironSkinDuration = 3;
                     } else {
                         player.Attack(monster, player);
                     }
