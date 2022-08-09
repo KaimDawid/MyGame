@@ -116,8 +116,16 @@ public class Fight {
             System.out.println("Twoje punkty zdrowia: " + player.getHP() + "/" + player.getMaxHP() + " Twoje obrażenia :"
                     + player.getDMG() + "            Mana: " + player.getMana());
 
-
-            System.out.println("Punkty zdrowia przeciwnika: " + monster.getHp() + " Jego obrażenia: " + monster.getDmg());
+            if (monster.getHp() > 0) {
+                System.out.println("Punkty zdrowia przeciwnika: " + monster.getHp() + " Jego obrażenia: " + monster.getDmg());
+            } else if (monster.getHp() < 1) {
+                System.out.println(monster.getName() + " jest martwy");
+            }
+            if (doubleStrike == 1 && GameLogic.monsterBase[joined].getHp() > 0) {
+                System.out.println("Punkty zdrowia drugiego przeciwnika (" + GameLogic.monsterBase[joined].getName() + ") : " + GameLogic.monsterBase[joined].getHp());
+            } else if (doubleStrike == 1 && GameLogic.monsterBase[joined].getHp() < 1) {
+                System.out.println(GameLogic.monsterBase[joined].getName() + " jest martwy");
+            }
             if (doubleStrike == 1) {
                 System.out.println("Uważaj na siebie, walczysz z dwoma przeciwnikami! " + monster.getName() + " i "
                         + GameLogic.monsterBase[joined].getName());
@@ -135,8 +143,7 @@ public class Fight {
                         player.Adrenaline(player);
                         player.setAdrenalineValue(1);
                         adrenalineDuration = 2;
-                    }
-                    else {
+                    } else {
                         player.Attack(monster, player);
                     }
                     if (doubleStrike == 1 && GameLogic.monsterBase[joined].getFreeze() == 0) {
@@ -163,8 +170,7 @@ public class Fight {
                         player.IronSkin(player);
                         player.setIronSkinValue(1);
                         ironSkinDuration = 2;
-                    }
-                    else {
+                    } else {
                         player.Attack(monster, player);
                     }
                     if (doubleStrike == 1 && GameLogic.monsterBase[joined].getFreeze() == 0) {
@@ -184,7 +190,7 @@ public class Fight {
                         player.setHP(player.getHP() - burnDMG);
                     }
                     ironSkinDuration--;
-break;
+                    break;
 
                 case "1":
                     /* groupFight(GameLogic.monsterBase, player);*/
@@ -213,8 +219,16 @@ break;
                         }
                     } else if (doubleStrike == 1) {
                         System.out.println("Kogo chcesz zaatakować?");
-                        System.out.println("A. " + monster.getName() + " (" + monster.getHp() + ") HP");
-                        System.out.println("B. " + GameLogic.monsterBase[joined].getName() + " (" + GameLogic.monsterBase[joined].getHp() + ") HP");
+                        if (monster.getHp() > 0) {
+                            System.out.println("A. " + monster.getName() + " (" + monster.getHp() + ") HP");
+                        } else {
+                            System.out.println("A. " + monster.getName() + " (Martwy)");
+                        }
+                        if (GameLogic.monsterBase[joined].getHp() > 0) {
+                            System.out.println("B. " + GameLogic.monsterBase[joined].getName() + " (" + GameLogic.monsterBase[joined].getHp() + ") HP");
+                        } else if (GameLogic.monsterBase[joined].getHp() < 1) {
+                            System.out.println("B. " + GameLogic.monsterBase[joined].getName() + " (Martwy)");
+                        }
 
                         String choice = scanner.nextLine().toUpperCase();
 
@@ -362,8 +376,7 @@ break;
                                     player.Freeze(GameLogic.monsterBase[joined]);
                                     break;
                             }
-                        }
-                        else {
+                        } else {
                             player.Freeze(monster);
                         }
 
@@ -481,14 +494,14 @@ break;
 
     }
 
-    public static void PlayerStatusWearOff(Player player){
+    public static void PlayerStatusWearOff(Player player) {
 
-        if (player.getAdrenalineValue() == 1){
+        if (player.getAdrenalineValue() == 1) {
             player.setDMG((int) (player.getDMG() * 0.71));
             player.setArmor(player.getArmor() + 40);
         }
 
-        if (player.getIronSkinValue() == 1){
+        if (player.getIronSkinValue() == 1) {
 
             player.setArmor(player.getArmor() - 30);
 
