@@ -83,19 +83,19 @@ public class GameLogic {
                 if (valid < 1) {
                     spawnedMonsters++;
                     if (mobType < 21) {
-                        monsterBase[i] = new Goblin(120, 30, valueX, valueY, "goblin", 40, 10, 2, 1);
+                        monsterBase[i] = new Goblin(120, 50, valueX, valueY, "goblin", 40, 10, 2, 1);
                     } else if (mobType < 41 && mobType > 20) {
-                        monsterBase[i] = new Spider(130, 20, valueX, valueY, "pająk", 20, 1, 1);
+                        monsterBase[i] = new Spider(130, 40, valueX, valueY, "pająk", 20, 1, 1);
                     }
                     //
                     //        Tu ustawiasz szansę na pojawienie się danego typu przeciwnika
                     //
                     else if (mobType < 61 && mobType > 40) {
-                        monsterBase[i] = new Werewolf(200, 40, valueX, valueY, "wilkołak", 60, 20, 4, 1);
+                        monsterBase[i] = new Werewolf(200, 70, valueX, valueY, "wilkołak", 60, 20, 4, 1);
                     } else if (mobType < 81 && mobType > 60) {
-                        monsterBase[i] = new Vampire(210, 50, valueX, valueY, "wampir", 70, 14, 3, 1);
+                        monsterBase[i] = new Vampire(210, 70, valueX, valueY, "wampir", 70, 14, 3, 1);
                     } else if (mobType > 80) {
-                        monsterBase[i] = new Mutant(250, 60, valueX, valueY, "mutant", 120, 50, 5, 1);
+                        monsterBase[i] = new Mutant(250, 80, valueX, valueY, "mutant", 120, 50, 5, 1);
                     }
                     int emptyslots = mobsNumber;
 
@@ -187,7 +187,7 @@ public class GameLogic {
         // Podstawowe potwory są wyłączone bo generują się automatycznie
         //
 
-        Player Dawid = new Player(200, 200, 30, 0, 0, 4, 4, 20, 0,
+        Player Dawid = new Player(300, 200, 30, 0, 0, 4, 4, 20, 0,
                 0, 0);
         Dawid.setFloor(1);
         Dawid.setClassNumber(1);
