@@ -105,6 +105,21 @@ public class Fight {
 
         do {
 
+            if (player.getIronSkinValue() > 0) {
+                player.setIronSkinValue(player.getIronSkinValue() - 1);
+                if (player.getIronSkinValue() == 0){
+                    player.setArmor(player.getArmor() - 30);
+                    System.out.println("Ironskin przestał działać.");
+                }
+            }
+            if (player.getAdrenalineValue() > 0) {
+                player.setAdrenalineValue(player.getAdrenalineValue() - 1);
+                if (player.getAdrenalineValue() == 0){
+                    player.setDMG((int) (player.getDMG() * 0.71));
+                    player.setArmor(player.getArmor() + 40);
+                    System.out.println("Adrenalina przestała działać.");
+                }
+            }
 
             if (player.getPoison() > 0) {
                 int poisonDMG = 20;
@@ -496,13 +511,13 @@ public class Fight {
 
     public static void PlayerStatusWearOff(Player player) {
 
-        if (player.getAdrenalineValue() == 1) {
+        if (player.getAdrenalineValue() > 0) {
             player.setDMG((int) (player.getDMG() * 0.71));
             player.setArmor(player.getArmor() + 40);
             player.setAdrenalineValue(0);
         }
 
-        if (player.getIronSkinValue() == 1) {
+        if (player.getIronSkinValue() > 0) {
 
             player.setArmor(player.getArmor() - 30);
             player.setIronSkinValue(0);

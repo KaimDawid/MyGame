@@ -134,7 +134,7 @@ int weaponCapacity = 1;
         if (player.getIronSkinValue() == 0) {
             System.out.println("Użyłeś czaru " + skillName + " i otrzymałeś " + ironSkinValue + " punktów zbroi na 2 tury");
             player.setArmor(player.getArmor() + ironSkinValue);
-            player.setIronSkinValue(1);
+            player.setIronSkinValue(2);
         }
 
     }
