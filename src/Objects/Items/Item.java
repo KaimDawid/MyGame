@@ -1,12 +1,14 @@
 package Objects.Items;
 
 import Mobs.Player;
-import Objects.Items.Chests.MailShirt;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 public abstract class Item {
+    int isSharp;
+    int isToxic;
     int helmEquip;
     int chestEquip;
     int handsEquip;

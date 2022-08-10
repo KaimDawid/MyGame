@@ -1,6 +1,7 @@
 package Mobs;
 
 
+import Logic.Inventory;
 import Logic.Skills;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,7 +38,7 @@ public class Player {
     int floor = 1;
 
 
-
+int toxify = 0;
 
     int gold;
     int bombNumber;
@@ -205,17 +206,41 @@ int weaponCapacity = 1;
             if (monster.getArmor() > 0) {
                 System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
             }
+            putToxin(player,monster);
         } else if (roll < critRoll && roll > missRoll) {
             monster.setHp(monster.getHp() - player.getDMG() + monster.getArmor());
             System.out.println("Zadałeś " + player.getDMG() + " obrażeń");
             if (monster.getArmor() > 0) {
                 System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
             }
+            putToxin(player,monster);
         } else if (roll < missRoll) {
             System.out.println("Chybiłeś!");
         }
     }
 
+public static void putToxin(Player player, Monster monster) {
 
+
+        if (Inventory.equippedweapon.getIsToxic() == 1) {
+            Random random = new Random();
+            int chance = random.nextInt(100);
+            if (chance > 80 && player.getToxify() > 0) {
+                monster.setPoison(3);
+                System.out.println("Zatrułeś swojego przeciwnika na 2 tury! Otrzymuje on 30 obrażeń co turę.");
+                monster.setHp(monster.getHp() - 30);
+            }
+        }
+}
+
+/*public static void putToxin(Player player, Monster monster){
+        Random random = new Random();
+        int chance = random.nextInt(100);
+        if (chance > 80 && player.getToxify() > 0){
+            monster.setPoison(3);
+            System.out.println("Zatrułeś swojego przeciwnika na 2 tury! Otrzymuje on 30 obrażeń co turę.");
+            monster.setHp(monster.getHp() - 30);
+        }
+    }*/
 
 }

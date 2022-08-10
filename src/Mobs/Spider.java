@@ -1,6 +1,7 @@
 package Mobs;
 
 
+import Logic.Drop.Miscelanous;
 import Logic.Status.Status;
 
 import java.util.Random;
@@ -19,6 +20,22 @@ public class Spider extends Monster {
 
     @Override
     public void setGold() {
+
+    }
+@Override
+    public void Drop(){
+    Random random = new Random();
+    int sackChance = random.nextInt(100);
+    if (sackChance > 10){
+        int sackNumber = (random.nextInt(2)+ 1);
+        Miscelanous.poisonSacks = Miscelanous.poisonSacks + sackNumber;
+        System.out.println("Znalazłeś " + sackNumber + " worków z jadem, masz ich już " + Miscelanous.poisonSacks + "/6");
+    }
+    dropNeck();
+        dropWeapon();
+        dropGloves();
+        dropArmor();
+        dropHelmet();
 
     }
 

@@ -25,8 +25,10 @@ public class Weapon extends Item {
     int neckEquip;
     int isON = 0;
     int eqValue;
+    int isToxic;
+    int isSharp;
 
-    public Weapon(String shortName, int HP, int DMG, int crit, int magic, int hands, int stock) {
+    public Weapon(String shortName, int HP, int DMG, int crit, int magic, int hands, int isSharp, int stock) {
         this.hands = hands;
         this.HP = HP;
         this.DMG = DMG;
@@ -34,6 +36,7 @@ public class Weapon extends Item {
         this.magic = magic;
         this.stock = stock;
         this.shortName = shortName;
+        this.isSharp = isSharp;
     }
 
 

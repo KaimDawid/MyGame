@@ -1,18 +1,18 @@
 package Logic;
 
+import Data.Areas.Forest;
 import Data.Info.Info;
+import Data.Quests;
 import Logic.FightLogic.Fight;
 import Logic.Spawners.*;
 import Mobs.*;
 import Objects.*;
 import Objects.Items.Chests.ChestArmor;
-import Objects.Items.Chests.MailShirt;
-import Objects.Items.Hands.BasiliskGloves;
-import Objects.Items.Helmets.DrakeHelmet;
-import Objects.Items.Helmets.LeatherHelmet;
-import Objects.Items.Item;
-import Objects.Items.Necklaces.PearlNecklace;
 
+import Objects.Items.Item;
+
+
+import Objects.Items.Weapons.Weapon;
 import Objects.Shop.Shop;
 
 import java.util.Date;
@@ -45,6 +45,7 @@ public class GameLogic {
 
     Scanner scanner = new Scanner(System.in);
     public static Monster[] monsterBase = new Monster[50];
+    public static Monster[] forestBase = new Monster[50];
     static Monster[] monsterBase2 = new Monster[50];
     static Monster[] monsterBase3 = new Monster[50];
 
@@ -158,53 +159,6 @@ public class GameLogic {
     }
 
 
-    public static void LadderCheckUP(LadderUP ladder, Player player) {
-        Scanner scanner1 = new Scanner(System.in);
-        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckUPSuccessful == 0) {
-            System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
-            System.out.println("UP - wejdź piętro wyżej,      0: wyjdź");
-            String ladderChoice = scanner1.nextLine().toUpperCase();
-            switch (ladderChoice) {
-
-                case "UP":
-                    Ladder.ASCEND(player);
-                    break;
-                case "0":
-                    ladderCheckUPSuccessful = 1;
-                    break;
-
-
-            }
-
-        }
-        else if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckUPSuccessful == 1){
-            ladderCheckUPSuccessful = 0;
-        }
-    }
-
-
-    public static void LadderCheckDOWN(LadderDOWN ladder, Player player) {
-        Scanner scanner1 = new Scanner(System.in);
-        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckDOWNSuccessful == 0) {
-            System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
-            System.out.println("DOWN - zejdź piętro niżej,      0: wyjdź");
-            String ladderChoice = scanner1.nextLine().toUpperCase();
-            switch (ladderChoice) {
-
-                case "DOWN":
-                    Ladder.DESCEND(player);
-                    break;
-                case "0":
-                    ladderCheckDOWNSuccessful = 1;
-                    break;
-
-            }
-
-        }
-        else if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckDOWNSuccessful == 1){
-            ladderCheckDOWNSuccessful = 0;
-        }
-    }
 
     public void Game() throws InterruptedException {
         /*  Monster[] monsterBase = new Monster[100];*/
@@ -248,7 +202,13 @@ public class GameLogic {
       /*  LadderUP ladderUP1 = new LadderUP(5, 5, 2);*/
         /*Mutant mutant = new Mutant(100, 30, 5, 5, "mutant", 100, 50, 30, 1);*/
         /*Goblin goblin = new Goblin(10,10,4,5,"Goblin", 40, 999, 1, 1);*/
-        /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
+         Spider spider = new Spider(10, 20, 5, 5, "pająk", 30, 1,1);
+        Spider spider2 = new Spider(10, 20, 5, 5, "pająk", 30, 1,1);
+        Spider spider3 = new Spider(10, 20, 5, 5, "pająk", 30, 1,1);
+        Spider spider4 = new Spider(10, 20, 5, 5, "pająk", 30, 1,1);
+        equipment[2] = new Weapon("Sztylet", 0, 20, 5, 0, 1, 1, 1);
+        eqNumber[30] = new Weapon("Sztylet", 0, 20, 5, 0, 1,1,1);
+
        /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
         Vampire vampire = new Vampire(160, 50, 4,2,"wampir",120,80, 3);*/
 
@@ -274,7 +234,7 @@ public class GameLogic {
         System.out.println(welcome);
         String input;
 
-        DrakeHelmet head1 = new DrakeHelmet(1);
+
 
 
         String exit = "0";
@@ -284,6 +244,7 @@ public class GameLogic {
         SpawnFloor4.SPAWN(27,monsterBase4);
         SpawnFloor5.SPAWN(27,monsterBase5);
         SpawnFloor6.SPAWN(27,monsterBase6);
+        Forest.SPAWN(27, forestBase);
         int helmEQ = 0;
         int weaponEQ = 0;
         int neckEQ = 0;
@@ -308,6 +269,12 @@ public class GameLogic {
                 System.out.println("Teleportacja: TP");
             }
             System.out.println("Wyświetl informacje: " + INFO + "                                   Wyjdź z gry: EXIT");
+            if (Dawid.getX() > 2 && Dawid.getX() < 6 && Dawid.getY() > 2 && Dawid.getY() < 6){
+                System.out.println("Jesteś w mieście, wpisz TOWN aby do niego wejść i porozmawiać z tutejszymi mieszkańcami");
+            }
+            if (Dawid.getY() > 8){
+                System.out.println("Jesteś teraz w lesie pełnym pająków i wilków");
+            }
             input = scanner.nextLine().toUpperCase();
 
 
@@ -320,10 +287,13 @@ public class GameLogic {
                     }
                     break;
                 case "W":
-                    if (Dawid.getY() < 8) {
+                    if (Dawid.getY() < 16) {
                         Dawid.setY(Dawid.getY() + 1);
-                    } else {
+                    } else if (Dawid.getY() > 15){
                         System.out.println("Natrafiłeś na ścianę, nie możesz już iść w tą stronę");
+                    }
+                    else if (Dawid.getY() > 8){
+                        System.out.println("Jesteś teraz w lesie pająków");
                     }
 
                     break;
@@ -345,6 +315,11 @@ public class GameLogic {
                     break;
                 case "HP":
                     System.out.println(Dawid.getHP());
+                    break;
+                case "TOWN":
+                    if (Dawid.getX() < 6 && Dawid.getX() > 2 && Dawid.getY() < 6 && Dawid.getY() > 2) {
+                        Quests.QuestConvo(Dawid);
+                    }
                     break;
                 case "PATCH":
                     Info.Version.printMe();
@@ -469,24 +444,19 @@ public class GameLogic {
                     break;
                 case "GIVEITEMS":
 
-                    eqNumber[2] = new DrakeHelmet(1);
-                    eqNumber[3] = new DrakeHelmet(1);
-                    eqNumber[4] = new MailShirt(1);
-                    eqNumber[5] = new PearlNecklace(1);
-                    eqNumber[6] = new BasiliskGloves(1);
-                    eqNumber[7] = new LeatherHelmet(1);
+
+                    break;
+                case "MAP":
+                    System.out.println("Sklep: X:" + shop.getX() + ", Y:" + shop.getY());
+                    System.out.println("Drabina piętro 1: X:" + ladderDOWNS[1].getX() + " Y:" + ladderDOWNS[1].getY());
+                    System.out.println("Las: X: 1-8, Y: 8-16");
                     break;
                 case "ABCDE":
                     Dawid.setHP(10000);
                     Dawid.setDMG(10000);
                     Dawid.setMaxHP(10000);
 
-                    eqNumber[2] = new DrakeHelmet(1);
-                    eqNumber[3] = new DrakeHelmet(1);
-                    eqNumber[4] = new MailShirt(1);
-                    eqNumber[5] = new PearlNecklace(1);
-                    eqNumber[6] = new BasiliskGloves(1);
-                    eqNumber[7] = new LeatherHelmet(1);
+
                     Dawid.setChosenSkill1(Player.ICE);
                     Dawid.setChosenSkill2(Player.FIREBALL);
                     Dawid.setChosenSkill3(Player.TP);
@@ -524,6 +494,7 @@ public class GameLogic {
             /*checker(Dawid, mutant);*/
             if (Dawid.getEscapeInvulnerability() < 1) {
 
+
                 for (int icheck = 1; icheck < spawnedMonsters; icheck++) {
                     checker(Dawid, monsterBase[icheck]);
                     checker(Dawid, monsterBase2[icheck]);
@@ -531,6 +502,7 @@ public class GameLogic {
                     checker(Dawid, monsterBase4[icheck]);
                     checker(Dawid, monsterBase5[icheck]);
                     checker(Dawid, monsterBase6[icheck]);
+                    checker(Dawid,forestBase[icheck]);
                     if (checkSuccesful > 0) {
                         checkSuccesful = 0;
                         break;
@@ -546,9 +518,7 @@ public class GameLogic {
                 Dawid.setEscapeInvulnerability(0);
             }
             Dawid.setEscapeInvulnerability(0);
-            if (Dawid.getX() == 3 && Dawid.getY() == 3) {
-                Weapon.goldSword(Dawid);
-            } else if (Dawid.getY() == 3 && Dawid.getX() == 5) {
+           if (Dawid.getY() == 3 && Dawid.getX() == 5) {
                 Armor.pickArmor(Dawid);
             } else if (Dawid.getY() < 0 || Dawid.getY() > 8 || Dawid.getX() < 0 || Dawid.getX() > 8) {
                 System.out.println("Wykroczyłeś poza mapę, wracaj zanim zgubisz się w labiryncie");
@@ -601,4 +571,52 @@ public class GameLogic {
             }
         }
     }
+    public static void LadderCheckUP(LadderUP ladder, Player player) {
+        Scanner scanner1 = new Scanner(System.in);
+        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckUPSuccessful == 0) {
+            System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
+            System.out.println("UP - wejdź piętro wyżej,      0: wyjdź");
+            String ladderChoice = scanner1.nextLine().toUpperCase();
+            switch (ladderChoice) {
+
+                case "UP":
+                    Ladder.ASCEND(player);
+                    break;
+                case "0":
+                    ladderCheckUPSuccessful = 1;
+                    break;
+
+
+            }
+
+        }
+        else if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckUPSuccessful == 1){
+            ladderCheckUPSuccessful = 0;
+        }
+    }
+
+
+    public static void LadderCheckDOWN(LadderDOWN ladder, Player player) {
+        Scanner scanner1 = new Scanner(System.in);
+        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckDOWNSuccessful == 0) {
+            System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
+            System.out.println("DOWN - zejdź piętro niżej,      0: wyjdź");
+            String ladderChoice = scanner1.nextLine().toUpperCase();
+            switch (ladderChoice) {
+
+                case "DOWN":
+                    Ladder.DESCEND(player);
+                    break;
+                case "0":
+                    ladderCheckDOWNSuccessful = 1;
+                    break;
+
+            }
+
+        }
+        else if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckDOWNSuccessful == 1){
+            ladderCheckDOWNSuccessful = 0;
+        }
+    }
+
 }

@@ -4,9 +4,7 @@ import Mobs.Monster;
 import Objects.Items.Chests.*;
 import Objects.Items.Hands.*;
 import Objects.Items.Helmets.*;
-import Objects.Items.Necklaces.CopperNecklace;
-import Objects.Items.Necklaces.PearlNecklace;
-import Objects.Items.Necklaces.SilverNecklace;
+
 import Objects.Items.Weapons.*;
 
 import java.util.Random;

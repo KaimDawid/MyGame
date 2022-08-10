@@ -6,10 +6,9 @@ import Objects.Items.Chests.*;
 import Objects.Items.Hands.*;
 import Objects.Items.Helmets.*;
 import Objects.Items.Item;
-import Objects.Items.Necklaces.CopperNecklace;
+
 import Objects.Items.Necklaces.Necklace;
-import Objects.Items.Necklaces.PearlNecklace;
-import Objects.Items.Necklaces.SilverNecklace;
+
 import Objects.Items.Weapons.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +25,7 @@ public abstract class Monster {
     public String name;
     int freeze = 0;
 
-
+    int poison = 0;
 
 
 
@@ -123,11 +122,11 @@ abstract public int getGold();
         Random random = new Random();
         int dropChance = random.nextInt(100);
 
-        if (dropChance > 85) {
+        if (dropChance > 90) {
 
             int helmetRandomize = random.nextInt(100);
 
-            if (helmetRandomize > 100) {
+            if (helmetRandomize < 16) {
                 Monster.number++;
                 Monster.eqNumber[Monster.number] = new HeadPiece("Smoczy hełm [HEAD]", 30, 20, 3, 30, 1);
                 System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
@@ -166,7 +165,7 @@ abstract public int getGold();
         Random random = new Random();
         int dropChance = random.nextInt(100);
 
-        if (dropChance > 85) {
+        if (dropChance > 90) {
             int armorRandomize = random.nextInt(100);
 
             if (armorRandomize < 16) {
@@ -208,7 +207,7 @@ abstract public int getGold();
 
         int dropChance = random.nextInt(100);
 
-        if (dropChance > 85) {
+        if (dropChance > 90) {
             int glovesRandomize = random.nextInt(100);
 
             if (glovesRandomize < 16) {
@@ -250,36 +249,36 @@ abstract public int getGold();
         Random random = new Random();
         int dropChance = random.nextInt(100);
 
-        if (dropChance > 85) {
+        if (dropChance > 90) {
             int weaponRandomize = random.nextInt(100);
 
             if (weaponRandomize < 16) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Katana [WEAPON]", 0, 40, 7, 10, 1, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Katana [WEAPON]", 0, 40, 7, 10, 1, 1, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (weaponRandomize > 15 && weaponRandomize < 26) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Miecz dwuręczny [WEAPON]", 0, 60, 3, 0, 2, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Miecz dwuręczny [WEAPON]", 0, 60, 3, 0, 2, 1, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (weaponRandomize > 25 && weaponRandomize < 51) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Sztylet [WEAPON]", 0, 20, 10, 0, 1, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Sztylet [WEAPON]", 0, 20, 10, 0, 1, 1, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (weaponRandomize > 50 && weaponRandomize < 81) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Miecz i tarcza [WEAPON]", 40, 30, 3, 10, 2, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Miecz i tarcza [WEAPON]", 40, 30, 3, 10, 2, 1, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (weaponRandomize > 80) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Laska nowicjusza [WEAPON]", 0, 5, 0, 80, 2, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Laska nowicjusza [WEAPON]", 0, 5, 0, 80, 2, 0, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
@@ -293,7 +292,7 @@ abstract public int getGold();
         Random random = new Random();
         int dropChance = random.nextInt(100);
 
-        if (dropChance > 85) {
+        if (dropChance > 90) {
             int neckRandomize = random.nextInt(100);
 
             if (neckRandomize < 26) {

@@ -3,18 +3,23 @@ package Logic;
 import Mobs.Monster;
 import Mobs.Player;
 import Objects.Items.Item;
+import Objects.Items.Weapons.Weapon;
 
 import java.util.Scanner;
 
 import static Mobs.Monster.eqNumber;
 
 public class Inventory {
-
+    public static Weapon equippedweapon = new Weapon("Chuj",1,1,1,1,1,1,1);
 static Scanner scanner = new Scanner(System.in);
 
     public static void INVENTORY(Player Dawid) throws InterruptedException {
         String input2 = scanner.nextLine().toUpperCase();
         switch (input2) {
+
+            case "0":
+                Slot(0,Dawid);
+                break;
 
             case "1":
 
@@ -113,8 +118,6 @@ static Scanner scanner = new Scanner(System.in);
                 Slot(32,Dawid);
                 break;
 
-            case "0":
-                break;
             case "OFF":
                 for (int i = 0; i < 50; i++) {
                     try {
@@ -136,12 +139,14 @@ static Scanner scanner = new Scanner(System.in);
     }
 
     public static void Slot(int slotNumber, Player Dawid) {
+
         try {
             if (eqNumber[slotNumber].getHelmEquip() > 0 && Monster.helmEQ < 1 && eqNumber[slotNumber].getIsON() < 1) {
                 eqNumber[slotNumber].eqON(Dawid);
                 Monster.helmEQ = 1;
                 eqNumber[slotNumber].setIsON(1);
             } else if (eqNumber[slotNumber].getWeaponEquip() > 0 && Monster.weaponEQ < Dawid.getWeaponCapacity() && eqNumber[slotNumber].getIsON() < 1) {
+                equippedweapon = (Weapon) eqNumber[slotNumber];
                 eqNumber[slotNumber].eqON(Dawid);
                 Monster.weaponEQ++;
                 eqNumber[slotNumber].setIsON(1);
@@ -164,6 +169,7 @@ static Scanner scanner = new Scanner(System.in);
                 System.out.println("Zdjąłeś przedmiot");
             } else if (eqNumber[slotNumber].getWeaponEquip() > 0 && Monster.weaponEQ > 0 && eqNumber[slotNumber].getIsON() > 0) {
                 eqNumber[slotNumber].eqOFF(Dawid);
+                equippedweapon = null;
                 Monster.weaponEQ--;
                 eqNumber[slotNumber].setIsON(0);
                 System.out.println("Zdjąłeś przedmiot");

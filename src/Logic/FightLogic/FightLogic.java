@@ -65,6 +65,13 @@ public class FightLogic {
             System.out.println("Otrzymałeś " + poisonDMG + " obrażeń od trucizny");
             player.setPoison(player.getPoison() - 1);
         }
+        if (monster.getPoison() > 0){
+            int poisonDMG = 20;
+            monster.setHp(monster.getHp() - poisonDMG);
+            System.out.println("Przeciwnik otrzymał " + poisonDMG + " obrażeń od trucizny!");
+            monster.setPoison(monster.getPoison() - 1);
+        }
+
 
 
         if (Fight.adrenalineDuration > 0){
