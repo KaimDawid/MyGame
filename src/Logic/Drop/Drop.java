@@ -16,7 +16,7 @@ import static Mobs.Monster.eqNumber;
 public class Drop {
 
 
-    public static void dropHelmet(){
+    /*public static void dropHelmet(){
         Random random = new Random();
         int dropChance = random.nextInt(100);
 
@@ -62,19 +62,19 @@ public class Drop {
         Random random = new Random();
         int dropChance = random.nextInt(100);
 
-     /*   if (dropChance > 85) {
+     *//*   if (dropChance > 85) {
             int armorRandomize = random.nextInt(100);
 
-            if (armorRandomize < 16) {*/
+            if (armorRandomize < 16) {*//*
         Monster.number++;
          Monster.eqNumber[Monster.number] = new ChestArmor("Zbroja samuraja", 30, 30, 30, 30, 1);
         System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                 + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                 + " Mocy zaklęć) !");
 
-               /* Monster.eqNumber[Monster.number] = new DrakeArmor(1);*/
+               *//* Monster.eqNumber[Monster.number] = new DrakeArmor(1);*//*
 
-           /* } else if (armorRandomize > 15 && armorRandomize < 26) {
+           *//* } else if (armorRandomize > 15 && armorRandomize < 26) {
                 Monster.number++;
                 Monster.eqNumber[Monster.number] = new MailShirt(1);
                 System.out.println("Znalazłeś " + Monster.eqNumber[Monster.number].getName() + "!");
@@ -90,9 +90,9 @@ public class Drop {
                 Monster.number++;
                 Monster.eqNumber[Monster.number] = new ClothRobe(1);
                 System.out.println("Znalazłeś " + Monster.eqNumber[Monster.number].getName() + "!");
-            }*/
+            }*//*
         }
-   /* }*/
+   *//* }*//*
 
     public static void dropGloves(){
             Random random = new Random();
@@ -208,7 +208,7 @@ public class Drop {
                 }
             }
         }
-
+*/
 
 
 }

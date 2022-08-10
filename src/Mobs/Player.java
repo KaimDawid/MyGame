@@ -173,7 +173,7 @@ int weaponCapacity = 1;
             player.setDMG((int) adrenalineAttackValue);
             player.setArmor((int) adrenalineArmorValue);
 
-            System.out.println("Użyłeś umiejętności " + skillName + ", zadajesz 50% więcej obrażeń ale sam jesteś bardziej podatny na obrażenia");
+            System.out.println("Użyłeś umiejętności " + skillName + ", zadajesz więcej obrażeń ale sam jesteś bardziej podatny na obrażenia");
             player.setAdrenalineValue(1);
         }
 

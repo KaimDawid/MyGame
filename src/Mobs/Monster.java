@@ -63,11 +63,11 @@ public abstract class Monster {
 
     public void Drop(){
 
-        Drop.dropNeck();
-        Drop.dropWeapon();
-        Drop.dropGloves();
-        Drop.dropArmor();
-        Drop.dropHelmet();
+        dropNeck();
+        dropWeapon();
+        dropGloves();
+        dropArmor();
+        dropHelmet();
 
     }
 

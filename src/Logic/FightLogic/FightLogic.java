@@ -10,8 +10,8 @@ import static Logic.FightLogic.Fight.PlayerStatusWearOff;
 
 public class FightLogic {
 
-    public static void ConcludeBattle(Player player, int doubleStrike, Monster monster1, int joined){
-        if (doubleStrike == 1) {
+    public static void ConcludeBattle(Player player, Monster monster1, int joined){
+        if (Fight.doubleStrike == 1) {
             if (monster1.getHp() <= 0 && GameLogic.monsterBase[joined].getHp() <= 0) {
                 System.out.println("Pokonałeś obu wrogów!");
                 GameLogic.monsterBase[joined].setX(100);
@@ -22,13 +22,13 @@ public class FightLogic {
                 GameLogic.monsterBase[joined].Drop();
                 monster1.Drop();
                 player.setGold(player.getGold() + monster1.getGold() + GameLogic.monsterBase[joined].getGold());
-                joined = 1;
-                doubleStrike = 0;
+                Fight.joined = 1;
+                Fight.doubleStrike = 0;
                 PlayerStatusWearOff(player);
                 Fight.escape = 1;
 
             }
-        } else if (doubleStrike == 0) {
+        } else if (Fight.doubleStrike == 0) {
             if (monster1.getHp() <= 0) {
                 System.out.println("Wygrałeś!");
                 monster1.setX(100);
@@ -37,8 +37,8 @@ public class FightLogic {
                 Random random = new Random();
 
                 monster1.Drop();
-                joined = 1;
-                doubleStrike = 0;
+                Fight.joined = 1;
+                Fight.doubleStrike = 0;
                 player.setGold(player.getGold() + monster1.getGold());
                 PlayerStatusWearOff(player);
                 Fight.escape = 1;

@@ -48,7 +48,6 @@ public class Gloves extends Item {
             handsEquip = 2;
             longName();
             System.out.println("Założyłeś: " +getShortName() + " (" +getHP() +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
-            System.out.println(longName);
             isON = 1;
             eqValue = 1;
 

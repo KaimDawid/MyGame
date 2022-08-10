@@ -320,7 +320,7 @@ public class Fight {
 
             }
 
-            FightLogic.ConcludeBattle(player, doubleStrike, monster, joined );
+            FightLogic.ConcludeBattle(player, monster, joined );
             FightLogic.RestoreMana(player);
 
 
@@ -337,6 +337,7 @@ public class Fight {
         else if (GameLogic.monsterBase[joined].getFreeze() > 0){
             System.out.println(GameLogic.monsterBase[joined].getName() + " jest zamrożony, nie może się ruszać przez " +
                     GameLogic.monsterBase[joined].getFreeze() + " tury.");
+            GameLogic.monsterBase[joined].setFreeze(GameLogic.monsterBase[joined].getFreeze() - 1);
         }
         Thread.sleep(500);
         if (monster1.getHp() > 0 && monster1.getFreeze() == 0) {

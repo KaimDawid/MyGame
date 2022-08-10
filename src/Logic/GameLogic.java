@@ -12,7 +12,7 @@ import Objects.Items.Helmets.DrakeHelmet;
 import Objects.Items.Helmets.LeatherHelmet;
 import Objects.Items.Item;
 import Objects.Items.Necklaces.PearlNecklace;
-import Objects.Items.Weapons.Dagger;
+
 import Objects.Shop.Shop;
 
 import java.util.Date;
@@ -40,6 +40,8 @@ public class GameLogic {
 
     int toxic = 0;
 
+    static int ladderCheckUPSuccessful = 0;
+    static int ladderCheckDOWNSuccessful = 0;
 
     Scanner scanner = new Scanner(System.in);
     public static Monster[] monsterBase = new Monster[50];
@@ -158,7 +160,7 @@ public class GameLogic {
 
     public static void LadderCheckUP(LadderUP ladder, Player player) {
         Scanner scanner1 = new Scanner(System.in);
-        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor()) {
+        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckUPSuccessful == 0) {
             System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
             System.out.println("UP - wejdź piętro wyżej,      0: wyjdź");
             String ladderChoice = scanner1.nextLine().toUpperCase();
@@ -168,17 +170,22 @@ public class GameLogic {
                     Ladder.ASCEND(player);
                     break;
                 case "0":
+                    ladderCheckUPSuccessful = 1;
                     break;
+
 
             }
 
+        }
+        else if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckUPSuccessful == 1){
+            ladderCheckUPSuccessful = 0;
         }
     }
 
 
     public static void LadderCheckDOWN(LadderDOWN ladder, Player player) {
         Scanner scanner1 = new Scanner(System.in);
-        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor()) {
+        if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckDOWNSuccessful == 0) {
             System.out.println("Znalazłeś drabinę! Możesz teraz zmienić piętro.");
             System.out.println("DOWN - zejdź piętro niżej,      0: wyjdź");
             String ladderChoice = scanner1.nextLine().toUpperCase();
@@ -188,10 +195,14 @@ public class GameLogic {
                     Ladder.DESCEND(player);
                     break;
                 case "0":
+                    ladderCheckDOWNSuccessful = 1;
                     break;
 
             }
 
+        }
+        else if (player.getX() == ladder.getX() && player.getY() == ladder.getY() && player.getFloor() == ladder.getFloor() && ladderCheckDOWNSuccessful == 1){
+            ladderCheckDOWNSuccessful = 0;
         }
     }
 
@@ -204,7 +215,7 @@ public class GameLogic {
         // Podstawowe potwory są wyłączone bo generują się automatycznie
         //
 
-        Player Dawid = new Player(300, 200, 30, 0, 0, 4, 4, 20, 0,
+        Player Dawid = new Player(350, 350, 80, 0, 0, 4, 4, 20, 0,
                 0, 0);
         Dawid.setFloor(1);
         Dawid.setClassNumber(1);
@@ -279,7 +290,6 @@ public class GameLogic {
         int handsEQ = 0;
         int chestEQ = 0;
         Dawid.setEscapeInvulnerability(0);
-        Date chuj = new Date();
 
         do {
 
@@ -458,8 +468,7 @@ public class GameLogic {
                     input = exit;
                     break;
                 case "GIVEITEMS":
-                    eqNumber[0] = new Dagger(1);
-                    eqNumber[1] = new Dagger(1);
+
                     eqNumber[2] = new DrakeHelmet(1);
                     eqNumber[3] = new DrakeHelmet(1);
                     eqNumber[4] = new MailShirt(1);
@@ -471,8 +480,7 @@ public class GameLogic {
                     Dawid.setHP(10000);
                     Dawid.setDMG(10000);
                     Dawid.setMaxHP(10000);
-                    eqNumber[0] = new Dagger(1);
-                    eqNumber[1] = new Dagger(1);
+
                     eqNumber[2] = new DrakeHelmet(1);
                     eqNumber[3] = new DrakeHelmet(1);
                     eqNumber[4] = new MailShirt(1);

@@ -9,6 +9,16 @@ public class Experience {
 
     public static String lvlupInput;
 
+    public static String iceDescription = "1. Lodowy pocisk (zamraża przeciwnika na 2 tury, 20p many)";
+
+    public static String fireDescription = "2. Kula ognia (zadaje 120 obrażeń, 50p many)";
+    public static String tpDescription = "3. Teleportacja (przenieś się na dowolne pole, darmowe)";
+    public static String adrenalineDescription = "4. Adrenalina (Zadajesz i przyjmujesz więcej obrażeń)";
+    public static String ironskinDescription = "5. Skóra z żelaza (+30 armor w trakcie walki)";
+    public static String dualWieldDescripion = "6. Dual Wielding (Możesz używać dwóch lekkich broni naraz)";
+    public static String cleaveDescription = "7. Cleave (Atakujesz 2 potwory naraz ze zwiększoną siłą) NIE DODANY";
+
+
     public static void expCounter(Player player) {
 
 
@@ -189,14 +199,24 @@ public class Experience {
 
         do {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Wybierz czar którego chcesz się nauczyć: ");
+            PrintSkill(Player.ICE, player, iceDescription);
+            PrintSkill(Player.FIREBALL, player, fireDescription);
+            PrintSkill(Player.TP, player, tpDescription);
+            PrintSkill(Player.ADRENALINE, player, adrenalineDescription);
+            PrintSkill(Player.IRONSKIN, player, ironskinDescription);
+            if (player.getWeaponCapacity() < 2){
+                System.out.println("6. Dual Wielding (Możesz używać dwóch lekkich broni naraz)");
+            }
+            PrintSkill(Player.CLEAVE, player, cleaveDescription);
+
+        /*    System.out.println("Wybierz czar którego chcesz się nauczyć: ");
             System.out.println("1. Lodowy pocisk (zamraża przeciwnika na 2 tury, 20p many)");
             System.out.println("2. Kula ognia (zadaje 120 obrażeń, 50p many)");
             System.out.println("3. Teleportacja (przenieś się na dowolne pole, darmowe)");
             System.out.println("4. Adrenalina (Zadajesz i przyjmujesz więcej obrażeń)");
             System.out.println("5. Skóra z żelaza (+30 armor w trakcie walki)");
-            System.out.println("6. Dual Wielding (Możesz używać dwóch lekkich broni naraz)");
-            System.out.println("7. Cleave (Atakujesz 2 potwory naraz ze zwiększoną siłą) NIE DODANY");
+
+            System.out.println("7. Cleave (Atakujesz 2 potwory naraz ze zwiększoną siłą) NIE DODANY");*/
             lvlupInput = scanner.nextLine();
             switch (lvlupInput) {
                 case "1":
@@ -216,6 +236,7 @@ public class Experience {
                     break;
                 case "6":
                     player.DualWield(player);
+                    lvlupInput = "0";
                     break;
                 case "7":
                     LearnSkill(player, Player.CLEAVE, skillSlot);
@@ -246,6 +267,15 @@ public class Experience {
         System.out.println("Masz " + player.getLevel() + " poziom doświadczenia, oraz " + player.getXP() +
                 "/" + cap + " punktów doświadczenia");
         System.out.println("Złoto: " + player.getGold());
+    }
+
+    public static void PrintSkill(int skillNumber, Player player, String description){
+        if (player.getChosenSkill1() != skillNumber && player.getChosenSkill2() != skillNumber && player.getChosenSkill3() != skillNumber &&
+                player.getChosenSkill4() != skillNumber && player.getChosenSkill5() != skillNumber && player.getChosenSkill6() != skillNumber
+                && player.getChosenSkill7() != skillNumber && player.getChosenSkill8() != skillNumber && player.getChosenSkill9() != skillNumber
+                && player.getChosenSkill10() != skillNumber){
+            System.out.println(description);
+        }
     }
 
 }
