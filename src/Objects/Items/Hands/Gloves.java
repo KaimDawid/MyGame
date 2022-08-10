@@ -1,14 +1,14 @@
-package Objects.Items.Weapons;
+package Objects.Items.Hands;
 
 import Mobs.Player;
 import Objects.Items.Item;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
-public class Weapon extends Item {
 
-    int hands;
+@Getter
+@Setter
+public class Gloves extends Item {
     int HP;
     int DMG;
     int crit;
@@ -20,14 +20,13 @@ public class Weapon extends Item {
     String longName = getShortName() + " (" +getHP() +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)";
     int helmEquip;
     int chestEquip;
-    int handsEquip;
-    int weaponEquip = 1;
+    int handsEquip = 1;
+    int weaponEquip;
     int neckEquip;
     int isON = 0;
     int eqValue;
 
-    public Weapon(String shortName, int HP, int DMG, int crit, int magic, int hands, int stock) {
-        this.hands = hands;
+    public Gloves(String shortName, int HP, int DMG, int crit, int magic, int stock) {
         this.HP = HP;
         this.DMG = DMG;
         this.crit = crit;
@@ -40,13 +39,13 @@ public class Weapon extends Item {
 
     @Override
     public void eqON(Player player) {
-        if (weaponEquip < 2) {
+        if (handsEquip < 2) {
             player.setMaxHP(player.getMaxHP() + HP);
             player.setHP(player.getHP() + HP);
             player.setDMG(player.getDMG() + DMG);
             player.setCritChance(player.getCritChance() + crit);
             player.setMagic(player.getMagic() + magic);
-            weaponEquip = 2;
+            handsEquip = 2;
             longName();
             System.out.println("Założyłeś: " +getShortName() + " (" +getHP() +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
             System.out.println(longName);
@@ -54,7 +53,7 @@ public class Weapon extends Item {
             eqValue = 1;
 
         }
-        else if (weaponEquip > 1){
+        else if (handsEquip > 1){
             player.setMaxHP(player.getMaxHP() - HP);
             if (player.getHP() > player.getMaxHP()){
                 double difference = (player.getHP() - player.getMaxHP());
@@ -64,7 +63,7 @@ public class Weapon extends Item {
             player.setCritChance(player.getCritChance() - crit);
             player.setMagic(player.getMagic() - magic);
 
-            weaponEquip = 1;
+            handsEquip = 1;
             System.out.println("Zdjąłeś: "+getShortName() + " (" +getHP() +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
             longName();
             eqValue = 0;
@@ -80,7 +79,7 @@ public class Weapon extends Item {
 
     @Override
     public void eqOFF(Player player){
-        if (weaponEquip > 1) {
+        if (handsEquip > 1) {
             player.setMaxHP(player.getMaxHP() - HP);
             if (player.getHP() - HP < 1){
                 player.setHP(1);
@@ -95,7 +94,7 @@ public class Weapon extends Item {
             player.setDMG(player.getDMG() - DMG);
             player.setCritChance(player.getCritChance() - crit);
             player.setMagic(player.getMagic() - magic);
-            weaponEquip = 1;
+            handsEquip = 1;
             eqValue = 0;
             isON = 0;
         }
@@ -120,5 +119,6 @@ public class Weapon extends Item {
     public void setName(String name) {
 
     }
+
 
 }

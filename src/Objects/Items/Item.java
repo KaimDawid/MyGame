@@ -1,7 +1,11 @@
 package Objects.Items;
 
 import Mobs.Player;
+import Objects.Items.Chests.MailShirt;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public abstract class Item {
     int helmEquip;
     int chestEquip;
@@ -9,6 +13,42 @@ public abstract class Item {
     int weaponEquip;
     int neckEquip;
     int isON = 0;
+
+    /*public static void NewItem(String shortName, double hp, double DMG, double crit, int mana, int magic, Player player ){
+        public static void eqON(Player player) {
+            if (chestEquip < 2) {
+                player.setMaxHP(player.getMaxHP() + this.HP);
+                player.setHP(player.getHP() + this.HP);
+                player.setDMG(player.getDMG() + this.DMG);
+                player.setCritChance(player.getCritChance() + this.crit);
+                player.setMagic(player.getMagic() + this.magic);
+                chestEquip = 2;
+                System.out.println("Założyłeś " + shortName);
+                isON = 1;
+                eqValue = 1;
+
+            }
+            else if (chestEquip > 1){
+                player.setMaxHP(player.getMaxHP() - this.HP);
+                if (player.getHP() > player.getMaxHP()){
+                    double difference = (player.getHP() - player.getMaxHP());
+                    player.setHP(player.getHP() - difference);
+                }
+                player.setDMG(player.getDMG() - this.DMG);
+                player.setCritChance(player.getCritChance() - this.crit);
+                player.setMagic(player.getMagic() - this.magic);
+                msEquip = false;
+                chestEquip = 1;
+                System.out.println("Zdjąłeś " + shortName);
+                eqValue = 0;
+            }
+            else if (eqValue>0){
+                System.out.println("Najpierw zdejmij swoją poprzednią zbroję");
+            }
+
+        }
+    }*/
+
     public abstract int getHelmEquip();
 
     public abstract void setHelmEquip(int helmEquip);
@@ -39,7 +79,7 @@ public abstract class Item {
     int DMG;
     int crit;
     int magic;
-    String name;
+    String shortName;
     int eqValue;
 
     public abstract int getEqValue();
@@ -78,5 +118,8 @@ public abstract class Item {
 
     public abstract void eqOFF(Player player);
 
-
+    public String longName(){
+        return shortName + " (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)";
+        /*System.out.println(shortName + " (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");*/
+    }
 }

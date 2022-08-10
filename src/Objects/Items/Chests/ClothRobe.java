@@ -12,6 +12,8 @@ public class ClothRobe extends Item {
     int stock = 0;
 
     String name = ("Szata płócienna [CHEST] (" +HP +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)");
+
+    String shortName = "Szata płócienna [CHEST]";
     int helmEquip;
     int chestEquip = 1;
     int handsEquip;

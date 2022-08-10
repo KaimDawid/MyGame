@@ -189,4 +189,19 @@ static Scanner scanner = new Scanner(System.in);
             System.out.println("Nie masz tego przedmiotu");
         }
     }
+
+
+    /*public static void InvPrint(int invSlots, Player player){
+        for (int i = 1; i < invSlots ; i++) {
+
+            int input = scanner.nextInt();
+            scanner.nextLine();
+            switch (input) {
+                case i:
+                    Slot(i, player);
+                    break;
+            }
+        }
+    }*/
+
 }

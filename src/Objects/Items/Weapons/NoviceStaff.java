@@ -2,7 +2,7 @@ package Objects.Items.Weapons;
 
 import Mobs.Player;
 
-public class NoviceStaff extends Weapon {
+public class NoviceStaff {
     int helmEquip;
     int chestEquip;
     int handsEquip;

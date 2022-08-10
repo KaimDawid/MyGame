@@ -1,7 +1,6 @@
 package Mobs;
 
-import Logic.Numbers;
-import Logic.Size;
+
 import Logic.Skills;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,10 +25,11 @@ public class Player {
     private double HP = 120;
     private double MaxHP = 120;
     int DMG = 20;
-    public int XP = 0;
+    public int XP;
 
     public double level = 0;
     int escapeInvulnerability = 0;
+
 
     public int X;
     public int Y;

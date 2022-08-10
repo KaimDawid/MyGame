@@ -1,13 +1,16 @@
 package Logic;
 
+import Data.Info.Info;
 import Logic.FightLogic.Fight;
 import Logic.Spawners.*;
 import Mobs.*;
 import Objects.*;
+import Objects.Items.Chests.ChestArmor;
 import Objects.Items.Chests.MailShirt;
 import Objects.Items.Hands.BasiliskGloves;
 import Objects.Items.Helmets.DrakeHelmet;
 import Objects.Items.Helmets.LeatherHelmet;
+import Objects.Items.Item;
 import Objects.Items.Necklaces.PearlNecklace;
 import Objects.Items.Weapons.Dagger;
 import Objects.Shop.Shop;
@@ -43,13 +46,23 @@ public class GameLogic {
     static Monster[] monsterBase2 = new Monster[50];
     static Monster[] monsterBase3 = new Monster[50];
 
-
+    public static Item[] equipment = new Item[100];
 
     static Monster[] monsterBase4 = new Monster[50];
 
     static Monster[] monsterBase5 = new Monster[50];
 
     static Monster[] monsterBase6 = new Monster[50];
+
+    static Ladder[] ladders = new Ladder[10];
+
+    static int[] ladX = new int[10];
+
+    static int[] ladY = new int[10];
+
+    static LadderDOWN[] ladderDOWNS = new LadderDOWN[10];
+
+    static LadderUP[] ladderUPS = new LadderUP[10];
 
     double[] field = new double[100];
     public static int spawnedMonsters = 1;
@@ -200,144 +213,35 @@ public class GameLogic {
 
         Random random = new Random();
 
-        LadderDOWN ladderDOWN1 = new LadderDOWN(1, 1, 1);
-        LadderUP ladderUP1 = new LadderUP(1, 1, 2);
-        for (int k = 0; k < 1; k++) {
-            int LadderX;
-            int LadderY;
-            LadderX = (random.nextInt(8) + 1);
-            LadderY = (random.nextInt(8) + 1);
-
-
-            if ((LadderX > 6 || LadderX < 3) || (LadderY > 6 || LadderY < 3)) {
-
-
-                ladderDOWN1.setX(LadderX);
-                ladderDOWN1.setY(LadderY);
-
-                ladderUP1.setX(LadderX);
-                ladderUP1.setY(LadderY);
-                System.out.println("Koordy drabiny to: ");
-       /*         System.out.println("X: " + LadderX);
-                System.out.println("Y: " + LadderY);
-                System.out.println("floor: " + ladderUP1.getFloor());*/
-            } else {
-                k = k - 1;
-            }
+        try {
+            createLadder(0);
         }
+        catch (ArrayIndexOutOfBoundsException b){
 
-        LadderDOWN ladderDOWN2 = new LadderDOWN(1, 1, 2);
-        LadderUP ladderUP2 = new LadderUP(1, 1, 3);
-        for (int f = 0; f < 1; f++) {
-            int LadderX2;
-            int LadderY2;
-            LadderX2 = (random.nextInt(8) + 1);
-            LadderY2 = (random.nextInt(8) + 1);
-
-
-            if ((LadderX2 > (ladderUP1.getX() + 4) || LadderX2 < (ladderUP1.getX() - 4)) || (LadderY2 > (ladderUP1.getY() + 4) || LadderY2 < (ladderUP1.getY() - 4))) {
-
-
-                ladderDOWN2.setX(LadderX2);
-                ladderDOWN2.setY(LadderY2);
-
-                ladderUP2.setX(LadderX2);
-                ladderUP2.setY(LadderY2);
-                System.out.println("Koordy drabiny 2 to: ");
-             /*   System.out.println("X: " + LadderX2);
-                System.out.println("Y: " + LadderY2);
-                System.out.println("floor: " + ladderUP2.getFloor());*/
-            } else {
-                f = f - 1;
-            }
         }
-        LadderDOWN ladderDOWN3 = new LadderDOWN(1, 1, 3);
-        LadderUP ladderUP3 = new LadderUP(1, 1, 4);
-        for (int f3 = 0; f3 < 1; f3++) {
-            int LadderX3;
-            int LadderY3;
-            LadderX3 = (random.nextInt(8) + 1);
-            LadderY3 = (random.nextInt(8) + 1);
-
-
-            if ((LadderX3 > (ladderUP2.getX() + 4) || LadderX3 < (ladderUP2.getX() - 4)) || (LadderY3 > (ladderUP2.getY() + 4) || LadderY3 < (ladderUP2.getY() - 4))) {
-
-
-                ladderDOWN3.setX(LadderX3);
-                ladderDOWN3.setY(LadderY3);
-
-                ladderUP3.setX(LadderX3);
-                ladderUP3.setY(LadderY3);
-              /*  System.out.println("Koordy drabiny 3 to: ");
-                System.out.println("X: " + LadderX3);
-                System.out.println("Y: " + LadderY3);
-                System.out.println("floor: " + ladderUP3.getFloor());*/
-            } else {
-                f3 = f3 - 1;
-            }
+        try {
+            createLadder(1);
         }
-        LadderDOWN ladderDOWN4 = new LadderDOWN(1, 1, 4);
-        LadderUP ladderUP4 = new LadderUP(1, 1, 5);
-        for (int f4 = 0; f4 < 1; f4++) {
-            int LadderX4;
-            int LadderY4;
-            LadderX4 = (random.nextInt(8) + 1);
-            LadderY4 = (random.nextInt(8) + 1);
+        catch (NullPointerException a ){
 
-
-            if ((LadderX4 > (ladderUP3.getX() + 4) || LadderX4 < (ladderUP3.getX() - 4)) || (LadderY4 > (ladderUP3.getY() + 4) || LadderY4 < (ladderUP3.getY() - 4))) {
-
-
-                ladderDOWN4.setX(LadderX4);
-                ladderDOWN4.setY(LadderY4);
-
-                ladderUP4.setX(LadderX4);
-                ladderUP4.setY(LadderY4);
-       /*         System.out.println("Koordy drabiny 4 to: ");
-                System.out.println("X: " + LadderX4);
-                System.out.println("Y: " + LadderY4);
-                System.out.println("floor: " + ladderUP4.getFloor());*/
-            } else {
-                f4 = f4 - 1;
-            }
         }
-        LadderDOWN ladderDOWN5 = new LadderDOWN(1, 1, 5);
-        LadderUP ladderUP5 = new LadderUP(1, 1, 6);
-        for (int f5 = 0; f5 < 1; f5++) {
-            int LadderX5;
-            int LadderY5;
-            LadderX5 = (random.nextInt(8) + 1);
-            LadderY5 = (random.nextInt(8) + 1);
-
-
-            if ((LadderX5 > (ladderUP4.getX() + 4) || LadderX5 < (ladderUP4.getX() - 4)) || (LadderY5 > (ladderUP4.getY() + 4) || LadderY5 < (ladderUP4.getY() - 4))) {
-
-
-                ladderDOWN5.setX(LadderX5);
-                ladderDOWN5.setY(LadderY5);
-
-                ladderUP5.setX(LadderX5);
-                ladderUP5.setY(LadderY5);
-               /* System.out.println("Koordy drabiny 5 to: ");
-                System.out.println("X: " + LadderX5);
-                System.out.println("Y: " + LadderY5);
-                System.out.println("floor: " + ladderUP5.getFloor());*/
-            } else {
-                f5 = f5 - 1;
-            }
-        }
+        createLadder(2);
+        createLadder(3);
+        createLadder(4);
+        createLadder(5);
 
 
 
+        equipment[1] = new ChestArmor("Płytowa zbroja", 40, 20, 3, 30, 1);
 
-       /* LadderDOWN ladderDOWN1 = new LadderDOWN(5,5,1);
-
-        LadderUP ladderUP1 = new LadderUP(5, 5, 2);*/
+      /*  LadderUP ladderUP1 = new LadderUP(5, 5, 2);*/
         /*Mutant mutant = new Mutant(100, 30, 5, 5, "mutant", 100, 50, 30, 1);*/
         /*Goblin goblin = new Goblin(10,10,4,5,"Goblin", 40, 999, 1, 1);*/
         /* Spider spider = new Spider(80, 20, 3, 3, "pająk", 30, 1);*/
        /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
         Vampire vampire = new Vampire(160, 50, 4,2,"wampir",120,80, 3);*/
+
+        Info.Version.printPatchNotes();
 
         Shop shop = new Shop(3, 4);
         shop.setFloor(1);
@@ -432,6 +336,8 @@ public class GameLogic {
                 case "HP":
                     System.out.println(Dawid.getHP());
                     break;
+                case "PATCH":
+                    Info.Version.printMe();
                 case "DMG":
                     System.out.println(Dawid.getDMG());
                     break;
@@ -530,7 +436,9 @@ public class GameLogic {
                             " przedmioty lub 0 aby wyjść z ekwipunku");
                     for (int i = 0; i < 50; i++) {
                         try {
-                            System.out.println((i) + ". " + eqNumber[i].getName());
+                            System.out.println((i) + ". " + eqNumber[i].getShortName() + " (" + eqNumber[i].getHP() + " HP, "
+                            + eqNumber[i].getDMG() + " DMG, " + eqNumber[i].getCrit() + "Crit, " + eqNumber[i].getMagic()
+                            + " Mocy zaklęć) ");
                             if (eqNumber[i].getEqValue() > 0) {
                                 System.out.println("(Założony)");
                             }
@@ -595,16 +503,16 @@ public class GameLogic {
                     System.out.println("Dodałeś 100 expa, teraz masz " + Dawid.getXP());
                     break;
             }
-            LadderCheckDOWN(ladderDOWN1, Dawid);
-            LadderCheckUP(ladderUP1, Dawid);
-            LadderCheckDOWN(ladderDOWN2, Dawid);
-            LadderCheckUP(ladderUP2, Dawid);
-            LadderCheckDOWN(ladderDOWN3, Dawid);
-            LadderCheckUP(ladderUP3, Dawid);
-            LadderCheckDOWN(ladderDOWN4, Dawid);
-            LadderCheckUP(ladderUP4, Dawid);
-            LadderCheckDOWN(ladderDOWN5, Dawid);
-            LadderCheckUP(ladderUP5, Dawid);
+            LadderCheckDOWN(ladderDOWNS[1], Dawid);
+            LadderCheckUP(ladderUPS[1], Dawid);
+            LadderCheckDOWN(ladderDOWNS[2], Dawid);
+            LadderCheckUP(ladderUPS[2], Dawid);
+            LadderCheckDOWN(ladderDOWNS[3], Dawid);
+            LadderCheckUP(ladderUPS[3], Dawid);
+            LadderCheckDOWN(ladderDOWNS[4], Dawid);
+            LadderCheckUP(ladderUPS[4], Dawid);
+            LadderCheckDOWN(ladderDOWNS[5], Dawid);
+            LadderCheckUP(ladderUPS[5], Dawid);
             /*checker(Dawid, mutant);*/
             if (Dawid.getEscapeInvulnerability() < 1) {
 
@@ -620,13 +528,7 @@ public class GameLogic {
                         break;
                     }
                 }
-               /* for (int h = 1; h < (spawnedMonsters * 2); h++) {
-                    checker(Dawid, monsterBase2[h]);
-                    if (checkSuccesful > 0) {
-                        checkSuccesful = 0;
-                        break;
-                    }
-                }*/
+
                 checker(Dawid, minotaur);
                 if (Dawid.getX() == shop.getX() && Dawid.getY() == shop.getY() && Dawid.getFloor() == shop.getFloor()) {
                     Test.store(Dawid, shop);
@@ -659,4 +561,36 @@ public class GameLogic {
 
     }
 
+    public static void createLadder(int floor) {
+        Random random = new Random();
+        ladderDOWNS[floor] = new LadderDOWN(1,1,floor);
+        ladderUPS[floor] = new LadderUP(1, 1, floor);
+        for (int f = 0; f < 1; f++) {
+
+
+            // to może nie działać
+
+
+            ladX[floor] = (random.nextInt(8) + 1);
+            ladY[floor] = (random.nextInt(8) + 1);
+
+
+            if ((ladX[floor] > (ladderUPS[floor - 1].getX() + 4) || ladX[floor] < (ladderUPS[floor - 1].getX() - 4)) ||
+                    (ladY[floor] > (ladderUPS[floor - 1].getY() + 4) || ladY[floor] < (ladderUPS[floor - 1].getY() - 4))) {
+
+
+                ladderDOWNS[floor].setX(ladX[floor]);
+                ladderDOWNS[floor].setY(ladY[floor]);
+
+                ladderUPS[floor].setX(ladX[floor]);
+                ladderUPS[floor].setY(ladY[floor]);
+                /*System.out.println("Koordy drabiny " + floor + " to: ");
+                System.out.println("X: " + ladX[floor]);
+                System.out.println("Y: " + ladY[floor]);
+                System.out.println("floor: " + ladderUPS[floor].getFloor());*/
+            } else {
+                f = f - 1;
+            }
+        }
+    }
 }
