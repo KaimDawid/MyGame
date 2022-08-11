@@ -2,6 +2,8 @@ package Mobs;
 
 import Logic.Drop.Drop;
 import Logic.GameLogic;
+import Logic.INV;
+import Logic.Inventory;
 import Objects.Items.Chests.*;
 import Objects.Items.Hands.*;
 import Objects.Items.Helmets.*;
@@ -26,7 +28,6 @@ public abstract class Monster {
     int freeze = 0;
 
     int poison = 0;
-
 
 
 
@@ -176,7 +177,7 @@ abstract public int getGold();
                         + " Mocy zaklęć) !");
             } else if (armorRandomize > 15 && armorRandomize < 26) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new ChestArmor("Smocza łuskowa [CHEST]", 30, 10, 0, 0, 1);
+                Monster.eqNumber[Monster.number] = new ChestArmor("Zbroja łuskowa [CHEST]", 30, 10, 0, 0, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
@@ -251,6 +252,7 @@ abstract public int getGold();
 
         if (dropChance > 90) {
             int weaponRandomize = random.nextInt(100);
+
 
             if (weaponRandomize < 16) {
                 Monster.number++;

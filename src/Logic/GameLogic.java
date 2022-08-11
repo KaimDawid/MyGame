@@ -208,6 +208,7 @@ public class GameLogic {
         Spider spider4 = new Spider(10, 20, 5, 5, "pająk", 30, 1,1);
         equipment[2] = new Weapon("Sztylet", 0, 20, 5, 0, 1, 1, 1);
         eqNumber[30] = new Weapon("Sztylet", 0, 20, 5, 0, 1,1,1);
+        eqNumber[31] = new Weapon("Laska nowicjusza", 0, 10, 10, 60, 2, 0, 1);
 
        /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
         Vampire vampire = new Vampire(160, 50, 4,2,"wampir",120,80, 3);*/
@@ -520,14 +521,16 @@ public class GameLogic {
             Dawid.setEscapeInvulnerability(0);
            if (Dawid.getY() == 3 && Dawid.getX() == 5) {
                 Armor.pickArmor(Dawid);
-            } else if (Dawid.getY() < 0 || Dawid.getY() > 8 || Dawid.getX() < 0 || Dawid.getX() > 8) {
-                System.out.println("Wykroczyłeś poza mapę, wracaj zanim zgubisz się w labiryncie");
             }
             if (Dawid.getHP() > 0) {
                 Experience.expCounter(Dawid);
             }
             if (Dawid.getHP() < 1) {
-                input = exit;
+                System.out.println("Odrodziłeś się w mieście, niestety utraciłeś całe doświadczenie zdobyte w walce");
+                Dawid.setXP(0);
+                Dawid.setX(4);
+                Dawid.setY(4);
+                /*input = exit;*/
             }
         }
         while (!input.equals(exit));

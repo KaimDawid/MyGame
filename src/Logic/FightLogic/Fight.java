@@ -45,14 +45,14 @@ public class Fight {
                 ) {
 
                     int chance = random.nextInt(100);
-                    if (chance > 92) {
+                    if (chance > 91) {
                         System.out.println(GameLogic.monsterBase[joined].getName() + " dołączył do walki!");
                         doubleStrike = 1;
                         joined--;
                     }
                 }
                 joined++;
-            } while (joined < 20 && doubleStrike == 0);
+            } while (joined < 2 && doubleStrike == 0);
         }
 
     }
@@ -72,19 +72,26 @@ public class Fight {
         System.out.println("1 - zatakuj");
         System.out.println("RUN - spróbuj uciec");
         if (player.getChosenSkill1() == Player.ICE || player.getChosenSkill2() == Player.ICE || player.getChosenSkill3() == Player.ICE ||
-                player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() == Player.ICE) {
+                player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() == Player.ICE || player.getChosenSkill6() == Player.ICE ||
+                player.getChosenSkill7() == Player.ICE || player.getChosenSkill8() == Player.ICE ||
+                player.getChosenSkill9() == Player.ICE || player.getChosenSkill10() == Player.ICE) {
             System.out.println("ICE - rzuć lodowy pocisk (zamraża na 2 tury)");
         }
         if (player.getChosenSkill1() == Player.FIREBALL || player.getChosenSkill2() == Player.FIREBALL || player.getChosenSkill3() == Player.FIREBALL ||
-                player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() == Player.FIREBALL) {
+                player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() == Player.FIREBALL || player.getChosenSkill6() == Player.FIREBALL ||
+                player.getChosenSkill7() == Player.FIREBALL || player.getChosenSkill8() == Player.FIREBALL ||
+                player.getChosenSkill9() == Player.FIREBALL || player.getChosenSkill10() == Player.FIREBALL) {
             System.out.println("FIRE - rzuć kulę ognia (zadaje 120 obrażeń)");
         }
         if (player.getChosenSkill1() == Player.ADRENALINE || player.getChosenSkill2() == Player.ADRENALINE || player.getChosenSkill3() == Player.ADRENALINE ||
-                player.getChosenSkill4() == Player.ADRENALINE || player.getChosenSkill5() == Player.ADRENALINE) {
+                player.getChosenSkill4() == Player.ADRENALINE || player.getChosenSkill5() == Player.ADRENALINE || player.getChosenSkill6() == Player.ADRENALINE || player.getChosenSkill7() == Player.ADRENALINE
+                || player.getChosenSkill10() == Player.ADRENALINE || player.getChosenSkill8() == Player.ADRENALINE || player.getChosenSkill9() == Player.ADRENALINE) {
             System.out.println("ADRENALINE: Zadajesz więcej obrażeń, ale też otrzymujesz więcej.");
         }
         if (player.getChosenSkill1() == Player.IRONSKIN || player.getChosenSkill2() == Player.IRONSKIN || player.getChosenSkill3() == Player.IRONSKIN ||
-                player.getChosenSkill4() == Player.IRONSKIN || player.getChosenSkill5() == Player.IRONSKIN) {
+                player.getChosenSkill4() == Player.IRONSKIN || player.getChosenSkill5() == Player.IRONSKIN || player.getChosenSkill6() == Player.IRONSKIN ||
+                player.getChosenSkill7() == Player.IRONSKIN || player.getChosenSkill8() == Player.IRONSKIN ||
+                player.getChosenSkill9() == Player.IRONSKIN || player.getChosenSkill10() == Player.IRONSKIN) {
             System.out.println("IRONSKIN: + 30 armor.");
         }
         if (player.getBombNumber() > 0) {
@@ -93,7 +100,13 @@ public class Fight {
         if (player.getPotionNumber() > 0) {
             System.out.println("3 - użyj eliksiru leczącego (" + player.getPotionNumber() + ")");
         }
-
+        if (player.getChosenSkill1() == Player.CLEAVE || player.getChosenSkill2() == Player.CLEAVE || player.getChosenSkill3() == Player.CLEAVE ||
+                player.getChosenSkill4() == Player.CLEAVE || player.getChosenSkill5() == Player.CLEAVE || player.getChosenSkill6() == Player.CLEAVE ||
+                player.getChosenSkill7() == Player.CLEAVE || player.getChosenSkill8() == Player.CLEAVE || player.getChosenSkill9() == Player.CLEAVE ||
+                player.getChosenSkill10() == Player.CLEAVE)
+        {
+            System.out.println("CLEAVE: Zaatakuj obu wrogów ze zwiększoną siłą.");
+        }
 
         do {
 
@@ -140,7 +153,10 @@ public class Fight {
             switch (input3) {
 
                 case "ADRENALINE":
-                    if (player.getAdrenalineValue() == 0) {
+                    if (player.getAdrenalineValue() == 0 && player.getChosenSkill1() == Player.ADRENALINE || player.getChosenSkill2() == Player.ADRENALINE
+                            || player.getChosenSkill3() == Player.ADRENALINE || player.getChosenSkill4() == Player.ADRENALINE || player.getChosenSkill5() ==
+                            Player.ADRENALINE || player.getChosenSkill6() == Player.ADRENALINE || player.getChosenSkill7() == Player.ADRENALINE
+                            || player.getChosenSkill8() == Player.ADRENALINE || player.getChosenSkill9() == Player.ADRENALINE || player.getChosenSkill10() == Player.ADRENALINE) {
                         player.Adrenaline(player);
                         player.setAdrenalineValue(1);
                         adrenalineDuration = 3;
@@ -267,6 +283,8 @@ public class Fight {
                 case "ICE":
                     if (player.getChosenSkill1() == Player.ICE || player.getChosenSkill2() == Player.ICE
                             || player.getChosenSkill3() == Player.ICE || player.getChosenSkill4() == Player.ICE || player.getChosenSkill5() ==
+                            Player.ICE ||player.getChosenSkill6() == Player.ICE || player.getChosenSkill7() == Player.ICE
+                            || player.getChosenSkill8() == Player.ICE || player.getChosenSkill9() == Player.ICE || player.getChosenSkill10() ==
                             Player.ICE) {
                         if (doubleStrike == 1) {
                             FightLogic.WhoDoYouWantToAttack(monster, joined);
@@ -291,7 +309,8 @@ public class Fight {
                 case "FIRE":
                     if (player.getChosenSkill1() == Player.FIREBALL || player.getChosenSkill2() == Player.FIREBALL
                             || player.getChosenSkill3() == Player.FIREBALL || player.getChosenSkill4() == Player.FIREBALL || player.getChosenSkill5() ==
-                            Player.FIREBALL) {
+                            Player.FIREBALL  || player.getChosenSkill6() == Player.FIREBALL || player.getChosenSkill7() == Player.FIREBALL
+                            || player.getChosenSkill8() == Player.FIREBALL || player.getChosenSkill9() == Player.FIREBALL || player.getChosenSkill10() == Player.FIREBALL) {
                         if (doubleStrike == 1) {
                             FightLogic.WhoDoYouWantToAttack(monster, joined);
 
@@ -314,9 +333,17 @@ public class Fight {
                     break;
 
                 case "CLEAVE":
-                    player.Cleave(player,monster, GameLogic.monsterBase[joined]);
+                    if (doubleStrike == 1) {
+                        player.Cleave(player, monster, GameLogic.monsterBase[joined]);
+                    }
+                    else {
+                        player.Attack(monster, player);
+                    }
                     EnemyAttack(player,monster);
                    break;
+                case "HEAL":
+                    player.Heal(player);
+                    EnemyAttack(player, monster);
 
             }
 

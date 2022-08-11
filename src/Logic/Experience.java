@@ -16,7 +16,8 @@ public class Experience {
     public static String adrenalineDescription = "4. Adrenalina (Zadajesz i przyjmujesz więcej obrażeń)";
     public static String ironskinDescription = "5. Skóra z żelaza (+30 armor w trakcie walki)";
     public static String dualWieldDescripion = "6. Dual Wielding (Możesz używać dwóch lekkich broni naraz)";
-    public static String cleaveDescription = "7. Cleave (Atakujesz 2 potwory naraz ze zwiększoną siłą) NIE DODANY";
+    public static String cleaveDescription = "7. Cleave (Atakujesz 2 potwory naraz ze zwiększoną siłą)";
+    public static String healDescription = "8. Heal (Leczysz się za koszt many)";
 
 
     public static void expCounter(Player player) {
@@ -84,7 +85,7 @@ public class Experience {
 
             if (player.getClassNumber() == 1) {
 
-              /*  LevelUp(player, 6,6 );*/
+                LevelUp(player, 6,6 );
             }
 
 
@@ -94,14 +95,14 @@ public class Experience {
 
             if (player.getClassNumber() == 1) {
 
-                /*LevelUp(player, 7, 7);*/
+                LevelUp(player, 7, 7);
             }
 
         } else if (player.getXP() >= eigthCap && player.getLevel() == 7) {
             addPointsAndPrint(player, eigthCap, 15, 5, 50);
             if (player.getClassNumber() == 1) {
 
-           /*     LevelUp(player, 8, 8);*/
+                LevelUp(player, 8, 8);
             }
 
         } else if (player.getXP() >= ninethCap && player.getLevel() == 8) {
@@ -110,7 +111,7 @@ public class Experience {
 
             if (player.getClassNumber() == 1) {
 
-                /*LevelUp(player, 9, 9);*/
+                LevelUp(player, 9, 9);
             }
 
 
@@ -120,7 +121,7 @@ public class Experience {
 
             if (player.getClassNumber() == 1) {
 
-              /*  LevelUp(player, 10, 10);*/
+                LevelUp(player, 10, 10);
             }
 
         }
@@ -204,6 +205,7 @@ public class Experience {
             PrintSkill(Player.TP, player, tpDescription);
             PrintSkill(Player.ADRENALINE, player, adrenalineDescription);
             PrintSkill(Player.IRONSKIN, player, ironskinDescription);
+            PrintSkill(Player.HEAL, player, healDescription);
             if (player.getWeaponCapacity() < 2){
                 System.out.println("6. Dual Wielding (Możesz używać dwóch lekkich broni naraz)");
             }
@@ -241,6 +243,8 @@ public class Experience {
                 case "7":
                     LearnSkill(player, Player.CLEAVE, skillSlot);
                     break;
+                case "8":
+                    LearnSkill(player, player.HEAL, skillSlot);
             }
         } while (!lvlupInput.equals("0"));
         System.out.println("Nauczyłeś się nowej umiejętności!");

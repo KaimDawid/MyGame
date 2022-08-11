@@ -17,8 +17,8 @@ public class HeadPiece extends Item {
     String shortName;
 
     String longName = getShortName() + " (" +getHP() +"HP, " + DMG + "DMG, +" + crit +"% szans na crit, " + magic + " siły zaklęć)";
-    int helmEquip;
-    int chestEquip = 1;
+    int helmEquip = 1;
+    int chestEquip;
     int handsEquip;
     int weaponEquip;
     int neckEquip;
@@ -67,7 +67,7 @@ public class HeadPiece extends Item {
             eqValue = 0;
         }
         else if (eqValue>0){
-            System.out.println("Najpierw zdejmij swoją poprzednią zbroję");
+            System.out.println("Najpierw zdejmij swój poprzedni hełm!");
         }
 
     }

@@ -98,6 +98,7 @@ public static void QuestConvo(Player player) throws InterruptedException {
                 Inventory.equippedweapon.setIsToxic(1);
                 player.setToxify(1);
                 System.out.println("Twoja broń jest teraz zatruta!");
+                PressButton();
             }
         }
         catch (NullPointerException a){

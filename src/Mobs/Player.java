@@ -23,6 +23,8 @@ public class Player {
 
     public final static int CLEAVE = 65;
 
+    public final static int HEAL = 66;
+
     private double HP = 120;
     private double MaxHP = 120;
     int DMG = 20;
@@ -112,12 +114,14 @@ int weaponCapacity = 1;
         player.setWeaponCapacity(2);
     }
 
+
+
     public void Freeze(Monster target) {
         double iceDMG = 25 + (0.25 * magic);
         if (mana > 49) {
             System.out.println(target.getName() + " został zamrożony na 2 tury i otrzymał " + iceDMG + " obrażeń");
             target.setHp(target.getHp() - (DMG * 0.25));
-            target.setFreeze(1);
+            target.setFreeze(3);
             mana = mana - 50;
         } else {
             System.out.println("Masz za mało many!");
@@ -138,6 +142,24 @@ int weaponCapacity = 1;
         player.setY(inputY);
         System.out.println("Twoje nowe koordynaty to: " + inputX + "," + inputY);
 
+    }
+
+    public void Heal(Player player){
+        if (player.getChosenSkill1() == HEAL || player.getChosenSkill2() == HEAL || player.getChosenSkill3() == HEAL ||  player.getChosenSkill4() == HEAL ||
+                player.getChosenSkill5() == HEAL || player.getChosenSkill6() == HEAL || player.getChosenSkill7() == HEAL ||
+                player.getChosenSkill8() == HEAL || player.getChosenSkill9() == HEAL || player.getChosenSkill10() == HEAL) {
+            if (player.getMana() >= 80) {
+                double healValue = 150 + (player.getMagic() * 0.6);
+                player.setMana(player.getMana() - 80);
+                player.setHP(player.getHP() + healValue);
+                System.out.println("Uleczyłeś się za " + healValue + " punktów życia");
+            } else {
+                System.out.println("Masz za mało many!");
+            }
+        }
+        else {
+            System.out.println("Nie masz tej umiejętności.");
+        }
     }
 
     public void Fireball(Monster monster, Player player) {

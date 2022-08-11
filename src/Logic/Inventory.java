@@ -10,7 +10,9 @@ import java.util.Scanner;
 import static Mobs.Monster.eqNumber;
 
 public class Inventory {
-    public static Weapon equippedweapon = new Weapon("Chuj",1,1,1,1,1,1,1);
+
+    public static Weapon EQ[] = new Weapon[50];
+    public static Weapon equippedweapon = new Weapon("test",1,1,1,1,1,1,1);
 static Scanner scanner = new Scanner(System.in);
 
     public static void INVENTORY(Player Dawid) throws InterruptedException {
@@ -117,6 +119,31 @@ static Scanner scanner = new Scanner(System.in);
             case "32":
                 Slot(32,Dawid);
                 break;
+            case "33":
+                Slot(33,Dawid);
+                break;
+            case "34":
+                Slot(34,Dawid);
+                break;
+            case "35":
+                Slot(35,Dawid);
+                break;
+            case "36":
+                Slot(36,Dawid);
+                break;
+            case "37":
+                Slot(37,Dawid);
+                break;
+            case "38":
+                Slot(38,Dawid);
+                break;
+            case "39":
+                Slot(39,Dawid);
+                break;
+            case "40":
+                Slot(40,Dawid);
+                break;
+
 
             case "OFF":
                 for (int i = 0; i < 50; i++) {
