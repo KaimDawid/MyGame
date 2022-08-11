@@ -201,15 +201,17 @@ int weaponCapacity = 1;
         double roll = random.nextDouble(100);
         double critRoll = (80 - player.getCritChance());
         if (roll > critRoll) {
-            monster.setHp(monster.getHp() - (player.getDMG() * 1.2) + monster.getArmor());
-            System.out.println("Zadałeś cios krytyczny za " + player.getDMG() * 1.2 + " punktów obrażeń!");
+            double dmgroll = (random.nextInt(20)+ (player.getDMG() * 1.2) - 10);
+            monster.setHp(monster.getHp() - (dmgroll + monster.getArmor()));
+            System.out.println("Zadałeś cios krytyczny za " + dmgroll + " punktów obrażeń!");
             if (monster.getArmor() > 0) {
                 System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
             }
             putToxin(player,monster);
         } else if (roll < critRoll && roll > missRoll) {
-            monster.setHp(monster.getHp() - player.getDMG() + monster.getArmor());
-            System.out.println("Zadałeś " + player.getDMG() + " obrażeń");
+            double dmgRoll = (random.nextInt(20)+ player.getDMG() - 10);
+            monster.setHp(monster.getHp() - dmgRoll + monster.getArmor());
+            System.out.println("Zadałeś " + dmgRoll + " obrażeń");
             if (monster.getArmor() > 0) {
                 System.out.println("Potwór zanegował " + monster.getArmor() + " obrażeń");
             }

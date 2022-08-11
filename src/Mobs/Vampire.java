@@ -41,8 +41,9 @@ public class Vampire extends Monster {
                     + (monster.getDmg()*0.4) + " obrażeń");
         }
         else if (roll < 81 && roll > missRoll){
-            player.setHP(player.getHP() - monster.getDmg());
-            System.out.println("Wampir uderzył Cię za " + (monster.getDmg() - player.getArmor()) + " obrażeń");
+            int dmgRoll = (random.nextInt(20) + monster.getDmg() - 10);
+            player.setHP(player.getHP() - dmgRoll + player.getArmor());
+            System.out.println("Wampir uderzył Cię za " + (dmgRoll - player.getArmor()) + " obrażeń");
         }
         else if (roll < missRoll){
             System.out.println("Wampir chybił!");

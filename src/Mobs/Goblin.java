@@ -37,8 +37,9 @@ public class Goblin extends Monster {
             player.setHP(player.getHP() - (monster.getDmg() * 1.2) + player.getArmor());
             System.out.println("Goblin zadał cios krytyczny za " + monster.getDmg() * 1.2 + " punktów obrażeń!");
         } else if (roll < 81 && roll > missRoll) {
-            player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
-            System.out.println("Goblin uderzył Cię za " + (monster.getDmg() - player.getArmor())  + " obrażeń");
+            int dmgRoll = (random.nextInt(20) + monster.getDmg() - 10);
+            player.setHP(player.getHP() -dmgRoll + player.getArmor());
+            System.out.println("Goblin uderzył Cię za " + (dmgRoll - player.getArmor())  + " obrażeń");
         } else if (roll < missRoll) {
             System.out.println("Goblin chybił!");
         }

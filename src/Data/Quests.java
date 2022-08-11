@@ -22,13 +22,13 @@ public static void QuestConvo(Player player) throws InterruptedException {
     Scanner scanner = new Scanner(System.in);
     if (questActive == 0) {
         System.out.println("Podchodzi do ciebie barczysty mężczyzna o ciemnej skórze i jasnobłękitnych oczach");
-        Thread.sleep(3000);
+        PressButton();
         System.out.println("Pochodzi on z krainy Kaim, rozpoznałeś to po jego specyficznym wyglądzie");
-        Thread.sleep(3000);
+        PressButton();
         System.out.println("Kaeńczycy są znani ze swojej potężnej postury i hipnotyzujących oczu");
-        Thread.sleep(3000);
+        PressButton();
         System.out.println("Są oni jednak bardzo łagodni, nigdy nie wdają się w bitwy i trudzą się jedynie rzemiosłem");
-        Thread.sleep(3000);
+        PressButton();
         String welcome = """
                           
                 - Witaj! nie widziałem cię tu wcześniej, a nasze miasteczko jest tak małe że łatwo rozpoznać turystę
@@ -37,7 +37,7 @@ public static void QuestConvo(Player player) throws InterruptedException {
                       """;
         welcome = welcome.indent(10);
         System.out.println(welcome);
-        Thread.sleep(4500);
+        PressButton();
         String welcome2 = """
                     
                    Potrzebuję pomocy, w tutejszym szpitalu brakuje jadu do produkcji antidotum na pająki.
@@ -48,14 +48,16 @@ public static void QuestConvo(Player player) throws InterruptedException {
                 """;
         welcome2 = welcome2.indent(10);
         System.out.println(welcome2);
-        Thread.sleep(4500);
+        PressButton();
         questActive = 1;
     }
     else if (questActive ==1 && questCompletion == 0){
         System.out.println("- Co tutaj robisz, kazałem ci chyba coś przynieść");
+        Thread.sleep(1500);
     }
     else if (questActive == 1 && questCompletion == 1){
         System.out.println("Masz moje worki z jadem?");
+        System.out.println("TAK , NIE");
 
         String input = scanner.nextLine().toUpperCase();
         switch (input){
@@ -67,8 +69,9 @@ public static void QuestConvo(Player player) throws InterruptedException {
                 System.out.println("Daj mi swoją broń, a zatruję ją żebyś mógł ją użyć przeciwko wrogom");
                 Toxify(player);
                 if (player.getToxify() == 1){
-                    System.out.println("Twoja broń jest od teraz zatruta, idź i pomóż nam oczyścić te ziemie z tych okropnych kreatur!");
+                    Miscelanous.poisonSacks = Miscelanous.poisonSacks - 6;
                 }
+
                 else {
                     System.out.println("Nie mogę zatruć tej bronii, wybacz.");
                 }
@@ -76,6 +79,7 @@ public static void QuestConvo(Player player) throws InterruptedException {
 
             case "NIE":
                 System.out.println("To spierdalaj.");
+                PressButton();
             break;
 
         }
@@ -93,11 +97,19 @@ public static void QuestConvo(Player player) throws InterruptedException {
             if (Inventory.equippedweapon.getIsSharp() == 1) {
                 Inventory.equippedweapon.setIsToxic(1);
                 player.setToxify(1);
+                System.out.println("Twoja broń jest teraz zatruta!");
             }
         }
         catch (NullPointerException a){
 
         }
+
+        }
+
+        public static void PressButton(){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("(Wciśnij dowolny przycisk żeby kontynuować)");
+            String next = scanner.nextLine();
 
         }
 

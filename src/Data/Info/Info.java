@@ -26,13 +26,12 @@ public enum Info {
     public void printMe(){
         System.out.println("""
             v 0.45
-            - Usprawniono i skrócono wszystkie metody\s
-            - Zoptymalizowano wydajność gry\s
-            - Umożliwiono tworzenie ekwipunku bez konieczności tworzenia nowych klas\s
+            - Questy\s
+            - Strefy\s
             - To do :\s
                 - NPC\s
-                - Questy\s
-                - Strefy (Las pająków, dwór wampirów etc)""");
+                - Więcej Questów\s
+                - Więcej Stref """);
     }
 
 

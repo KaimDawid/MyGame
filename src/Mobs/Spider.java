@@ -92,8 +92,9 @@ public class Spider extends Monster {
            Status.POISON(player, monster);
        }
        else if (roll < 81 && roll > missRoll){
-           System.out.println("Pająk ukąsił Cię za " + (monster.getDmg() - player.getArmor()) + " obrażeń");
-           player.setHP(player.getHP() - monster.getDmg() + player.getArmor());
+           int dmgRoll = (random.nextInt(20) + monster.getDmg() - 10);
+           System.out.println("Pająk ukąsił Cię za " + (dmgRoll - player.getArmor()) + " obrażeń");
+           player.setHP(player.getHP() -dmgRoll + player.getArmor());
        }
        else if (roll < missRoll){
            System.out.println("Pająk chybił!");
