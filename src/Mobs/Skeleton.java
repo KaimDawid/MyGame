@@ -7,7 +7,8 @@ public class Skeleton extends Monster{
     int gold;
 
     int armor;
-
+    
+    int poisonInvulnerability = 1;
     public int getArmor() {
         return armor;
     }

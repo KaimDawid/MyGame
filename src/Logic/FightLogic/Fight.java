@@ -373,7 +373,6 @@ public class Fight {
         } else if (monster1.getFreeze() > 0) {
             System.out.println(monster1.getName() + " jest zamrożony, nie może się ruszać przez " + monster1.getFreeze()
                     + " tury");
-            monster1.setFreeze(monster1.getFreeze() - 1);
         }
     }
 

@@ -249,7 +249,7 @@ public static void putToxin(Player player, Monster monster) {
         if (Inventory.equippedweapon.getIsToxic() == 1) {
             Random random = new Random();
             int chance = random.nextInt(100);
-            if (chance > 80 && player.getToxify() > 0) {
+            if (chance > 80 && player.getToxify() > 0 && monster.getPoisonInvulnerability() == 0) {
                 monster.setPoison(3);
                 System.out.println("Zatrułeś swojego przeciwnika na 2 tury! Otrzymuje on 30 obrażeń co turę.");
                 monster.setHp(monster.getHp() - 30);

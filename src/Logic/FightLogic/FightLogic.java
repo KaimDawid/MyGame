@@ -71,6 +71,9 @@ public class FightLogic {
             System.out.println("Przeciwnik otrzymał " + poisonDMG + " obrażeń od trucizny!");
             monster.setPoison(monster.getPoison() - 1);
         }
+        if (monster.getFreeze() > 0){
+            monster.setFreeze(monster.getFreeze() - 1);
+        }
 
 
 

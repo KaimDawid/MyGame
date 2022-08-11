@@ -1,5 +1,6 @@
 package Logic;
 
+import Data.Areas.BanditCamp;
 import Data.Areas.Forest;
 import Data.Info.Info;
 import Data.Quests;
@@ -40,6 +41,9 @@ public class GameLogic {
 
     int toxic = 0;
 
+
+    int borderX = 16;
+    int borderY = 16;
     static int ladderCheckUPSuccessful = 0;
     static int ladderCheckDOWNSuccessful = 0;
 
@@ -58,6 +62,8 @@ public class GameLogic {
     static Monster[] monsterBase6 = new Monster[50];
 
     static Ladder[] ladders = new Ladder[10];
+
+    static Monster[] banditCampBase = new Monster[50];
 
     static int[] ladX = new int[10];
 
@@ -246,6 +252,7 @@ public class GameLogic {
         SpawnFloor5.SPAWN(27,monsterBase5);
         SpawnFloor6.SPAWN(27,monsterBase6);
         Forest.SPAWN(27, forestBase);
+        BanditCamp.SPAWN(27,banditCampBase);
         int helmEQ = 0;
         int weaponEQ = 0;
         int neckEQ = 0;
@@ -273,8 +280,11 @@ public class GameLogic {
             if (Dawid.getX() > 2 && Dawid.getX() < 6 && Dawid.getY() > 2 && Dawid.getY() < 6){
                 System.out.println("Jesteś w mieście, wpisz TOWN aby do niego wejść i porozmawiać z tutejszymi mieszkańcami");
             }
-            if (Dawid.getY() > 8){
+            if (Dawid.getY() > 8 && Dawid.getX() < 9){
                 System.out.println("Jesteś teraz w lesie pełnym pająków i wilków");
+            }
+            if (Dawid.getX() > 8 && Dawid.getY() < 9){
+                System.out.println("Jesteś w obozie bandytów");
             }
             input = scanner.nextLine().toUpperCase();
 
@@ -288,9 +298,9 @@ public class GameLogic {
                     }
                     break;
                 case "W":
-                    if (Dawid.getY() < 16) {
+                    if (Dawid.getY() < borderY) {
                         Dawid.setY(Dawid.getY() + 1);
-                    } else if (Dawid.getY() > 15){
+                    } else if (Dawid.getY() >= borderY){
                         System.out.println("Natrafiłeś na ścianę, nie możesz już iść w tą stronę");
                     }
                     else if (Dawid.getY() > 8){
@@ -299,9 +309,9 @@ public class GameLogic {
 
                     break;
                 case "D":
-                    if (Dawid.getX() < 8) {
+                    if (Dawid.getX() < borderX) {
                         Dawid.setX(Dawid.getX() + 1);
-                    } else {
+                    } else if (Dawid.getX() >= borderX) {
                         System.out.println("Natrafiłeś na ścianę, nie możesz już iść w tą stronę");
                     }
 
@@ -319,7 +329,18 @@ public class GameLogic {
                     break;
                 case "TOWN":
                     if (Dawid.getX() < 6 && Dawid.getX() > 2 && Dawid.getY() < 6 && Dawid.getY() > 2) {
-                        Quests.QuestConvo(Dawid);
+                        System.out.println("Gdzie chcesz pójść?");
+                        System.out.println("Kowal");
+                        System.out.println("Ratusz");
+                        String input2 = scanner.nextLine().toUpperCase();
+                        switch (input2) {
+                            case "KOWAL":
+                            Quests.QuestConvo(Dawid);
+                            break;
+                            case "RATUSZ":
+                            Quests.Quest2Convo(Dawid);
+                            break;
+                        }
                     }
                     break;
                 case "PATCH":

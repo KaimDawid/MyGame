@@ -12,6 +12,8 @@ public class Mutant extends Monster{
 
     int activeSkill;
 
+
+
     public int getActiveSkill() {
         return activeSkill;
     }
@@ -29,7 +31,7 @@ public class Mutant extends Monster{
     public void setGold() {
 
     }
-
+    int poisonInvulnerability = 1;
     @Override
     public void setGold(int gold) {
         this.gold = gold;
@@ -69,6 +71,7 @@ public class Mutant extends Monster{
     }
 
     public void Attack(Monster monster, Player player){
+
         Random random = new Random();
         double roll = random.nextDouble(100);
         double missRoll = (20 - (monster.getLevel() * 3) + (player.getLevel() * 3));
