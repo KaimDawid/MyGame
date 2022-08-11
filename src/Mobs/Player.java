@@ -118,11 +118,11 @@ int weaponCapacity = 1;
 
     public void Freeze(Monster target) {
         double iceDMG = 25 + (0.25 * magic);
-        if (mana > 49) {
+        if (mana > 69) {
             System.out.println(target.getName() + " został zamrożony na 2 tury i otrzymał " + iceDMG + " obrażeń");
             target.setHp(target.getHp() - (DMG * 0.25));
             target.setFreeze(3);
-            mana = mana - 50;
+            mana = mana - 70;
         } else {
             System.out.println("Masz za mało many!");
         }
@@ -148,10 +148,14 @@ int weaponCapacity = 1;
         if (player.getChosenSkill1() == HEAL || player.getChosenSkill2() == HEAL || player.getChosenSkill3() == HEAL ||  player.getChosenSkill4() == HEAL ||
                 player.getChosenSkill5() == HEAL || player.getChosenSkill6() == HEAL || player.getChosenSkill7() == HEAL ||
                 player.getChosenSkill8() == HEAL || player.getChosenSkill9() == HEAL || player.getChosenSkill10() == HEAL) {
-            if (player.getMana() >= 80) {
+            if (player.getMana() >= 60) {
                 double healValue = 150 + (player.getMagic() * 0.6);
-                player.setMana(player.getMana() - 80);
+                player.setMana(player.getMana() - 60);
                 player.setHP(player.getHP() + healValue);
+                double overHeal = (player.getHP() - player.getMaxHP());
+                if (overHeal >= 0){
+                    player.setHP(player.getHP() - overHeal);
+                }
                 System.out.println("Uleczyłeś się za " + healValue + " punktów życia");
             } else {
                 System.out.println("Masz za mało many!");
@@ -164,8 +168,8 @@ int weaponCapacity = 1;
 
     public void Fireball(Monster monster, Player player) {
         double fireDMG = 80 + magic;
-        if (mana > 19) {
-            mana = mana - 30;
+        if (mana >= 50) {
+            mana = mana - 50;
             monster.setHp(monster.getHp() - fireDMG);
             System.out.println("Rzuciłeś kulą ognia za " + fireDMG + " obrażeń");
         } else {

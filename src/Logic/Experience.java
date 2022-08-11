@@ -210,6 +210,7 @@ public class Experience {
                 System.out.println("6. Dual Wielding (Możesz używać dwóch lekkich broni naraz)");
             }
             PrintSkill(Player.CLEAVE, player, cleaveDescription);
+            PrintSkill(Player.HEAL, player, healDescription);
 
         /*    System.out.println("Wybierz czar którego chcesz się nauczyć: ");
             System.out.println("1. Lodowy pocisk (zamraża przeciwnika na 2 tury, 20p many)");
@@ -244,7 +245,7 @@ public class Experience {
                     LearnSkill(player, Player.CLEAVE, skillSlot);
                     break;
                 case "8":
-                    LearnSkill(player, player.HEAL, skillSlot);
+                    LearnSkill(player, Player.HEAL, skillSlot);
             }
         } while (!lvlupInput.equals("0"));
         System.out.println("Nauczyłeś się nowej umiejętności!");

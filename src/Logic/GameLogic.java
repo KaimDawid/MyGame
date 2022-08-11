@@ -525,6 +525,7 @@ public class GameLogic {
                     checker(Dawid, monsterBase5[icheck]);
                     checker(Dawid, monsterBase6[icheck]);
                     checker(Dawid,forestBase[icheck]);
+                    checker(Dawid,banditCampBase[icheck]);
                     if (checkSuccesful > 0) {
                         checkSuccesful = 0;
                         break;
@@ -551,6 +552,7 @@ public class GameLogic {
                 Dawid.setXP(0);
                 Dawid.setX(4);
                 Dawid.setY(4);
+                Dawid.setHP(Dawid.getMaxHP());
                 /*input = exit;*/
             }
         }

@@ -107,6 +107,13 @@ public class Fight {
         {
             System.out.println("CLEAVE: Zaatakuj obu wrogów ze zwiększoną siłą.");
         }
+        if (player.getChosenSkill1() == Player.HEAL || player.getChosenSkill2() == Player.HEAL || player.getChosenSkill3() == Player.HEAL ||
+                player.getChosenSkill4() == Player.HEAL || player.getChosenSkill5() == Player.HEAL || player.getChosenSkill6() == Player.HEAL ||
+                player.getChosenSkill7() == Player.HEAL || player.getChosenSkill8() == Player.HEAL || player.getChosenSkill9() == Player.HEAL ||
+                player.getChosenSkill10() == Player.HEAL)
+        {
+            System.out.println("HEAL: Ulecz się na koszt many.");
+        }
 
         do {
 
