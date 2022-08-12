@@ -35,9 +35,9 @@ public class BanditCamp {
         if (valid < 1) {
             spawnedMonstersFloor2++;
             if (mobType < 90) {
-                banditCampBase[i] = new Bandit(250, 70, valueX, valueY, "bandyta", 140, 30, 5, 1);
+                banditCampBase[i] = new Bandit(500, 70, valueX, valueY, "bandyta", 140, 30, 5, 1);
             } else{
-                banditCampBase[i] = new BanditChief(350, 110, valueX, valueY, "wódz bandytów", 200, 90, 6, 1);
+                banditCampBase[i] = new BanditChief(700, 110, valueX, valueY, "wódz bandytów", 200, 90, 6, 1);
             }
 
             int emptyslots = mobsNumber;

@@ -25,9 +25,9 @@ public enum Info {
 
     public void printMe(){
         System.out.println("""
-            v 0.45
-            - Questy\s
-            - Strefy\s
+            v 0.48
+            - Quest : wódz\s
+            - Strefa : obóz bandytów\s
             - To do :\s
                 - NPC\s
                 - Więcej Questów\s

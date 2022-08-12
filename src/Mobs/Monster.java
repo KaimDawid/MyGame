@@ -129,25 +129,25 @@ abstract public int getGold();
 
             if (helmetRandomize < 16) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new HeadPiece("Smoczy hełm [HEAD]", 30, 20, 3, 30, 1);
+                Monster.eqNumber[Monster.number] = new HeadPiece("Smoczy hełm [HEAD]", 50, 20, 3, 30, 1);
                 System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (helmetRandomize > 15 && helmetRandomize < 26) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new HeadPiece("Hełm wysadzany diamentami [HEAD]", 50, 30, 5, 50, 1);
+                Monster.eqNumber[Monster.number] = new HeadPiece("Hełm wysadzany diamentami [HEAD]", 60, 30, 5, 50, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (helmetRandomize > 25 && helmetRandomize < 51) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new HeadPiece("Skórzany hełm [HEAD]", 10, 20, 7, 0, 1);
+                Monster.eqNumber[Monster.number] = new HeadPiece("Skórzany hełm [HEAD]", 30, 20, 7, 0, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (helmetRandomize > 50 && helmetRandomize < 81) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new HeadPiece("Płytowy hełm [HEAD]", 50, 10, 0, 10, 1);
+                Monster.eqNumber[Monster.number] = new HeadPiece("Płytowy hełm [HEAD]", 70, 10, 0, 10, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
@@ -171,31 +171,31 @@ abstract public int getGold();
 
             if (armorRandomize < 16) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new ChestArmor("Smocza zbroja [CHEST]", 40, 20, 3, 30, 1);
+                Monster.eqNumber[Monster.number] = new ChestArmor("Smocza zbroja [CHEST]", 100, 20, 3, 30, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (armorRandomize > 15 && armorRandomize < 26) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new ChestArmor("Zbroja łuskowa [CHEST]", 30, 10, 0, 0, 1);
+                Monster.eqNumber[Monster.number] = new ChestArmor("Zbroja łuskowa [CHEST]", 80, 10, 0, 0, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (armorRandomize > 25 && armorRandomize < 51) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new ChestArmor("Skórzana zbroja [CHEST]", 10, 20, 7, 0, 1);
+                Monster.eqNumber[Monster.number] = new ChestArmor("Skórzana zbroja [CHEST]", 60, 20, 7, 0, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (armorRandomize > 50 && armorRandomize < 81) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new ChestArmor("Zbroja płytowa [CHEST]", 50, 5, 3, 10, 1);
+                Monster.eqNumber[Monster.number] = new ChestArmor("Zbroja płytowa [CHEST]", 120, 5, 3, 10, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (armorRandomize > 80) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new ChestArmor("Szata nowicjusza [CHEST]", 10, 10, 3, 50, 1);
+                Monster.eqNumber[Monster.number] = new ChestArmor("Szata nowicjusza [CHEST]", 30, 10, 3, 50, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
@@ -256,25 +256,25 @@ abstract public int getGold();
 
             if (weaponRandomize < 16) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Katana [WEAPON]", 0, 40, 7, 10, 1, 1, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Katana [WEAPON]", 0, 90, 7, 10, 1, 1, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (weaponRandomize > 15 && weaponRandomize < 26) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Miecz dwuręczny [WEAPON]", 0, 60, 3, 0, 2, 1, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Miecz dwuręczny [WEAPON]", 0, 130, 3, 0, 2, 1, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (weaponRandomize > 25 && weaponRandomize < 51) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Sztylet [WEAPON]", 0, 20, 10, 0, 1, 1, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Sztylet [WEAPON]", 0, 60, 10, 0, 1, 1, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");
             } else if (weaponRandomize > 50 && weaponRandomize < 81) {
                 Monster.number++;
-                Monster.eqNumber[Monster.number] = new Weapon("Miecz i tarcza [WEAPON]", 40, 30, 3, 10, 2, 1, 1);
+                Monster.eqNumber[Monster.number] = new Weapon("Miecz i tarcza [WEAPON]", 120, 60, 3, 10, 2, 1, 1);
                  System.out.println("Znalazłeś " + eqNumber[Monster.number].getShortName() + " (" + eqNumber[Monster.number].getHP() + " HP, "
                         + eqNumber[Monster.number].getDMG() + " DMG, " + eqNumber[Monster.number].getCrit() + "Crit, " + eqNumber[Monster.number].getMagic()
                         + " Mocy zaklęć) !");

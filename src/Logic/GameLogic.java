@@ -175,12 +175,12 @@ public class GameLogic {
         // Podstawowe potwory są wyłączone bo generują się automatycznie
         //
 
-        Player Dawid = new Player(350, 350, 80, 0, 0, 4, 4, 20, 0,
+        Player Dawid = new Player(700, 700, 20, 0, 0, 4, 4, 20, 0,
                 0, 0);
         Dawid.setFloor(1);
         Dawid.setClassNumber(1);
         Dawid.setMana(100);
-        Minotaur minotaur = new Minotaur(600, 60, 2, 8, "minotaur", 400, 8, 2);
+        Minotaur minotaur = new Minotaur(1200, 100, 2, 8, "minotaur", 400, 8, 2);
 
         Random random = new Random();
 
@@ -213,7 +213,7 @@ public class GameLogic {
         Spider spider3 = new Spider(10, 20, 5, 5, "pająk", 30, 1,1);
         Spider spider4 = new Spider(10, 20, 5, 5, "pająk", 30, 1,1);
         equipment[2] = new Weapon("Sztylet", 0, 20, 5, 0, 1, 1, 1);
-        eqNumber[30] = new Weapon("Sztylet", 0, 20, 5, 0, 1,1,1);
+        eqNumber[30] = new Weapon("Zardzewiały miecz", 0, 60, 5, 0, 1,1,1);
         eqNumber[31] = new Weapon("Laska nowicjusza", 0, 10, 10, 60, 2, 0, 1);
 
        /* Werewolf werewolf = new Werewolf(150, 40, 0,2,"wilkołak", 100, 100, 4);
@@ -259,6 +259,17 @@ public class GameLogic {
         int handsEQ = 0;
         int chestEQ = 0;
         Dawid.setEscapeInvulnerability(0);
+        int reminder = 0;
+
+        Inventory.equippedweapon = (Weapon) eqNumber[30];
+        eqNumber[30].eqON(Dawid);
+
+        Monster.weaponEQ++;
+        eqNumber[30].setIsON(1);
+        int discoverForest = 0;
+        int discoverCamp = 0;
+        int discoverLadder = 0;
+
 
         do {
 
@@ -267,26 +278,31 @@ public class GameLogic {
                 System.out.println("Uciekłeś przed walką!");
             }
             System.out.printf("Twoje punkty życia to: %.0f/%.0f\n", Dawid.getHP(), Dawid.getMaxHP());
-            System.out.println("Twoje koordynaty to: " + Dawid.getX() + ", " + Dawid.getY() +
+            System.out.println("Twoje koordynaty to: X:" + Dawid.getX() + ", Y:" + Dawid.getY() +
                     "             Piętro: " + Dawid.getFloor() + "          Mana: " + Dawid.getMana()
                     + "/" + Dawid.getMaxMana());
-            System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ,            Atrybuty : LVLUP");
+            System.out.println("Wyjdź z gry: 0, Sterowanie: " + SETTINGS + ", Ekwipunek: EQ,            Atrybuty : LVLUP                Mapa : MAP");
             if (Dawid.getChosenSkill1() == Player.TP || Dawid.getChosenSkill2() == Player.TP ||
                     Dawid.getChosenSkill3() == Player.TP || Dawid.getChosenSkill4() == Player.TP ||
                     Dawid.getChosenSkill5() == Player.TP) {
                 System.out.println("Teleportacja: TP");
             }
-            System.out.println("Wyświetl informacje: " + INFO + "                                   Wyjdź z gry: EXIT");
+            System.out.println("Wyświetl informacje: " + INFO + "       Ulecz się za darmo: HEAL             Wyjdź z gry: EXIT");
             if (Dawid.getX() > 2 && Dawid.getX() < 6 && Dawid.getY() > 2 && Dawid.getY() < 6){
                 System.out.println("Jesteś w mieście, wpisz TOWN aby do niego wejść i porozmawiać z tutejszymi mieszkańcami");
             }
             if (Dawid.getY() > 8 && Dawid.getX() < 9){
+                discoverForest = 1;
                 System.out.println("Jesteś teraz w lesie pełnym pająków i wilków");
             }
             if (Dawid.getX() > 8 && Dawid.getY() < 9){
+                discoverCamp = 1;
                 System.out.println("Jesteś w obozie bandytów");
             }
+
             input = scanner.nextLine().toUpperCase();
+
+
 
 
             switch (input) {
@@ -303,9 +319,7 @@ public class GameLogic {
                     } else if (Dawid.getY() >= borderY){
                         System.out.println("Natrafiłeś na ścianę, nie możesz już iść w tą stronę");
                     }
-                    else if (Dawid.getY() > 8){
-                        System.out.println("Jesteś teraz w lesie pająków");
-                    }
+
 
                     break;
                 case "D":
@@ -327,6 +341,15 @@ public class GameLogic {
                 case "HP":
                     System.out.println(Dawid.getHP());
                     break;
+                case "HEAL":
+                    double healvalue = 200;
+                    Dawid.setHP(Dawid.getHP() + healvalue);
+                    double overHeal = (Dawid.getHP() - Dawid.getMaxHP());
+                    if (overHeal >= 0){
+                        Dawid.setHP(Dawid.getHP() - overHeal);
+                    }
+                    System.out.println("Uleczyłeś się za " + (healvalue - overHeal) + " punktów życia");
+                   break;
                 case "TOWN":
                     if (Dawid.getX() < 6 && Dawid.getX() > 2 && Dawid.getY() < 6 && Dawid.getY() > 2) {
                         System.out.println("Gdzie chcesz pójść?");
@@ -471,7 +494,11 @@ public class GameLogic {
                 case "MAP":
                     System.out.println("Sklep: X:" + shop.getX() + ", Y:" + shop.getY());
                     System.out.println("Drabina piętro 1: X:" + ladderDOWNS[1].getX() + " Y:" + ladderDOWNS[1].getY());
-                    System.out.println("Las: X: 1-8, Y: 8-16");
+                    if (discoverForest == 1){
+                    System.out.println("Las: X: 1-8, Y: 8-16");}
+                    if (discoverCamp == 1){
+                    System.out.println("Obóz bandytów: X: 9-15, Y: 1-8");
+                    }
                     break;
                 case "ABCDE":
                     Dawid.setHP(10000);
@@ -588,10 +615,10 @@ public class GameLogic {
 
                 ladderUPS[floor].setX(ladX[floor]);
                 ladderUPS[floor].setY(ladY[floor]);
-                System.out.println("Koordy drabiny " + floor + " to: ");
+                /*System.out.println("Koordy drabiny " + floor + " to: ");
                 System.out.println("X: " + ladX[floor]);
                 System.out.println("Y: " + ladY[floor]);
-                System.out.println("floor: " + ladderUPS[floor].getFloor());
+                System.out.println("floor: " + ladderUPS[floor].getFloor());*/
             } else {
                 f = f - 1;
             }

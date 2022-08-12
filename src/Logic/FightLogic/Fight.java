@@ -351,7 +351,7 @@ public class Fight {
                 case "HEAL":
                     player.Heal(player);
                     EnemyAttack(player, monster);
-
+                    break;
             }
 
             FightLogic.ConcludeBattle(player, monster, joined );
