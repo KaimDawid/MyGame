@@ -184,12 +184,7 @@ public class GameLogic {
 
         Random random = new Random();
 
-        try {
-            createLadder(0);
-        }
-        catch (ArrayIndexOutOfBoundsException b){
 
-        }
         try {
             createLadder(1);
         }
